@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.2.4 构造函数模式</title>
+  </head>
+  <body>
+    <script>
+      // 2. 构造函数模式
+      // 主要问题在于，其定义的方法会在每个实例上都创建一遍
+      function Person(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.sayName = function () {
+          console.log(this.name);
+        };
+      }
+
+      let p1 = createPerson("Nicholas", 23, "Software Engineer");
+      let p2 = createPerson("Greg", 27, "Doctor");
+    </script>
+  </body>
+</html>

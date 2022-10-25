@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12.1.8 系统对话框</title>
+  </head>
+  <body>
+    <input type="button" value="确认框" id="confirmBtn" />
+    <input type="button" value="提示框" id="promptBtn" />
+    <script>
+      let confirmBtn = document.getElementById("confirmBtn");
+      confirmBtn.addEventListener("click", function (e) {
+        if (confirm("Are you sure?")) {
+          console.log("I'm so glad you're sure!");
+        } else {
+          console.log("I'm sorry to hear you're not sure");
+        }
+      });
+      let promptBtn = document.getElementById("promptBtn");
+      promptBtn.addEventListener("click", function (e) {
+        let result = prompt("What is your name?", "zxh");
+        if (result) {
+          console.log("welcome:", result);
+        }
+      });
+    </script>
+  </body>
+</html>

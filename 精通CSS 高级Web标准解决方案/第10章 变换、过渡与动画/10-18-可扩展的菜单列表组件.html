@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-18-可扩展的菜单列表组件</title>
+    <script>
+        // This JavaScript code adds a class name of "js" to the html element,
+        // to give us a "hook" in CSS for when JS is available.
+        var html = document.getElementsByTagName('html')[0];
+        html.className += ' js';
+    </script>
+    <style>
+        .js .expando-list {
+            overflow: hidden;
+            transition: all 0.25s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+        }
+
+        .js .is-expanded .expando-list {
+            max-height: 24em;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="expando">
+        <h2 class="expando-title">Top menu choices</h2>
+        <ol>
+            <li>Capricciosa</li>
+            <li>Margherita</li>
+            <li>Vesuvio</li>
+        </ol>
+        <ol class="expando-list" start="4" aria-label="Top menu choices, continued.">
+            <li>Calzone</li>
+            <li>Quattro Stagioni</li>
+            <li>Pescatore</li>
+            <li>Bolognese</li>
+            <li>Shawarma</li>
+            <li>Mexicana</li>
+            <li>Fungi</li>
+        </ol>
+    </div>
+
+    <script>
+        // This script handles the toggling of classes and attributes on the list.
+
+        // Grab the first `.expando` element:
+        var expando = document.querySelector('.expando'),
+            // grab the title element:
+            expandoTitle = expando.querySelector('.expando-title'),
+            // grab the list itself:
+            expandoList = expando.querySelector('.expando-list'),
+            expandedClass = 'is-expanded';
+
+        // Set the aria-hidden attribute on the expando-list
+        expandoList.setAttribute('aria-hidden', true);
+        // Create the "show all" button
+        var trigger = document.createElement('button'),
+            triggerText = document.createTextNode('Toggle full list');
+        trigger.appendChild(triggerText);
+
+        // Set the chosen class name for the trigger
+        trigger.className = 'expando-trigger';
+
+        // Grab the title inside the expando and add the button to it:
+        var expandoTitle = expando.querySelector('.expando-title');
+        expandoTitle.appendChild(trigger);
+
+        // A small function to toggle the class name "expanded" on the expando,
+        // when clicked:
+        var toggleExpanded = function (e) {
+            if (/(^|\s)is-expanded(\s|$)/.test(expando.className)) {
+                expando.className = expando.className.replace(' is-expanded', '');
+                expandoList.setAttribute('aria-hidden', 'true');
+            } else {
+                expando.className += ' is-expanded';
+                expandoList.setAttribute('aria-hidden', 'false');
+            }
+        }
+        // Add event listener (IE9+ and other modern browsers)
+        if (trigger.addEventListener) {
+            trigger.addEventListener('click', toggleExpanded, false);
+        } else {
+            // For IE8:
+            if (trigger.attachEvent) {
+                trigger.attachEvent('onclick', toggleExpanded);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>16 节流函数实现</title>
+    <style>
+      body {
+        height: 5000px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function myThrottle(handle, wait) {
+        if (typeof handle !== "function") {
+          throw new Error("handle must be a function");
+        }
+        if (typeof wait === "undefined") {
+          wait = 400;
+        }
+
+        let previous = 0; // 记录上一次执行时间
+        let timer = null;
+
+        return function proxy(...args) {
+          let self = this;
+          let now = new Date(); //记录
+          let interval = wait - (now - previous);
+          if (interval <= 0) {
+            clearTimeout(timer); // 这个操作只是将操作系统中的定时器清除，但是 timer 值还在
+            timer = null;
+            //非高频操作
+            handle.call(self, ...args);
+            previous = new Date();
+          } else if (!timer) {
+            // 此时说明操作在频率时间范围内
+            // 这个时候可以定义一个定时器，让 handle 在 interval 之后执行
+            timer = setTimeout(() => {
+              clearTimeout(timer); // 这个操作只是将操作系统中的定时器清除，但是 timer 值还在
+              timer = null;
+              handle.call(self, ...args);
+              previous = new Date();
+            }, interval);
+          }
+        };
+      }
+
+      function scrollFn() {
+        console.log("滚动了");
+      }
+      // window.onscroll = scrollFn;
+      window.onscroll = myThrottle(scrollFn, 600);
+    </script>
+  </body>
+</html>

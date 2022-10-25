@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>24.4.2 JSONP</title>
+  </head>
+  <body>
+    <script>
+      function handleResponse(response) {
+        console.log(
+          `You're at IP address ${response.ip}, which is in ${response.city}, ${response.region_name}`
+        );
+      }
+
+      let script = document.createElement("script");
+      script.src = "http://freegeoip.net/json/?callback=handleResponse";
+      document.body.insertBefore(script, document.body.firstChild);
+    </script>
+  </body>
+</html>

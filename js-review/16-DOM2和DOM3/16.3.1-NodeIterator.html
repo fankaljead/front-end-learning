@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html class="no-js" lang="us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>16.3.1 NodeIterator</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body>
+    <p><b>hello</b> world!</p>
+    <script type="text/javascript">
+      let whatToShow = NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT;
+
+      // 对象形式的 filter
+      let filter = {
+        acceptNode(node) {
+          return node.tagName.toLowerCase() === "p"
+            ? NodeFilter.FILTER_ACCEPT
+            : NodeFilter.FILTER_SKIP;
+        },
+      };
+
+      // 函数形式的 filter
+      let filterf = function (node) {
+        return node.tagName.toLowerCase() === "p"
+          ? NodeFilter.FILTER_ACCEPT
+          : NodeFilter.FILTER_SKIP;
+      };
+
+      let root = document.querySelector("p");
+
+      let iterator = document.createNodeIterator(
+        root,
+        NodeFilter.SHOW_ELEMENT,
+        filter,
+        false
+      );
+
+      // 遍历所有节点的 NodeIterator
+      let iteratorAll = document.createNodeIterator(
+        document,
+        NodeFilter.SHOW_ALL,
+        null,
+        false
+      );
+    </script>
+  </body>
+</html>

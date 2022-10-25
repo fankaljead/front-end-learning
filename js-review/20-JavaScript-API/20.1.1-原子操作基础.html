@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20.1.2 原子操作基础</title>
+  </head>
+  <body>
+    <script>
+      let sharedArrayBuffer = new ArrayBuffer(1);
+
+      let typedArray = new Uint8Array(sharedArrayBuffer);
+
+      console.log(typedArray);
+
+      const index = 0;
+      const increment = 5;
+
+      Atomics.add(typedArray, index, increment);
+      console.log(typedArray);
+
+      Atomics.sub(typedArray, index, increment);
+      console.log(typedArray);
+
+      const arrayBuffer = new ArrayBuffer(4);
+      const view = new Int32Array(arrayBuffer);
+      Atomics.store(view, 0, 5);
+      let initial = Atomics.load(view, 0);
+
+      let result = initial ** 2;
+
+      // 只在缓冲区未被修改的情况下才会向缓冲区写入新值
+      // Atomics.compareExchange(view, 0, initial, result);
+      Atomics.compareExchange(view, 0, -1, result);
+
+      console.log(Atomics.load(view, 0));
+    </script>
+  </body>
+</html>

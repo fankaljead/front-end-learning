@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12.1.7 定时器</title>
+  </head>
+  <body>
+    <script>
+      let start = new Date();
+      console.log("000");
+      console.log(new Date().getTime());
+
+      setTimeout(() => {
+        console.log("111");
+        console.log(new Date().getTime());
+        setTimeout(() => {
+          console.log("222");
+          console.log(new Date().getTime());
+        }, 1000);
+      }, 1000);
+
+      setTimeout(() => {
+        console.log("333");
+        console.log(new Date().getTime());
+      }, 2000);
+
+      let end = new Date();
+    </script>
+  </body>
+</html>

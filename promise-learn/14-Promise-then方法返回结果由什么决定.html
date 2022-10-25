@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>14-Promise then 方法的返回结果由什么决定</title>
+    </head>
+    <body>
+        <script>
+            let p = new Promise((resolve, reject) => {
+                resolve("OK");
+            });
+
+            let result = p.then(
+                (value) => {
+                    console.log(value);
+                    // return undefined;
+                    return new Promise((resolve, reject) => {
+                        resolve("Hello from then Promise");
+                    });
+                },
+                (reason) => {
+                    console.warn(reason);
+                }
+            );
+            console.log(result);
+
+            // let b = 20;
+            // (function b() {
+            //     "use strict";
+            //     b = 10;
+            //     console.log(b);
+            // })();
+
+            // let a = function () {
+            //     console.log(222);
+            // }();
+            // console.log(a());
+            // for (var i = 0; i < 5; i++) {
+            //     window.setTimeout(function () {
+            //         console.log(i);
+            //     }, 0);
+            // }
+            //     "use strict";
+            //     function a() {}
+            //     var a = "string";
+            //     console.log(a);
+            // var a = 1;
+            // console.log(a); //function a()
+            // function a() {}
+            // console.log(a); //
+        </script>
+    </body>
+</html>

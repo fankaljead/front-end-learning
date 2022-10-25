@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>控制对象大小的新方法</title>
+    <style>
+        .main {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+
+        img.fill {
+            object-fit: fill;
+        }
+
+        img.contain {
+            object-fit: contain;
+        }
+
+        img.cover {
+            object-fit: cover;
+        }
+
+        img.none {
+            object-fit: none;
+        }
+
+        img.scale-down {
+            object-fit: scale-down;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="img-fill">
+            <img src="../img/ic.webp" class="fill" alt="">
+            <h2>fill</h2>
+        </div>
+        <div class="img-contain">
+            <img src="../img/ic.webp" class="contain" alt="">
+            <h2>contain</h2>
+        </div>
+        <div class="img-cover">
+            <img src="../img/ic.webp" class="cover" alt="">
+            <h2>cover</h2>
+        </div>
+        <div class="img-none">
+            <img src="../img/ic.webp" class="none" alt="">
+            <h2>none</h2>
+        </div>
+        <div class="img-scale-down">
+            <img src="../img/ic.webp" class="scale-down" alt="">
+            <h2>scale-down</h2>
+        </div>
+    </div>
+
+</body>
+
+</html>

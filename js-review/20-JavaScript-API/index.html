@@ -1,0 +1,176 @@
+<!-- 页面 --><!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <script crossorigin="anonymous">
+      // 测速
+      var startTime = Date.now();
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="//y.qq.com/component/m/qmfe-fqm-sdk/dist/index.js?max_age=2592000"></script>
+    <script>
+      // 防止因为spd没加载到，导致页面报错
+      FQM.init({
+        appId: "2af0971c-0d17-4515-84b4-6cb08ff45c73",
+      });
+      window.SPD = {
+        init: function () {},
+      };
+    </script>
+    <script
+      crossorigin="anonymous"
+      src="//y.qq.com/component/m/qmfe-spd/iife/base.js?max_age=2592000"
+    ></script>
+    <script
+      crossorigin="anonymous"
+      src="//y.qq.com/component/m/qmfe-assets-retry/index.umd.js?max_age=2592000"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="//y.qq.com/mediastyle/music_v17/src/css/frame_aa26c582.css?max_age=2592000"
+    />
+    <link
+      rel="stylesheet"
+      href="//y.qq.com/mediastyle/music_v17/src/css/musicroom_4a0ed585.css?max_age=2592000"
+    />
+    <link
+      rel="stylesheet"
+      href="//y.qq.com/mediastyle/music_v17/src/css/event_8df98408.css?max_age=2592000"
+    />
+    <title>QQ音乐</title>
+    <style>
+      .header-icon-last {
+        display: none;
+      }
+    </style>
+    <script crossorigin="anonymous">
+      (function () {
+        // 换肤
+        var ua = navigator.userAgent,
+          skin = ua.match(
+            /skinid\/(\d+)?\|([0-9a-f]{6})?\|(\d+)?\|(\d+)?\|([0-9a-f]{6})?\|([0-9a-f]{6})?\|([0-9a-f]{6})?/i
+          ),
+          skinSrc,
+          isLight,
+          skinid,
+          color,
+          type,
+          bottomColor,
+          bgColor;
+        skinid = skin && skin[1] > 0 ? parseInt(skin[1] % 10000) : 0; // 自定义皮肤1008611 非web使用。
+        color = !!(skin && skin[2]) ? skin[2] : 0;
+        type = !!(skin && skin[3]) ? skin[3] : 2;
+        isLight = !!(skin && skin[4]) ? skin[4] : 1; // 1 是浅色皮肤 0 深色皮肤(pc) 2 深色皮肤(mac)
+        bottomColor = !!(skin && skin[5]) ? skin[5] : 0; // 播放器地板色 与背景颜色不同 比背景颜色要深一点
+        bgColor = !!(skin && skin[6]) ? skin[6] : 0; // 播放器背景颜色
+        gradientColor = !!(skin && skin[7]) ? skin[7] : color; // 渐变色
+
+        if (type == 1 || type == 3) {
+          skinSrc =
+            "//y.qq.com/mediastyle/music_v17/src/css/skin_light_default.css?max_age=2592000";
+          if (
+            (isLight == 0 || isLight == 2) &&
+            location.href.indexOf("soundEffect") < 0
+          ) {
+            // 音效上传管理页不需要皮肤
+            skinSrc =
+              "//y.qq.com/mediastyle/music_v17/src/css/skin_deep_default.css?max_age=2592000";
+          }
+
+          document.write(
+            '<link rel="stylesheet" id="js_skin_style" href="' + skinSrc + '">'
+          );
+
+          if (color) {
+            document.write(
+              '<style id="js_color_style">' +
+                ".c_btn_skin,.c_btn_skin.disable .btn__cover,.c_btn_skin:active,.c_btn_skin:hover{background:-webkit-linear-gradient(-45deg,#" +
+                gradientColor +
+                " 0,#" +
+                color +
+                " 100%)}.c_bg_skin{background-color:#" +
+                color +
+                "}.c_bg_skin_linear{background:-webkit-linear-gradient(-45deg,#" +
+                gradientColor +
+                " 0,#" +
+                color +
+                " 100%)}.c_tx_current,.c_tx_link:hover,a:hover{color:#" +
+                color +
+                "}.c_b_skin::before{border-color:#" +
+                color +
+                "}" +
+                "</style>"
+            );
+          }
+        } else {
+          // id：2
+          skinSrc =
+            "//y.qq.com/mediastyle/music_v17/src/css/skin_light_default.css?max_age=2592000";
+
+          if (
+            (isLight == 0 || isLight == 2) &&
+            location.href.indexOf("soundEffect") < 0
+          ) {
+            // 音效上传管理页不需要皮肤
+            skinSrc =
+              "//y.qq.com/mediastyle/music_v17/src/css/skin_deep_default.css?max_age=2592000";
+          }
+
+          if (skinid > 0 && location.href.indexOf("soundEffect") < 0) {
+            // 音效上传管理页不需要皮肤
+            skinSrc =
+              "//y.qq.com/mediastyle/musiccm/pcwebskin/new_skin_" +
+              skinid +
+              ".css?max_age=2592000";
+          }
+
+          document.write(
+            '<link rel="stylesheet" id="js_skin_style" href="' + skinSrc + '">'
+          );
+
+          var retryNum = 0;
+          var link = document.querySelector("#js_skin_style");
+
+          link.onload = function () {
+            var color = document.querySelector("#js_color_style");
+            var skin = document.querySelector("#js_skin_style");
+            if (color) {
+              document.head.removeChild(color);
+            }
+          };
+
+          link.onerror = function () {
+            if (isLight == 1) {
+              link.href =
+                "//y.qq.com/mediastyle/music_v17/src/css/skin_deep_default.css?max_age=2592000";
+            } else {
+              link.href ==
+                "//y.qq.com/mediastyle/music_v17/src/css/skin_light_default.css?max_age=2592000";
+            }
+          };
+        }
+
+        window.clientForSuccess = function () {
+          var href = location.href,
+            tab = 0;
+
+          if (location.href.match(/musicroom/gi)) {
+            tab = 1;
+          } else if (href.indexOf("mv") > -1) {
+            tab = 4;
+          }
+
+          window.external.ClientInterfaceForWeb(
+            '<command-lable-xwl78-qq-music><cmd value="1074" verson="800"><subcmd value="pageNotHijacked"><urlinfo tab="' +
+              tab +
+              '"/></subcmd></cmd></command-lable-xwl78-qq-music>',
+            1
+          );
+        };
+      })();
+    </script>
+  </head>
+</html>

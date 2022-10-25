@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .editable{
+            width: 300px;
+            height: 300px;
+            background-color: aqua;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form action="">
+        <!-- 通用提交按钮 -->
+        <input type="button" value="Submit Form">
+
+        <!-- 自定义提交按钮 -->
+        <button type="submit">Submit Form</button>
+
+        <!-- 图片按钮 -->
+        <input type="image" src="graphic.gif" alt="">
+
+        <!-- 通用重置按钮 -->
+        <input type="reset" value="Reset Form">
+
+        <!-- 自定义重置按钮 -->
+        <button type="reset">Reset Form</button>
+
+        <input type="text" value="helloworld">
+    </form>
+
+    <form action="" method="post" id="myForm">
+        <ul>
+            <li><input type="radio" name="color" value="red">Red</li>
+            <li><input type="radio" name="color" value="green">Green</li>
+            <li><input type="radio" name="color" value="blue">Blue</li>
+        </ul>
+
+        <input type="text" name="" id="" size="25" maxlength="50" value="initial value">
+
+        <textarea name="textarea" id="" cols="30" rows="10">
+            initial value
+        </textarea>
+        <!-- 自定义重置按钮 -->
+        <button type="reset">Reset Form</button>
+    </form>
+
+    <iframe name="richedit" style="height: 100px; width: 100px"></iframe>
+
+    <div class="editable" id="richedit" contenteditable></div>
+
+    <script>
+        let form = document.getElementById('myForm');
+
+        let colorFields = form.elements['color'];
+        console.log(colorFields.length); // 3
+
+        let firstColorField = colorFields[0];
+        let firstFormField = form.elements[0];
+        console.log(firstColorField === firstFormField); // true
+
+        let textArea = form.elements['textarea'];
+
+        textArea.addEventListener('select', (e) => {
+            console.log(`Text selected: ${textArea.value.substring(textArea.selectionStart,
+                textArea.selectionEnd)}`);
+        });
+        window.addEventListener("load", () => {
+            frames["richedit"].document.designMode = "on";
+        });
+    </script>
+</body>
+
+</html>

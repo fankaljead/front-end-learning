@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-17 定格动画</title>
+    <style>
+        .hello-box {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #ccc;
+            /* transition: background-position 99999999999s steps(6); */
+            /* transition: background-position 0s steps(6); */
+            transition: background-position 0s 1s steps(6);
+            /* 等同添加了 transition-delay: 1s; */
+            /* transition: background-position 1s steps(6, start); */
+            /* transition: background-position 0s .3s steps(6, start); */
+            background: url(images/step-animation.png) no-repeat 0 -1200px;
+        }
+
+        .hello-box:hover {
+            /* transition-delay: 0; */
+            transition-duration: .6s;
+            background-position: 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hello-box"></div>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>7-Promise 中的API</title>
+    </head>
+    <body>
+        <script>
+            let p = new Promise((resolve, reject) => {
+                // 执行器函数，会在 Promise 内部同步调用
+                // 异步操作在执行器中执行
+                // 同步调用
+                console.log(111);
+                reject("error");
+            });
+            console.log(222);
+            p.catch((reason) => {
+                console.log(reason);
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-41 两项分别得到剩余400像素的一份，也就是200像素</title>
+    <style>
+        body {
+            font-family: Georgia, Times New Roman, serif;
+            line-height: 1.5;
+            padding: 2em 8em;
+            max-width: 35em;
+            margin: 0 auto;
+        }
+        .navbar ul {
+            display: flex;
+            width: 1000px;
+            height: 200px;
+            background-color: yellow;
+        }
+        .navbar li {
+            text-align: center;
+            box-sizing: border-box;
+            /* width: 25%; */
+            background-color: #12459e;
+            outline: 1px solid #fff;
+            display: block;
+            text-decoration: none;
+            line-height: 1.74em;
+            padding: 1em;
+            color: #fff;
+            flex-basis: auto;
+        }
+        .navbar li:first-child {
+            width: 200px;
+        }
+        .navbar li:last-child {
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="navbar">
+        <li>Short</li>
+        <li>Looooooong</li>
+    </ul>
+</body>
+
+</html>

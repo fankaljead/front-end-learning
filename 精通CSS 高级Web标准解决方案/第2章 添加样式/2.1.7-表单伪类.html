@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>2.1.7 表单伪类</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="./module.css" type="text/css" media="screen" />
+    <style type="text/css" media="screen">
+      input:required {
+        outline: 2px solid #000;
+      }
+      input:optional {
+        border-color: #ccc;
+      }
+    </style>
+    <script type="text/javascript" src="./test.js" defer></script>
+  </head>
+  <body>
+    <label for="field-name">Name:</label>
+    <input type="text" name="field-name" value="" id="field-name" required="" />
+    <label for="field-email">Email:</label>
+    <input type="text" name="field-email" value="" id="field-email" />
+  </body>
+</html>

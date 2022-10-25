@@ -1,0 +1,52 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-11 13:39:41
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-04-11 20:06:23
+ * @FilePath: \精通CSS 高级Web标准解决方案\第6章 内容布局\CSS-负外边距\1-左边和上边的负外边距.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-左边或上边的负外边距会把元素向左或向上拉，盖住其旁边的元素</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .container {
+        margin: 0 auto;
+        width: 70%;
+      }
+      .box {
+        width: 200px;
+        height: 200px;
+      }
+      .left {
+        border: 1px solid red;
+      }
+      .right {
+        border: 1px solid blue;
+        position: absolute;
+        margin-left: -100px;
+        margin-top: -100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box left"></div>
+      <div class="box right">
+        <ul>
+          <li>margin-left: -100px</li>
+          <li>margin-right: -100px</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

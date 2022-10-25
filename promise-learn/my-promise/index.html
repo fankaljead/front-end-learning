@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise-封装 | 1 - 初始结构搭建</title>
+    <!-- <script src="./my-promise.js"></script> -->
+    <script src="my-promise.js"></script>
+  </head>
+  <body>
+    <script>
+      let p1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject("reject1");
+        }, 0);
+      });
+      let p2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject("reject2");
+        }, 10);
+      });
+      let p3 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject("reject3");
+        }, 30);
+      });
+      let res = Promise.all([p1, p2, p3]);
+      console.log(res);
+      // let p = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     // resolve("OK");
+      //     reject("NOT OK");
+      //   }, 0);
+      // });
+      // let res = p
+      //   .then((v) => {
+      //     console.log("111");
+      //   })
+      //   .then((v) => {
+      //     console.log("222");
+      //   })
+      //   .catch((e) => {
+      //     console.log("error");
+      //     console.warn(e);
+      //   });
+      // console.log("res:", res);
+      // res
+      //   .then((v) => {
+      //     console.log("333");
+      //     console.log(v);
+      //     sm++;
+      //   })
+      //   .catch((e) => {
+      //     console.log("error2");
+      //     console.warn(e);
+      //   });
+      // let p = new Promise((resolve, reject) => {
+      // resolve("OK");
+      // reject("failed");
+      // console.log(111);
+      // let that = this;
+      // let handler = function () {
+      //   console.log("binding");
+      //   throw "this is error";
+      // };
+      // setTimeout(() => {
+      //   //   handler.bind(that)();
+      //   reject(handler.bind(that)());
+      // }, 1000);
+      // throw "jsjsj";
+      //   resolve("resolve");
+      // });
+      // let res = p
+      //   .then()
+      //   .then((value) => {
+      //     console.log(value);
+      //     console.log(222);
+      //     throw "you get an error";
+      //   })
+      //   .then((value) => {
+      //     console.log(333);
+      //   });
+      // // .catch((reason) => {
+      // //   console.warn(reason);
+      // // });
+      // console.log("res:", res);
+      // console.log(p1);
+      // p1.then((value) => {
+      //   console.log(222);
+      //   console.log(value);
+      // }).catch((e) => {
+      //   console.log("catching");
+      //   console.log(e);
+      // });
+
+      //   console.log(333);
+
+      // let p1 = new Promise((resolve, reject) => {
+      //     setTimeout(() => {
+      //         // resolve("ok");
+      //         reject("failed");
+      //     }, 1000);
+      // });
+      // let p2 = Promise.reject("success");
+      // let p3 = Promise.resolve("third");
+
+      // let result = Promise.race([p1, p2, p3]);
+      // console.log(result);
+
+      // let p = Promise.reject("error");
+      // let p2 = Promise.reject(
+      //     new Promise((resolve, reject) => {
+      //         resolve("OK");
+      //     })
+      // );
+      // console.log(p);
+      // console.log(p2);
+      // let p = Promise.resolve("OK");
+      // let p2 = Promise.resolve(
+      //     new Promise((resolve, reject) => {
+      //         // resolve("OK");
+      //         reject("failed");
+      //     })
+      // );
+      // console.log(p2);
+      // let p = new Promise((resolve, reject) => {
+      //     // resolve("OK");
+      //     // reject("failed");
+      //     // throw "You find a error";
+      //     setTimeout(() => {
+      //         resolve("OK");
+      //         // reject("failed");
+      //     }, 1000);
+      // });
+
+      // const res = p.then(
+      //     (value) => {
+      //         console.log(calue);
+      //     },
+      //     (reason) => {
+      //         console.warn(reason);
+      //         throw "there is a error";
+      //     }
+      // );
+
+      // let res = p.catch((r) => {
+      //     console.warn(r);
+      // });
+
+      // console.log(p);
+      // let result = p
+      //     .then(
+      //         (value) => {
+      //             console.log("first: ", value);
+      //             // return "success: " + value;
+      //             // return "hello promise";
+      //             return new Promise((resolve, reject) => {
+      //                 // reject("ooops something wrong");
+      //                 throw "throw a error";
+      //             });
+      //         },
+      //         (reason) => {
+      //             console.warn("first: ", reason);
+      //             return "rejected blalal";
+      //         }
+      //     )
+      //     .then(
+      //         (value) => {
+      //             console.log("first ss:", value);
+      //         },
+      //         (reason) => {
+      //             console.warn("first re:", reason);
+      //         }
+      //     );
+      // console.log(result);
+      // p.then(
+      //     (value) => {
+      //         console.log("second:", value);
+      //     },
+      //     (reason) => {
+      //         console.warn("second:", reason);
+      //         return "you blll";
+      //     }
+      // ).then(
+      //     (value) => {
+      //         console.log("second bbbb:", value);
+      //     },
+      //     (reason) => {
+      //         console.warn("second ccc:", reason);
+      //     }
+      // );
+    </script>
+  </body>
+</html>

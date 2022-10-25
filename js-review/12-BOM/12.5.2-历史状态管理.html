@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12.5.2 历史状态管理</title>
+  </head>
+  <body>
+    <input type="button" value="push state" id="btn" />
+    <script>
+      let btn = document.querySelector("#btn");
+      btn.addEventListener("click", (e) => {
+        let stateObject = { foo: "bar" };
+        history.pushState(
+          stateObject,
+          "my title",
+          "13.3.2-注册处理程序.html"
+        );
+      });
+
+      window.addEventListener("popstate", (e) => {
+        let { state } = e;
+        console.log("state:", state);
+      });
+    </script>
+  </body>
+</html>

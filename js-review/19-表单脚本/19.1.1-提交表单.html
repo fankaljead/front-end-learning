@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>19.1.1 提交表单</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- Place favicon.ico in the root directory -->
+  </head>
+  <body>
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+    <form method="post" id="form" action="bbb" name="form">
+      <textarea
+        name="textbox"
+        id="textbox"
+        rows="10"
+        cols="30"
+        tabindex="1"
+      ></textarea>
+      <input type="submit" name="submit" value="Submit Form" />
+      <input type="button" name="button" value="Submit Form" />
+      <input type="text" name="content" value="" />
+      <select name="select">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+      <select name="select-m" multiple>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+    </form>
+    <script type="text/javascript">
+      let form = document.forms[0];
+      form.addEventListener("submit", (e) => {
+        let target = event.target;
+        let btn = target.elements["submit"];
+        btn.disabled = true;
+      });
+      let textbox = form.elements[0];
+
+      textbox.addEventListener("focus", (e) => {
+        let target = event.target;
+        if (target.style.backgroundColor !== "red") {
+          target.style.backgroundColor = "yellow";
+        }
+      });
+      textbox.addEventListener("blur", (event) => {
+        let target = event.target;
+        target.style.backgroundColor = /[^\d]/.test(target.value) ? "red" : "";
+      });
+      textbox.addEventListener("change", (event) => {
+        let target = event.target;
+        target.style.backgroundColor = /[^\d]/.test(target.value) ? "red" : "";
+      });
+    </script>
+  </body>
+</html>

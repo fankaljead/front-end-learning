@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition 让 JavaScript 效果更平滑</title>
+
+    <style>
+        p {
+            padding-left: 60px;
+        }
+
+        #foo {
+            border-radius: 50px;
+            width: 50px;
+            height: 50px;
+            background: #c00;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.2s cubic-bezier(.99,.07,.9,.52); 
+        }
+    </style>
+</head>
+
+<body>
+    <p>随便点击某处来移动球</p>
+    <div id="foo"></div>
+
+    <script>
+        var f = document.getElementById('foo');
+        document.addEventListener('click', function (ev) {
+            f.style.left = (ev.clientX - 25) + 'px';
+            f.style.top = (ev.clientY - 25) + 'px';
+        }, false);
+    </script>
+</body>
+
+</html>

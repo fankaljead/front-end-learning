@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>17.4.7.5 pageshow 与 pagehide 事件</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body>
+    <script type="text/javascript">
+      (function () {
+        let showCount = 0;
+        window.addEventListener("load", () => {
+          console.log("Load fired");
+        });
+        window.addEventListener("pageshow", (event) => {
+          showCount++;
+          console.log(`Show has been fired ${showCount} times.`);
+          console.log(`Persisted: ${event.persisted}`);
+        });
+
+        window.addEventListener("pagehide", (event) => {
+          console.log(`Hiding. Persisted: ${event.persisted}`);
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用包装类在两个堆叠的页面区块内居中元素</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .wrapper {
+        width: 95%;
+        max-width: 76em;
+        margin: 0 auto;
+      }
+
+      .row::after {
+        content: "";
+        display: block;
+        clear: both;
+        height: 0;
+      }
+      .col {
+        float: left;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="masthead">
+      <div class="wrapper">
+        <h1>Important News</h1>
+      </div>
+    </header>
+    <nav class="navbar" role="navigation">
+      <div class="wrapper">
+        <ul class="navlist">
+          <li><a href="/">Home</a></li>
+          <li><a href="/">World</a></li>
+          <li><a href="/">Local</a></li>
+          <li><a href="/">Sports</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main class="wrapper"></main>
+  </body>
+</html>

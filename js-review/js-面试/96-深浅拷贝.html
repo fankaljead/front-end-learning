@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>96-深浅拷贝</title>
+  </head>
+  <body>
+    <script>
+      // 浅拷贝
+      function shallowCopy(object) {
+        // 只拷贝对象
+        if (!object || typeof object !== "object") {
+          return;
+        }
+
+        // 根据 object 类型判断是新建一个数组还是对象
+        let newObject = Array.isArray(object) ? [] : {};
+
+        // 遍历 object, 并且判断是 object 的属性才拷贝
+        for (let key in object) {
+          if (object.hasOwnProperty(key)) {
+            newObject[key] = object[key];
+          }
+        }
+
+        return newObject;
+      }
+
+      // 深拷贝的实现;
+      function deepCopy(object) {
+        if (!object || typeof object !== "object") return object;
+
+        let newObject = Array.isArray(object) ? [] : {};
+
+        for (let key in object) {
+          if (object.hasOwnProperty(key)) {
+            newObject[key] = deepCopy(object[key]);
+          }
+        }
+
+        return newObject;
+      }
+    </script>
+  </body>
+</html>

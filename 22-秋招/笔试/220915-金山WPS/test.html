@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .trangle {
+        position: relative;
+        width: 0;
+        height: 0;
+        border-width: 0 40px 40px;
+        border-style: solid;
+        border-color: transparent transparent blue;
+      }
+      .trangle:after {
+        content: "";
+        position: absolute;
+        top: 1px;
+        left: -38px;
+        border-width: 0 38px 38px;
+        border-style: solid;
+        border-color: transparent transparent yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="trangle"></div>
+    <input type="texta" name="" id="">
+    <script xlink:href=""></script>
+  </body>
+</html>

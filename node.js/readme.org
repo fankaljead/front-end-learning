@@ -1,0 +1,56 @@
+#+TITLE: Node.js
+
+* Node.js 学习
+** Node.js 事件循环
+#+begin_src js
+const bar = () => console.log("bar");
+const baz = () => console.log("baz");
+
+const foo = () => {
+  console.log("foo");
+  setTimeout(bar, 0);
+  baz();
+};
+
+foo();
+#+end_src
+
+#+RESULTS:
+: foo
+: baz
+: undefinedbar
+
+#+begin_src js
+setTimeout(() => {
+  console.log("2000");
+}, 2000);
+
+setTimeout(() => {
+  console.log("1000");
+}, 1000);
+#+end_src
+
+#+RESULTS:
+: undefined1000
+: 2000
+** 具有 Async 和 Await 的现代异步 JavaScript
+#+begin_src js
+const doSomethingAsync = () => {
+  return new Promise((r) => {
+    setTimeout(() => r("做些事情"), 3000);
+  });
+};
+
+const doSomething = async () => {
+  console.log(await doSomethingAsync());
+};
+
+console.log("before");
+doSomething();
+console.log("after");
+#+end_src
+
+#+RESULTS:
+: before
+: after
+: undefined做些事情

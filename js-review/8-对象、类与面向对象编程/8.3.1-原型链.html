@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.3.1 原型链</title>
+  </head>
+  <body>
+    <script>
+      // 1. 原型链
+      // 主要问题 1 : 出现在原型中包含引用值的时候,原型中包含的引用值会在所有实例间共享
+      //          2 :子类型在实例化时不能给父类型的构造函数传参
+      function SuperType() {
+        this.property = true;
+        this.colors = ["red", "blue", "green"];
+      }
+      SuperType.prototype.getSuperValue = function () {
+        return this.property;
+      };
+
+      function SubType() {
+        this.subproperty = false;
+      }
+      SubType.prototype = new SuperType();
+      SubType.prototype.getSubValue = function () {
+        return this.subproperty;
+      };
+
+      let p1 = new SubType();
+      let p2 = new SubType();
+      p1.colors.push("cyan");
+    </script>
+  </body>
+</html>

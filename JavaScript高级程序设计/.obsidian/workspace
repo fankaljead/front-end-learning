@@ -1,0 +1,94 @@
+{
+  "main": {
+    "id": "75734398f7974999",
+    "type": "split",
+    "children": [
+      {
+        "id": "7852ef54ec1fe78f",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "第4章 变量、作用域与内存.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b8da27b8a2b694e8",
+    "type": "split",
+    "children": [
+      {
+        "id": "8ad6f676543e2703",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fa9ad2994826c957",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "5871261a740c9c4f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a90265e53622a5fe",
+    "type": "split",
+    "children": [
+      {
+        "id": "7e94021a4e993d70",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "99d7a26d9c0325a2",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "第4章 变量、作用域与内存.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "7852ef54ec1fe78f",
+  "lastOpenFiles": [
+    "第4章 变量、作用域与内存.md"
+  ]
+}

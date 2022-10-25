@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      window.addEventListener("load", function () {
+        var inputs = document.getElementsByTagName("input");
+        for (let i = 0; i < inputs.length; i++) {
+          var input = inputs[i];
+          input.onfocus = function (event) {
+            event.target.value = "";
+          };
+          input.onkeydown = (function (index) {
+            return function (event) {
+              if (
+                (48 <= event.keyCode && event.keyCode <= 57) ||
+                (96 <= event.keyCode && event.keyCode <= 105)
+              ) {
+                if (index !== inputs.length - 1) {
+                  var nextInput = inputs[index + 1];
+                  setTimeout(function () {
+                    nextInput && nextInput.focus();
+                  }, 0);
+                }
+                return;
+              }
+              // 9
+              if (9 == event.keyCode) {
+                return;
+              }
+              event.preventDefault();
+            };
+          })(i);
+        }
+      });
+    </script>
+    <style>
+      #input-panel input {
+        width: 30px;
+        height: 24px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="input-panel">
+      <input maxlength="1" />
+      <input maxlength="1" />
+      <input maxlength="1" />
+      <input maxlength="1" />
+      <input maxlength="1" />
+      <input maxlength="1" />
+    </div>
+  </body>
+</html>

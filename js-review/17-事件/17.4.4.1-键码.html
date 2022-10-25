@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>17.4.4.1 键码</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body>
+    <textarea
+      name="text"
+      id="myText"
+      rows="50"
+      cols="50"
+      tabindex="1"
+    ></textarea>
+    <script type="text/javascript">
+      let textbox = document.getElementById("myText");
+      textbox.addEventListener("keyup", (event) => {
+        // console.log(event.keyCode);
+        // console.log(event.key);
+        console.log("key up: ", event.charCode);
+      });
+      textbox.addEventListener("keypress", (event) => {
+        console.log("key press: ", event.charCode);
+        console.log("key press char is: ", String.fromCharCode(event.charCode));
+      });
+      textbox.addEventListener("keydown", (event) => {
+        console.log("key down: ", event.charCode);
+      });
+    </script>
+  </body>
+</html>

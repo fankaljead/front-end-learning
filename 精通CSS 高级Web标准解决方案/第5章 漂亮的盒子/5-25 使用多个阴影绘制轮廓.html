@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-25 使用多个阴影绘制轮廓</title>
+    <style>
+        body {
+            padding: 5em;
+            margin: 0;
+            font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+        }
+
+        .profile-photo {
+            width: 160px;
+            min-height: 200px;
+            padding: .5em;
+            background-color: #fff;
+            border-radius: .5em;
+            box-shadow: 0 0 0 10px #1c318d,
+                0 0 0 20px #3955c7,
+                0 0 0 30px #546dc7,
+                0 0 0 40px #7284d8;
+        }
+
+        .profile-photo img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .username {
+            font-size: 20px;
+            color: #666;
+            margin: .35em 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="profile-photo">
+        <img src="img/profile.jpg" alt="Charles the Cat">
+        <h1 class="username">@CharlesTheCat</h1>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.3.4 原型式继承</title>
+  </head>
+  <body>
+    <script>
+      // 4 原型式继承
+      // 原型式继承非常适合不需要单独创建构造函数，但仍然需要在对象间共享信息的场合。
+      // 属性中包含的引用值始终会在相关对象间共享
+      function object(o) {
+        function F() {}
+        F.prototype = o;
+        return new F();
+      }
+
+      let person = {
+        name: "Nicholas",
+        friends: ["Shelby", "Court", "Van"],
+      };
+
+      let anotherPerson = Object.create(person);
+      anotherPerson.name = "Greg";
+      anotherPerson.friends.push("Rob");
+
+      let yetAnotherPerson = Object.create(person);
+      yetAnotherPerson.name = "Linda";
+      yetAnotherPerson.friends.push("Barbie");
+
+      console.log(person.friends);
+    </script>
+  </body>
+</html>

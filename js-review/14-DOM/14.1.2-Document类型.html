@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14.1.2 Document 类型</title>
+  </head>
+  <body>
+    <h1 id="h1" name="h1">14.1.2 Document 类型</h1>
+
+    <script>
+      console.log("document.nodeType: ", document.nodeType);
+      console.log("document.nodeName: ", document.nodeName);
+      console.log("document.nodeValue: ", document.nodeValue);
+      console.log("document.parentNode: ", document.parentNode);
+      console.log("document.ownerDocument: ", document.ownerDocument);
+
+      let h1 = document.querySelector("#h1");
+      console.log("h1.nodeType: ", h1.nodeType);
+      console.log("h1.nodeName: ", h1.nodeName);
+      console.log("h1.nodeValue: ", h1.nodeValue);
+      console.log("h1.parentNode: ", h1.parentNode);
+      console.log("h1.ownerDocument: ", h1.ownerDocument);
+    </script>
+  </body>
+</html>
+<!-- 注释2 -->

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>17.4.5 合成事件</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body>
+    <textarea
+      name="text"
+      id="myText"
+      rows="50"
+      cols="50"
+      tabindex="1"
+    ></textarea>
+    <script type="text/javascript">
+      let textarea = document.getElementById("myText");
+      textarea.addEventListener("compositionstart", (event) => {
+        console.log("composition start:", event.data);
+      });
+      textarea.addEventListener("compositionupdate", (event) => {
+        console.log("composition update:", event.data);
+      });
+      textarea.addEventListener("compositionend", (event) => {
+        console.log("composition end:", event.data);
+      });
+    </script>
+  </body>
+</html>

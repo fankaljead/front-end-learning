@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>树形菜单</title>
+    <style>
+      .spand {
+        display: block;
+        transition: all 1s;
+      }
+      .fold {
+        animation-name: fold;
+        animation-duration: 1s;
+        display: none;
+      }
+
+      @keyframes fold {
+        from {
+          opacity: 1;
+        }
+
+        to {
+          opacity: 0;
+          transform: scaleY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      const app = document.querySelector("#app");
+      const obj = {
+        name: "zxh",
+        colors: ["r", "g", "b"],
+        contact: {
+          tel: 1110,
+          qq: 123,
+          email: {
+            gmail: "fankaljead@gmail.com",
+          },
+        },
+      };
+
+      app.addEventListener("click", (e) => {
+        if (e.target.tagName === "LI") {
+          const target = e.target;
+          if (e.target?.children.length > 0) {
+            if (target.children[0].className === "fold") {
+              target.children[0].className = "spand";
+            } else {
+              target.children[0].className = "fold";
+            }
+          }
+        }
+      });
+
+      function getType(o) {
+        return Object.prototype.toString
+          .call(o)
+          .split("")
+          .slice(8, -1)
+          .join("");
+      }
+
+      function createTreeElement(data) {
+        const ul = document.createElement("ul");
+        const children = document.createDocumentFragment();
+        if (typeof data !== "object") {
+          ul.innerText = `${data}: ${getType(data)}`;
+        }
+        for (const [key, value] of Object.entries(data)) {
+          const li = document.createElement("li");
+          if (typeof value !== "object") {
+            li.innerText = `${key}: ${getType(value)} ${value}`;
+          } else {
+            li.innerText = `${key}: ${getType(value)}`;
+            li.appendChild(createTreeElement(value));
+          }
+
+          children.appendChild(li);
+        }
+
+        ul.appendChild(children);
+
+        return ul;
+      }
+
+      app.appendChild(createTreeElement(obj));
+    </script>
+  </body>
+</html>

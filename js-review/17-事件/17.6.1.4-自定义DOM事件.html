@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>17.6.1.4 自定义 DOM 事件</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body>
+    <script type="text/javascript">
+      let div = document.getElementById("myDiv"),
+        event;
+      div.addEventListener("myevent", (event) => {
+        console.log("DIV: " + event.detail);
+      });
+      document.addEventListener("myevent", (event) => {
+        console.log("DOCUMENT: " + event.detail);
+      });
+      if (document.implementation.hasFeature("CustomEvents", "3.0")) {
+        event = document.createEvent("CustomEvent");
+        event.initCustomEvent("myevent", true, false, "Hello world!");
+        div.dispatchEvent(event);
+      }
+    </script>
+  </body>
+</html>

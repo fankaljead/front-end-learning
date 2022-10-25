@@ -1,0 +1,80 @@
+// 贝壳一面问题
+
+// 第一题
+
+/* 修改这段代码，让最后打印出来的数字是 0、1、2、3...9 这样的顺序 */
+function request(i) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(i);
+    }, Math.floor(Math.random()) * 1000);
+  });
+}
+
+for (let i = 0; i < 10; i++) {
+  request(i).then((res) => {
+    console.log(res);
+  });
+}
+
+// 第二题
+
+/**
+ * --- 问题描述 ---
+ *
+ * 实现一个 arrange 函数，可以进行时间和工作调度
+ * 注意，这里的 wait do waitFirst 均可以无限调用
+ * 其中 execute 为 async 函数
+ * 除了 arrange 和 execute 之外的其他函数都可以无限次调用
+ * wait 和 waitFirst 没有输出，但是会等待对应的时间继续执行后续的操作
+ * 调用 execute 之前不会有任何输出
+ *
+ * --- 说明 ---
+ *
+ * - 具体功能参考下列示例
+ * - 在示例中调用到的方法都需要实现
+ * - 下面示例中 `>` 表示在控制台中输出 (console.log)
+ *
+ * --- 示例 ---
+ *
+ * 示例一:
+ * `arrange('William').execute();`
+ * > William is notified
+ *
+ * 示例二:
+ * `arrange('William').wait(5).do('commit').wait(5).do('push').execute();`
+ * > William is notified
+ * 等待 5s
+ * > Start to commit
+ * 等待 5s
+ * > Start to push
+ *
+ * 示例三:
+ * `arrange('William').waitFirst(3).do('push').waitFirst(3).execute();`
+ * 等待 3s...
+ * > William is notified
+ * 等待 3s...
+ * > Start to push
+ *
+ */
+const ref=useRef(false)
+useEffect(()=>{
+  
+  if (!ref.current){
+    ref.current = true
+  } else {
+    
+  }
+}, [count])
+var name = ='ddd'
+function f(){
+  console.log(this.name)
+}
+var obj ={
+  name: 'zhouxi',
+  f: f
+}
+a = obj.f
+a();
+obj.f()
+f()

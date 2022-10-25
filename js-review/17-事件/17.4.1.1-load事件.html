@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>17.4.1.1 load 事件</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body>
+    <img
+      src="https://lh3.googleusercontent.com/aF06kk0pgEDD2EwNFO0xPxZLlHlBw8YHj-a6tpfKxtCIOF2lyUwoLhXlaFfIXxSnL8z9CxsO8k5Zx1Am0hUk3rBkffHj9YL5g7_IB8r3IwuXmkTLyJ7-3nj55Vq1HmJ16AlIE0YubPxLL8oMiqkmTCZg70EfrqBPElZ7rx7_QuXeBogWtjFE2Bc8hVqD1V-KD7dnMMlg8GvyHAj4F3IVf9HCOdQXpWk4VO5iF5Yh9-O8bAwNIjKO0ubDT4ic9lyzl-sIZ_P8nOCEbJ7pkJ08vmCv04oGtZRAOMiXVPPy7l0k8ahD31ja3WWDpVxwixB_89cKlBl4uajCi6TYEZWiQFWf8_aEumDnzC-1VHhizAaa-j9aUJq-o5VuKpIeKpf1tDyuQXX9ZAcGnfjHRUaa9uxkPwBziBzdHWC2wAJiZiysDJhLFV_Ft2AfuG8zBMOdcsPji-7uzOp_BW3AQRoPhoOlT3IplU8omftZIdFoJKSTZBByI-mpa5B6B5tA4kGtieslyBC3dMWeCpg7BAVH8i5Bz6TIUtrdWlgVFXkkZtELalpMcLLGKv9pn7eRv9tF3vpjTU_0lQ5QiA989La43D1zGyebv9SIdSR9GzUubFdBglvcv5II_Ovj9STMiqm5VsUUiCfiMS7q6oFnXIuZwdGPVBkSWaaVvomlXI7DJqNK8nKSmHdADiE5LBP9ZBvMlSYtpmeaSN87riQNqETPcwQb=w1084-h610-no?authuser=0"
+      width="50%"
+      alt="Anaya"
+      id="myImage"
+    />
+    <script type="text/javascript">
+      window.addEventListener("load", (e) => {
+        console.log("Loaded!");
+        let img = document.createElement("img");
+        img.addEventListener("load", (e) => {
+          console.log(e.target.src);
+        });
+        img.src =
+          "https://lh3.googleusercontent.com/aF06kk0pgEDD2EwNFO0xPxZLlHlBw8YHj-a6tpfKxtCIOF2lyUwoLhXlaFfIXxSnL8z9CxsO8k5Zx1Am0hUk3rBkffHj9YL5g7_IB8r3IwuXmkTLyJ7-3nj55Vq1HmJ16AlIE0YubPxLL8oMiqkmTCZg70EfrqBPElZ7rx7_QuXeBogWtjFE2Bc8hVqD1V-KD7dnMMlg8GvyHAj4F3IVf9HCOdQXpWk4VO5iF5Yh9-O8bAwNIjKO0ubDT4ic9lyzl-sIZ_P8nOCEbJ7pkJ08vmCv04oGtZRAOMiXVPPy7l0k8ahD31ja3WWDpVxwixB_89cKlBl4uajCi6TYEZWiQFWf8_aEumDnzC-1VHhizAaa-j9aUJq-o5VuKpIeKpf1tDyuQXX9ZAcGnfjHRUaa9uxkPwBziBzdHWC2wAJiZiysDJhLFV_Ft2AfuG8zBMOdcsPji-7uzOp_BW3AQRoPhoOlT3IplU8omftZIdFoJKSTZBByI-mpa5B6B5tA4kGtieslyBC3dMWeCpg7BAVH8i5Bz6TIUtrdWlgVFXkkZtELalpMcLLGKv9pn7eRv9tF3vpjTU_0lQ5QiA989La43D1zGyebv9SIdSR9GzUubFdBglvcv5II_Ovj9STMiqm5VsUUiCfiMS7q6oFnXIuZwdGPVBkSWaaVvomlXI7DJqNK8nKSmHdADiE5LBP9ZBvMlSYtpmeaSN87riQNqETPcwQb=w1084-h610-no?authuser=0";
+        img.style.width = "50%";
+        document.body.appendChild(img);
+        img.addEventListener("click", (event) => {
+          console.log(
+            `Client coordinates(clientX, clientY): ${event.clientX}, ${event.clientY}`
+          );
+          console.log(
+            `Page coordinates(pageX, pageY): ${event.pageX}, ${event.pageY}`
+          );
+          console.log(
+            `Screen coordinates(screenX, screenY): ${event.screenX}, ${event.screenY}`
+          );
+        });
+      });
+
+      let image = document.getElementById("myImage");
+      image.addEventListener("load", (e) => {
+        console.log(e.target.src);
+      });
+
+      window.addEventListener("scroll", (e) => {
+        if (document.compatMode === "CSS1Compat") {
+          console.log(document.documentElement.scrollTop);
+        } else {
+          console.log(document.body.scrollTop);
+        }
+      });
+    </script>
+  </body>
+</html>

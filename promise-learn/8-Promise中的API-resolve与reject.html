@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>8-Promise 中的 API resolve 和 reject</title>
+    </head>
+    <body>
+        <script>
+            let p1 = Promise.resolve("hello");
+            p1.then((v) => {
+                console.log(v);
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.2.4 原型模式</title>
+  </head>
+  <body>
+    <script>
+      // 3. 原型模式
+      // 它弱化了向构造函数传递初始化参数的能力，会导致所有实例默认都取得相同的属性值
+      // 真正的问题来自包含引用值的属性
+      function Person() {}
+      Person.prototype.name = "Nicholas";
+      Person.prototype.age = 29;
+      Person.prototype.job = "Software Engineer";
+      Person.prototype.color = ["r", "g", "b"];
+      Person.prototype.sayName = function () {
+        console.log(this.name);
+      };
+
+      let person1 = new Person();
+      person1.sayName(); // "Nicholas"
+      person1.color.push("cyan");
+
+      let person2 = new Person();
+      person2.sayName(); // "Nicholas"
+
+      console.log(person1.sayName == person2.sayName); // true
+    </script>
+  </body>
+</html>

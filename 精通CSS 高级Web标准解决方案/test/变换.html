@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变换</title>
+
+    <link rel="stylesheet" href="base.css">
+    <style>
+        div:hover,
+        p:hover {
+            transform: scale(1.5) translate(100px, 100px);
+            transition: transform 1s ease-in;
+        }
+
+        div,
+        p {
+            /* transform: scale(1.5) translateY(0px); */
+            transition: transform .21s ease-out;
+        }
+
+        .base {
+            transform: skew(10deg, 10deg);
+            perspective: 2000px;
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+
+<body>
+    <p>我变换啦</p>
+
+    <div>I'm transforming</div>
+
+    <img style="transform: rotate(90deg);
+            transform-origin: bottom left;"
+        src="https://mdn.mozillademos.org/files/12539/Screen%20Shot%202016-02-16%20at%2015.53.54.png">
+
+    <div class="base"></div>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+.parent {
+    min-width: 30em;
+    margin: 0 auto;
+    background-color: grey;
+    min-height: 30em;
+}
+
+.base {
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+    margin: 2em auto;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}

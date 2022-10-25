@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14.1.8 DocumentFragment 类型</title>
+  </head>
+  <body>
+    <div id="mydiv"></div>
+    <script>
+      let mydiv = document.getElementById("mydiv");
+      let fragment = document.createDocumentFragment();
+      let ul = document.createElement("ul");
+      for (let i = 0; i < 3; ++i) {
+        let li = document.createElement("li");
+        li.appendChild(document.createTextNode(`Item ${i + 1}`));
+        fragment.appendChild(li);
+      }
+      ul.appendChild(fragment);
+      mydiv.appendChild(ul);
+    </script>
+  </body>
+</html>

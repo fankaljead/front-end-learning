@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>20.1.2.4 原子 Futex 操作与加锁</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- Place favicon.ico in the root directory -->
+  </head>
+  <body>
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+    <script type="text/javascript">
+      const workerScript = `
+      self.onmessage = ({ data }) => {
+        const view = new Int32Array(data);
+        console.log("waiting to obtain lock");
+
+        // 遇到初始值则停止 10000 毫秒超时
+        Atomics.wait(view, 0, 0, 1e5);
+
+        console.log("Obtained lock");
+
+        // 在索引 0 处加 1
+        Atomics.add(view, 0, 1);
+        console.log("Releasing lock");
+
+        // 只允许 1 个工作线程继续执行
+        Atomics.notify(view, 0, 1);
+
+        self.postMessage(null);
+      };
+      `;
+
+      const workerScriptBlobUrl = URL.createObjectURL(new Blob([workerScript]));
+
+      const workers = [];
+      for (let i = 0; i < 4; ++i) {
+        workers.push(new Worker(workerScriptBlobUrl));
+      }
+
+      let responseCount = 0;
+      for (const worker of workers) {
+        worker.onmessage = () => {
+          if (++responseCount === workers.length) {
+            console.log(`Final buffer value: ${view[0]}`);
+          }
+        };
+      }
+
+      const sharedArrayBuffer = new ArrayBuffer(8);
+      const view = new Int32Array(sharedArrayBuffer);
+
+      for (const worker of workers) {
+        worker.postMessage(sharedArrayBuffer);
+      }
+
+      setTimeout(() => Atomics.notify(view, 0, 1), 1000);
+    </script>
+  </body>
+</html>

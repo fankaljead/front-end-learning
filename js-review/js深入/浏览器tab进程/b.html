@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B 页面</title>
+  </head>
+  <body>
+    <button onclick="useOpenerMethod()">使用父页面的方法</button>
+    <button onclick="changeOpener()">盗换父页面</button>
+    <script>
+      function useOpenerMethod() {
+        window.opener.test(1234);
+      }
+      function changeOpener() {
+        window.opener.location.href = "https://www.baidu.com";
+      }
+    </script>
+  </body>
+</html>

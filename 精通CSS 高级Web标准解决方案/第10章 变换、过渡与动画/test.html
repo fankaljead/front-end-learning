@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0 auto;
+        }
+
+        .box {
+            margin: 2em auto;
+            width: 100px;
+            height: 100px;
+            background-color: rebeccapurple;
+            /* transform: matrix(1.41, 1.41, -1.16, 1.66, 70.7, 70.7); */
+            /* 等同于 transform: rotate(45deg) translate(100px, 0) scale(2) skewX(10deg) */
+            /* transform: rotate3d(1, 1, 1, 45deg); */
+            transform: rotate(45deg);
+            transform-origin: 20px 10px;
+        }
+
+        h1 {
+            margin: 5em auto;
+            text-align: center;
+
+            text-shadow: -.2em .4em .2em #ccc;
+            font-family: Avenir Next, SegoeUI, arial, sans-serif;
+        }
+
+        h1 {
+            transform: rotate(0deg) scale(1);
+            transition: all .11s ease-in-out;
+        }
+/* 
+        h1:hover {
+            transform: rotate(360deg) scale(2);
+            transition: all 1s ease-in-out;
+        } */
+
+        ol {
+            list-style: none;
+            counter-reset: ff 2;
+        }
+
+        ol li {
+            counter-increment: ff;
+        }
+
+        ol li::before {
+            position: relative;
+            top: 0;
+            left: 0;
+            padding-right: .25em;
+            display: inline-block;
+            color: darkmagenta;
+            line-height: 1.5em;
+            content: '$$'counter(ff);
+        }
+
+        .base {
+            margin: 2em auto;
+            width: 100px;
+            height: 100px;
+            background-color: rebeccapurple;
+        }
+
+        .scale {
+            transform: scale(1);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .scale:hover {
+            transform: scale(2);
+            transition: transform 1s ease-in-out;
+        }
+
+        .base-color {
+            margin: 2em auto;
+            width: 400px;
+            height: 400px;
+            background-color: royalblue;
+        }
+
+        .color {
+            color: #fff;
+            transition: color .11s ease-in-out;
+            margin: auto;
+            vertical-align: middle;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .color:hover {
+            color: #ff0000;
+            transition: color 1s ease-in-out, box-shadow 1s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <h1>hello world</h1>
+
+    <!-- <ol start="3">
+        <li>邓紫棋</li>
+        <li>周深</li>
+        <li>黄龄</li>
+    </ol> -->
+    <div class="base scale"></div>
+
+    <div class="base-color">
+        <h1 class="color">color transition</h1>
+    </div>
+</body>
+
+</html>

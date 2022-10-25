@@ -1,0 +1,50 @@
+<!-- 实现一个三列布局，左右宽度 200px，中间自适应，且纵向滚动时，左右不随着滚动位置移动  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      *{
+        padding: 0;
+        margin: 0;
+      }
+      .main {
+        display: flex;
+      }
+      .box1 {
+        width: 200px;
+        height: 500px;
+        background-color: yellow;
+        position: fixed;
+        left: 0;
+        top: 0;
+      }
+      .box3 {
+        width: 200px;
+        height: 500px;
+        background-color: yellow;
+        position: fixed;
+        right: 0px;
+        top: 0;
+      }
+      .box2 {
+        background-color: red;
+        width: 100%;
+        margin-left: 200px;
+        margin-right: 200px;
+        height: 1000px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="box1"></div>
+      <div class="box2"></div>
+      <div class="box3"></div>
+    </div>
+  </body>
+</html>

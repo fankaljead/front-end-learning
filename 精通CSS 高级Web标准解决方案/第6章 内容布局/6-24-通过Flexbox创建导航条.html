@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6-24-通过Flexbox创建导航条</title>
+
+    <style>
+      .navbar ul {
+        font-family: Avenir Next, Avenir, Century Gothic, sans-serif;
+        list-style: none;
+        padding: 0;
+        background-color: #486a8e;
+        width: 100%;
+        min-height: 100px;
+        display: flex;
+        /* flex-direction: row-reverse; */
+        /* justify-content: flex-start; */
+        align-items: center;
+        margin: 20px auto;
+      }
+
+      .navbar li {
+        text-transform: uppercase;
+        text-align: center;
+        box-sizing: border-box;
+        /* width: 25%; */
+        background-color: #12459e;
+        outline: 1px solid #fff;
+        vertical-align: middle;
+      }
+
+      .navbar li a {
+        display: block;
+        text-decoration: none;
+        line-height: 1.74em;
+        padding: 1em;
+        color: #fff;
+      }
+
+      .navbar ul {
+        font-size: 0;
+      }
+
+      .navbar li {
+        font-size: 16px;
+        font-size: 1rem;
+      }
+
+      /* .navbar li:nth-child(2) {
+            margin-right: auto;
+        } */
+      /* .navbar .navbar-active {
+            font-size: 1.25rem;
+        } */
+      /* .navbar li:first-child {
+        align-self: flex-start;
+        margin-right: auto;
+      } */
+      .justify_ul1 {
+        justify-content: flex-start;
+      }
+      .justify_ul2 {
+        justify-content: flex-end;
+      }
+      .justify_ul3 {
+        justify-content: space-between;
+      }
+      .justify_ul4 {
+        justify-content: space-around;
+      }
+      .justify_ul5 {
+        justify-content: space-evenly;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <ul class="justify_ul1">
+        <li><a href="/home">Home</a></li>
+        <li class="navbar-active"><a href="/spaceships">Spaceships</a></li>
+        <li><a href="/justify">justify-content: flex-start</a></li>
+        <li><a href="/planets">Planets</a></li>
+        <li><a href="/star">Stars</a></li>
+      </ul>
+      <ul class="justify_ul2">
+        <li><a href="/home">Home</a></li>
+        <li class="navbar-active"><a href="/spaceships">Spaceships</a></li>
+        <li><a href="/justify">justify-content: flex-end</a></li>
+        <li><a href="/planets">Planets</a></li>
+        <li><a href="/star">Stars</a></li>
+      </ul>
+      <ul class="justify_ul3">
+        <li><a href="/home">Home</a></li>
+        <li class="navbar-active"><a href="/spaceships">Spaceships</a></li>
+        <li><a href="/justify">justify-content: space-between</a></li>
+        <li><a href="/planets">Planets</a></li>
+        <li><a href="/star">Stars</a></li>
+      </ul>
+      <ul class="justify_ul4">
+        <li><a href="/home">Home</a></li>
+        <li class="navbar-active"><a href="/spaceships">Spaceships</a></li>
+        <li><a href="/justify">justify-content: space-around</a></li>
+        <li><a href="/planets">Planets</a></li>
+        <li><a href="/star">Stars</a></li>
+      </ul>
+      <ul class="justify_ul5">
+        <li><a href="/home">Home</a></li>
+        <li class="navbar-active"><a href="/spaceships">Spaceships</a></li>
+        <li><a href="/justify">justify-content: space-evenly</a></li>
+        <li><a href="/planets">Planets</a></li>
+        <li><a href="/star">Stars</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行盒子与清除</title>
+    <style>
+        .media-block {
+            background-color: gray;
+            border: solid 1px black;
+        }
+
+        .media-fig {
+            float: left;
+            /* width: 30%; */
+            margin-right: 5%;
+        }
+
+        /* .media-body {
+            float: right;
+            width: 65%;
+        } */
+
+        .media-block, .media-body{
+            overflow: auto;
+        }
+
+        /* .clear {
+            clear: both;
+        } */
+
+        .media-block:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="media-block">
+        <img src="spider-man.jpeg" alt="The pic" class="media-fig">
+        <div class="media-body">
+            <h3>Title of this</h3>
+            <p>Brief description of this</p>
+        </div>
+        <!-- <div class="clear"></div> -->
+    </div>
+</body>
+
+</html>

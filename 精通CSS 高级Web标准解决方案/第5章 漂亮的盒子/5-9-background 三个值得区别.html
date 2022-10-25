@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-9-background 三个值得区别</title>
+    <style>
+        body {
+            padding: 2em;
+            margin: 0;
+            font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+            background-color: #fff;
+        }
+
+        .profile-box {
+            display: inline-block;
+            height: 200px;
+            width: 400px;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-image: url(img/cat.jpg);
+            border: 10px solid rgba(220, 220, 160, 0.5);
+            padding: 10px;
+            /* border-radius: 2em .5em 1em .5em / .5em 2em .5em 1em; */
+            border-radius: 2em 5em;
+        }
+
+        .padding-box-clipped {
+            background-clip: padding-box;
+        }
+
+        .content-box-clipped {
+            background-clip: content-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="profile-box">border-box-clipped</div>
+    <div class="profile-box padding-box-clipped">padding-box-clipped</div>
+    <div class="profile-box content-box-clipped">content-box-clipped</div>
+</body>
+
+</html>

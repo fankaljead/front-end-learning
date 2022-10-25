@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="0" viewBox="0 0 100 100">
+    <mask id="circlemask" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
+        <circle r="0.5" cx="0.5" cy="0.5" fill="#fff" />
+    </mask>
+</svg>

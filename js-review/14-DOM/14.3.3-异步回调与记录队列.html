@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14.3.3 异步回调与记录队列</title>
+  </head>
+  <body>
+    <div id="div"></div>
+    <script>
+      let observer = new MutationObserver((mutationRecorder) => {
+        console.log(mutationRecorder);
+      });
+      observer.observe(document.body, { attributeOldValue: true });
+
+      document.body.className = "foo";
+      document.body.className = "bar";
+      document.body.className = "baz";
+
+      console.log(observer.takeRecords());
+      console.log(observer.takeRecords());
+
+      let div = document.getElementById("div");
+    </script>
+  </body>
+</html>

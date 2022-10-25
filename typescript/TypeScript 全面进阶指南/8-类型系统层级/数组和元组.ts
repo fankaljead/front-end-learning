@@ -1,0 +1,9 @@
+type Result40 = [number, number] extends number[] ? 1 : 2;
+type Result41 = [number, string] extends number[] ? 1 : 2;
+type Result42 = [number, string] extends (number | string)[] ? 1 : 2;
+type Result43 = [] extends number[] ? 1 : 2;
+type Result44 = [] extends unknown[] ? 1 : 2;
+type Result45 = number[] extends (number | string)[] ? 1 : 2;
+type Result46 = any[] extends unknown[] ? 1 : 2;
+type Result47 = unknown[] extends number[] ? 1 : 2;
+type Result48 = never[] extends number[] ? 1 : 2;

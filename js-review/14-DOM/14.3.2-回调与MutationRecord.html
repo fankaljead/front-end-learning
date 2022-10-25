@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14.3.2 回调与MutationRecord</title>
+  </head>
+  <body>
+    <script>
+      let observer = new MutationObserver(
+        (mutationRecords, mutationObserver) => {
+          console.log(mutationRecords);
+          console.log(mutationObserver);
+        }
+      );
+
+      observer.observe(document.body, {
+        attributes: true,
+        attributeOldValue: true,
+      });
+
+      document.body.setAttribute("foo", "bar");
+
+      document.body.className = "foo";
+      document.body.className = "bar";
+      document.body.className = "baz";
+    </script>
+  </body>
+</html>

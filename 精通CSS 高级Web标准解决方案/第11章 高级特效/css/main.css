@@ -1,0 +1,560 @@
+/* ====== Basic styles ====== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #1c1c1c;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+p {
+  margin: 0;
+}
+
+p+p {
+  margin-top: 1.5em;
+}
+
+/* ====== Helper classes ====== */
+
+/**
+* Make the antialiasing on dark backgrounds a bit lighter
+* on WebKit/Firefox OS X.
+*/
+.inverted {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wrapper {
+  width: 95%;
+  max-width: 60em;
+  margin: 0 auto;
+}
+
+.section {
+  background-color: #ddd;
+  padding-top: 4em;
+  padding-bottom: 4em;
+}
+
+.section:after {
+  content: '';
+  display: table;
+  clear: both;
+  height: 0;
+}
+
+/* ====== Header styles ====== */
+
+/**
+* 1. SVG file containing JPEG image + a radial gradient mask, then a linear
+*    gradient background.
+*/
+.page-header {
+  background-color: #000;
+  background-image: url(../img/earth.svg),
+    linear-gradient(to bottom, #000, #102133);
+  /* [1] */
+  background-repeat: no-repeat;
+  background-size: 100% auto, cover;
+  background-position: 50% bottom;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 12em;
+}
+
+/**
+* Masked header title.
+* 1. Use the -webkit-prefixed properties to create a CSS radial gradient mask.
+*    These are not supported unprefixed when writing this.
+* 2. Size the mask to twice the size. Positioning won't work as the transparent
+*    background created by simply moving it will mask out the top of the text.
+*/
+.header-title {
+  color: #fff;
+  text-align: center;
+  font-family: Roboto Condensed, Roboto, arial, sans-serif;
+  font-size: 6em;
+  font-size: 10vw;
+  text-transform: uppercase;
+  -webkit-mask-image: radial-gradient(ellipse 90% 30% at 50% 50%,
+      rgba(0, 0, 0, 0) 45%, #000 70%);
+  /* [1] */
+  -webkit-mask-size: 100% 200%;
+  /* [2] */
+  margin: auto auto 8%;
+}
+
+@media only screen and (min-width: 60em) {
+  .page-header {
+    background-size: 60em auto, cover;
+    min-height: 20em;
+  }
+
+  .header-title {
+    font-size: 160px;
+    margin-bottom: 60px;
+  }
+}
+
+.section-title {
+  font-family: Roboto Condensed, Roboto, Arial, sans-serif;
+  text-transform: uppercase;
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+  -webkit-transform: skewY(-2deg);
+  transform: skewY(-2deg);
+  -webkit-transform: perspective(200px) rotate3d(2, -1, 0, -30deg);
+  transform: perspective(200px) rotate3d(2, -1, 0, -30deg);
+  font-size: 4em;
+  margin: 0 0 1em;
+}
+
+.section-text {
+  font-size: 1.125em;
+}
+
+.fig {
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 600px) {
+  .fig {
+    margin: 0;
+    float: right;
+  }
+
+  .stacked:nth-of-type(even) .fig {
+    float: left;
+    margin-right: 4em;
+  }
+}
+
+.stacked:nth-of-type(even) .section-text {
+  overflow: hidden;
+}
+
+.section-universe {
+  position: relative;
+  overflow: hidden;
+  background-color: #fff !important;
+}
+
+.section-sun {
+  background-color: #D8F4FD;
+}
+
+.section-sun .section-title {
+  color: #1C6E88;
+}
+
+.section-moon {
+  /* background-color: #666; */
+  background-color: #000;
+  color: #fff;
+}
+
+/* ===== Figures and images ====== */
+
+/**
+* Switch to the following rule to use the margin reference box 
+* as a shape instead:
+*/
+
+/*.fig-moon {
+  max-width: 40%;
+  border-radius: 50%;
+  -webkit-shape-outside: margin-box;
+          shape-outside: margin-box;
+  margin-left: 2em;
+}*/
+.fig-moon {
+  max-width: 40%;
+  -webkit-shape-outside: circle();
+  shape-outside: circle();
+  margin: 2em;
+}
+
+/**
+* 1. Use the image as the shape – the transparent edges will generate it.
+* 2. Uncomment this line to use a polygon instead.
+* 3. Use a shape threshold (if using the image) to set the tolerance level
+*    before the shape is generated.
+* 4. Set a margin on the generated shape.
+* 5. Add a blend mode to make the image fit in with the background better.
+*/
+.fig-planet {
+  max-width: 65%;
+  -webkit-shape-outside: url(../img/saturn.png);
+  /* [1] */
+  shape-outside: url(../img/saturn.png);
+  /* [1] */
+  /*shape-outside: polygon(41.85% 100%, 22.75% 92.85%, 5.6% 73.3%, 0.95% 52.6%, 5.6% 35.05%, 21.45% 17.15%, 37.65% 12.35%, 40% 0, 100% 0%, 100% 100%);*/
+  /* [2] */
+  -webkit-shape-image-threshold: 0.4;
+  /* [3] */
+  shape-image-threshold: 0.4;
+  /* [3] */
+  -webkit-shape-margin: 1em;
+  /* [4] */
+  shape-margin: 1em;
+  /* [4] */
+  mix-blend-mode: screen;
+  /* [5] */
+}
+
+.fig-sun {
+  max-width: 40%;
+}
+
+/**
+* The image of the Sun uses both masking and filters to go from a black-and-white
+* image to a colorized version with transparency. See full-example.html for the 
+* SVG mask version.
+* 1. Add a list of filters to colorize the image.
+* 2. Mask away the background using a radial gradient.
+*/
+.fig-sun {
+  -webkit-filter: contrast(0.34) brightness(1.6) sepia(1) hue-rotate(10deg);
+  /* [1] */
+  filter: contrast(0.34) brightness(1.6) sepia(1) hue-rotate(10deg);
+  /* [1] */
+  -webkit-mask-image: radial-gradient(circle closest-side at 50%, #000, #000 90%, rgba(0, 0, 0, 0) 93%);
+  /* [2] */
+}
+
+.fig-universe {
+  width: 100%;
+  display: block;
+  float: none;
+}
+
+.section-text p {
+  line-height: 1.5;
+  max-width: 40em;
+}
+
+/* ====== Navigation ====== */
+
+/**
+* 1. Add a transform to the parent section, to counter a bug in Blink
+*    where the filter on child items freak out otherwise.
+*/
+.nav-section {
+  background-color: #16284F;
+  color: #fff;
+  transform: translate(0, 0);
+  /* [1] */
+}
+
+.nav-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+/**
+* Some tiny responsive tweaks to make the menu
+* fall back to a simpler appearance on very small screens:
+*/
+@media only screen and (max-width: 599px) {
+  .nav-section li {
+    margin-bottom: .25em;
+  }
+
+  .nav-section a {
+    padding: .5em;
+  }
+}
+
+/* we also scope the enhanced version to a media query: */
+@media only screen and (min-width: 600px) {
+  .nav-section ul {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+
+  /**
+  * 1. Add a drop-shadow filter (including the -webkit-prefix) to the list-items.
+  */
+
+  .nav-section li {
+    height: 6.25em;
+    width: 6.25em;
+    float: left;
+    -webkit-flex: none;
+    -ms-flex: none;
+    flex: none;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -webkit-filter: drop-shadow(0 0 .5em rgba(0, 0, 0, 0.3));
+    /* [1] */
+    filter: drop-shadow(0 0 .5em rgba(0, 0, 0, 0.3));
+    /* [1] */
+  }
+}
+
+/**
+* Uncomment animation code to view the "focus" animation.
+* Sadly, this has some very serious rendering bugs at the moment when
+* combined with clip-paths.
+*/
+
+/*.nav-section li {
+    animation: inFocus 1s both;
+}
+.nav-section li:nth-child(2) {
+    animation-delay: .25s;
+}
+.nav-section li:nth-child(3) {
+    animation-delay: .50s;
+}
+.nav-section li:nth-child(4) {
+    animation-delay: .75s;
+}
+.nav-section li:nth-child(5) {
+    animation-delay: 1s;
+}
+*/
+/**
+* 1. Change the shadow color on hover, to create the glow.
+*/
+.nav-section li:hover {
+  -webkit-filter: drop-shadow(0 0 .5em rgba(50, 50, 255, 0.2));
+  /* [1] */
+  filter: drop-shadow(0 0 .5em rgba(50, 50, 255, 0.2));
+  /* [1] */
+}
+
+/**
+* 1. Add a null transform to prevent rendering bugs in Blink/WebKit. This still
+*    freaks out in Safari, but seemingly only intermittently.
+*/
+.nav-section a {
+  background-color: #1A4298;
+  color: #fff;
+  text-decoration: none;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -moz-box;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  align-items: center;
+  width: 100%;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  justify-content: center;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+  /* [1] */
+}
+
+.nav-section a:focus,
+.nav-section a:hover,
+.nav-section a:active {
+  outline: none;
+  background-color: #1F51BC;
+}
+
+.section-planets {
+  color: #E0CBD9;
+  background-color: #26122B;
+}
+
+/**
+* 1. Colorize the Milky Way background using luminosity blend mode.
+*/
+.section-milkyway {
+  background-image: url(../img/milkyway.jpg);
+  background-color: #202D53;
+  background-blend-mode: luminosity;
+  /* [1] */
+  background-position: 50% 0;
+  background-size: cover;
+  color: #fff;
+}
+
+/**
+* 1. Add a backdrop blur to the semi-transparent text background.
+*    Falls back to just the normal alpha transparency.
+*/
+.section-milkyway .section-text {
+  margin-top: 30vh;
+  color: #fff;
+  padding: 1em;
+  -webkit-backdrop-filter: blur(5px);
+  /* [1] */
+  backdrop-filter: blur(5px);
+  /* [1] */
+  background-color: #202D53;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.page-footer {
+  background-color: #222B33;
+  color: #eee;
+}
+
+.page-footer a {
+  color: inherit;
+}
+
+.universe-header {
+  position: relative;
+}
+
+@media only screen and (min-width: 800px) {
+  .universe-header {
+    width: 40%;
+    float: right;
+    margin: .2em 0 .5em 2em;
+    position: relative;
+  }
+
+  .section-universe .section-text {
+    margin-right: 25%;
+  }
+
+  .section-milkyway .section-text {
+    margin-left: 25%;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .universe-header {
+    width: 55%;
+  }
+}
+
+.section-universe {
+  padding-top: 8em;
+  padding-bottom: 8em;
+}
+
+
+
+:root .universe-title {
+  margin: 0;
+  width: 90%;
+  height: 0;
+  padding-bottom: 27%;
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 54%;
+  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
+}
+
+.universe-title text {
+  fill: #602135;
+  text-transform: uppercase;
+}
+
+.universe-title svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+}
+
+@supports (mix-blend-mode: screen) {
+
+  /**
+    * 1. Only add the mix-blend-mode rules if supported. Screen makes black
+    *    100% transparent.
+    * 2. Change the fill color to black for supporting browsers,
+    *    resulting in 100% transparency for the text.
+    */
+  .universe-title {
+    mix-blend-mode: screen;
+  }
+
+  .universe-title text {
+    fill: #000;
+  }
+}
+
+.universe-span-1 {
+  font-size: 53.2px;
+}
+
+.universe-span-2 {
+  font-size: 96.2px;
+}
+
+/**
+* 1. Clip the sections using clip-path and basic shape functions.
+*/
+.stacked {
+  -webkit-clip-path: polygon(0 3vw, 100% 0, 100% calc(100% - 3vw), 0% 100%);
+  /* [1] */
+  clip-path: polygon(0 3vw, 100% 0, 100% calc(100% - 3vw), 0% 100%);
+  /* [1] */
+}
+
+.page-header {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3vw), 0% 100%);
+  /* [1] */
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3vw), 0% 100%);
+  /* [1] */
+}
+
+.page-footer {
+  -webkit-clip-path: polygon(0 3vw, 100% 0, 100% 100%, 0% 100%);
+  /* [1] */
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  /* [1] */
+}
+
+/**
+* 1. Adjust the negative margin-top for sections to pull them together,
+*    but only if clip-paths are supported.
+*/
+@supports ((clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0))) {
+  .stacked {
+    margin-bottom: -3.4vw;
+    /* [1] */
+  }
+}
+
+@-webkit-keyframes inFocus {
+  from {
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+  }
+}
+
+@keyframes inFocus {
+  from {
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+  }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件流</title>
+    <style>
+      #test {
+        width: 200px;
+        height: 200px;
+        background-color: aliceblue;
+      }
+      #child {
+        width: 100px;
+        height: 100px;
+        background-color: blueviolet;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="test">
+      <div id="child">
+        <input type="button" value="Click Me" />
+      </div>
+    </div>
+  </body>
+  <script>
+    function test(e, that) {
+      console.log("e.target:", e.target);
+      console.log("e.currentTarget:", e.currentTarget);
+      console.log("that", that);
+    }
+    document.querySelector("#child input").addEventListener(
+      "click",
+      function (e) {
+        // const { eventPhase } = e;
+        console.log("button click");
+
+        // console.log("eventPhase:", eventPhase);
+        // console.log("e.eventPhase:", e.eventPhase);
+        test(e, this);
+        // console.log("e.eventPhase:", e.eventPhase);
+        // test(e);
+        // console.log(this);
+        // console.log("btn click");
+      },
+      true
+    );
+    // document.body.addEventListener(
+    //   "click",
+    //   function (e) {
+    //     console.log(e);
+    //     console.log(this);
+    //     console.log("body click");
+    //   },
+    //   true
+    // );
+    // document.getElementById("test").addEventListener("click", function (e) {
+    //   console.log(e);
+    //   console.log(this);
+    //   console.log("test click");
+    // });
+    document.getElementById("child").addEventListener("click", function (e) {
+      // console.log("e.target:", e.target);
+      console.log("button parent click");
+      test(e, this);
+    });
+    // document.body.parentNode.addEventListener("click", function (e) {
+    //   console.log(e);
+    //   console.log(this);
+    //   console.log("html click");
+    // });
+    // function clickBtn() {
+    //   console.log(this.value);
+    // }
+  </script>
+</html>

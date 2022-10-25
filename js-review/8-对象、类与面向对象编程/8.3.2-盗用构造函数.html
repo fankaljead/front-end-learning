@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.3.2 盗用构造函数</title>
+  </head>
+  <body>
+    <script>
+      // 2 盗用构造函数
+      // 盗用构造函数的主要缺点，也是使用构造函数模式自定义类型的问题：必须在构造函数中定义方法，因此函数不能重用
+      // 子类也不能访问父类原型上定义的方法，因此所有类型只能使用构造函数模式
+      function SuperType(name) {
+        this.name = name;
+        this.property = true;
+        this.colors = ["red", "blue", "green"];
+      }
+      function SubType(name) {
+        SuperType.call(this, name);
+      }
+      let p1 = new SubType("ppp1");
+      let p2 = new SubType("pp2");
+      p1.colors.push("cyan");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>3-Promise 实践练习 封装 AJAX</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h2 class="page-header">Promise 封装 AJAVX</h2>
+            <button class="btn btn-primary" id="btn">点击发送 AJAX</button>
+        </div>
+
+        <script>
+            // 接口地址 https://api.apiopen.top/getJoke
+            const btn = document.querySelector("#btn");
+
+            btn.addEventListener("click", () => {
+                // create Promise
+                const p = new Promise((resolve, reject) => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open("GET", "https://api.apiopen.top/getJoke");
+                    xhr.send();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4) {
+                            if (xhr.status >= 200 && xhr.status < 300) {
+                                resolve(xhr.response);
+                            } else {
+                                reject(xhr.status);
+                            }
+                        }
+                    };
+                });
+
+                p.then(
+                    (value) => {
+                        console.log(value);
+                    },
+                    (reason) => {
+                        console.warn(reason);
+                    }
+                );
+            });
+        </script>
+    </body>
+</html>

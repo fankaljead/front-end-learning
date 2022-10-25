@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20.6 原生拖放</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        margin: 50px;
+      }
+      #root {
+        background-color: blueviolet;
+      }
+      #second {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" draggable="true"></div>
+    <div id="second"></div>
+    <script>
+      let root = document.querySelector("#root");
+      let second = document.querySelector("#second");
+
+      // root.addEventListener("dragstart", (event) => {
+      //   console.log("dragstart");
+      // });
+      // root.addEventListener("drag", (event) => {
+      //   console.log("drag");
+      // });
+      root.addEventListener("dragend", (event) => {
+        console.log("dragend");
+        event.dataTransfer.setData("text", "hello from root");
+      });
+      // root.addEventListener("dragenter", (event) => {
+      //   event.preventDefault();
+      //   console.log("dragenter");
+      // });
+
+      second.addEventListener("dragenter", (event) => {
+        event.preventDefault();
+        console.log("second: dragenter");
+      });
+      second.addEventListener("dragover", (event) => {
+        event.preventDefault();
+        console.log("second: dragover");
+      });
+      second.addEventListener("dragleave", (event) => {
+        event.preventDefault();
+        console.log("second: dragleave");
+      });
+      second.addEventListener("drop", (event) => {
+        // event.preventDefault();
+        console.log("second: drop");
+        console.log("text from root:", event.dataTransfer.getData("text"));
+      });
+    </script>
+  </body>
+</html>

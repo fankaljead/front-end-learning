@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #droptarget {
+            width: 500px;
+            height: 500px;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <input type="file" name="files-list" id="files-list" multiple>
+    </form>
+
+    <div id="output"></div>
+    <div id="progress"></div>
+    <div id="droptarget"></div>
+
+    <video src="conference">Video player not available.</video>
+    <audio src="song.mp3">Audio player not available.</audio>
+
+    <!-- file api -->
+    <!-- <script>
+        let filesList = document.getElementById('files-list');
+        filesList.addEventListener('change', (event) => {
+            let files = event.target.files;
+            let i = 0;
+            let len = files.length;
+
+            while (i < len) {
+                const f = files[i];
+                console.log(`${f.name} (${f.type}), ${f.size} bytes`);
+                ++i;
+            }
+        });
+    </script> -->
+
+    <!-- FileReader -->
+    <!-- <script>
+        let filesList = document.getElementById('files-list');
+        filesList.addEventListener('change', (event) => {
+            let info = '',
+                output = document.getElementById('output'),
+                progress = document.getElementById('progress'),
+                files = event.target.files,
+                type = 'default',
+                reader = new FileReader(),
+            
+            if (/image/.test(files[0].type)) {
+                reader.readAsDataURL(files[0]);
+                type = 'image';
+            } else {
+                reader.readAsText(files[0]);
+                type = 'text';
+            }
+
+            reader.onerror = function() {
+                output.innerHTML = 'Could not read file, error code is ' + reader.error.code;
+            };
+
+            reader.onprogress = function(event) {
+                if (event.lengthComputable) {
+                    progress.innerHTML = `${event.loaded}/${event.total}`;
+                }
+            };
+            
+            reader.onload = function() {
+                let html = '';
+                switch(type) {
+                    case 'image':
+                        html = `<img src="${reader.result}" >`;
+                        break;
+                    case 'text':
+                        html = reader.result;
+                        break;
+                }
+                output.innerHTML = html;
+            };
+        });
+    </script> -->
+
+    <!-- 对象URL 与 Blob -->
+    <!-- <script>
+        let filesList = document.getElementById('files-list');
+        filesList.addEventListener('change', (event) => {
+            let info = '',
+                output = document.getElementById('output'),
+                progress = document.getElementById('progress'),
+                files = event.target.files,
+                reader = new FileReader();
+            
+            if (url) {
+                if (/image/.test(files[0].type)) {
+                    output.innerHTML = `<img src="${url}" >`;
+                } else {
+                    output.innerHTML = 'Not an image.';
+                }
+            } else {
+                output.innerHTML = 'Your browser does not support object URLs.'
+            }
+        })
+    </script> -->
+
+
+
+    <!-- 读取拖放文件 -->
+    <script>
+        let droptarget = document.getElementById('droptarget');
+        function handleEvent(event) {
+            let info = "";
+            let output = document.getElementById('output'),
+                files, i, len;
+            event.preventDefault();
+
+            if (event.type == 'drop') {
+                files = event.dataTransfer.files;
+                i = 0;
+                lent = files.length;
+
+                while (i < len) {
+                    info += `${files[i].name} (${files[i].type}, ${files[i].size} bytes)<br>`;
+                    i++;
+                }
+
+                output.innerHTML = info;
+            }
+        }
+
+        droptarget.addEventListener('dragenter', handleEvent);
+        droptarget.addEventListener('dragover', handleEvent);
+        droptarget.addEventListener('drop', handleEvent);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-12 10:44:50
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-04-12 11:04:18
+ * @FilePath: \精通CSS 高级Web标准解决方案\第6章 内容布局\行内块布局\1-行内块布局.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-行内块布局</title>
+    <style>
+      body {
+        margin: 0;
+        height: 500px;
+      }
+      .container {
+        width: 70%;
+        box-sizing: border-box;
+        margin: 0 auto;
+        background-color: #eee;
+        display: inline-block;
+        height: 500px;
+      }
+      .box {
+        vertical-align: middle;
+        display: inline-block;
+        margin: 0;
+        border-style: dotted;
+        box-sizing: border-box;
+      }
+      .container::before {
+        display: inline-block;
+        content: "";
+        height: 100%;
+        vertical-align: middle;
+      }
+      .left {
+        width: 300px;
+        height: 300px;
+        background-color: cyan;
+      }
+      .right {
+        width: 300px;
+        height: 200px;
+        background-color: darkcyan;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box left"></div>
+      <div class="box right"></div>
+    </div>
+  </body>
+</html>

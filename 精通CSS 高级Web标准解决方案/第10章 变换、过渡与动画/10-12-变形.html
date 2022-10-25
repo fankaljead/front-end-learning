@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-12 变形</title>
+    <style>
+        body {
+            font-family: Baskerville, Times, Times New Roman, serif;
+            font-size: 1.25em;
+            padding: 3em;
+        }
+
+        h1 {
+            font-weight: 400;
+        }
+
+        .rules {
+            counter-reset: rulecount 2;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .rules li {
+            color: #fff;
+            line-height: 1.5;
+            min-height: 1.75em;
+            counter-increment: rulecount;
+            max-width: 35em;
+            border-left: 1.5em solid #aa031c;
+            padding-left: .5em;
+            position: relative;
+            background-color: #e5212e;
+            transform: skewX(15deg);
+            padding: 1em;
+            height: 2em;
+        }
+
+        .rules li:nth-child(even) {
+            background-color: #aa031c;
+            border-color: #6b0011;
+            transform: skewX(-15deg);
+        }
+
+        .rules li:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding-right: .25em;
+            display: block;
+            color: #fd858a;
+            line-height: 1.5em;
+            padding-left: .25em;
+            content: '§ 'counter(rulecount);
+            transform: translate(-100%, -100%) rotate(-90deg);
+            transform-origin: 100% 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Fight Club rules</h1>
+    <ol class="rules" start="3">
+        <li>If someone says ”stop”, goes limp or taps out, the fight is over.</li>
+
+        <li>Only two guys to a fight.</li>
+
+        <li>One fight at a time.</li>
+
+        <li>No shirts, no shoes.</li>
+
+        <li>Fights will go on as long as they have to.</li>
+
+        <li>If this is your first night at FIGHT CLUB, you HAVE to fight.</li>
+    </ol>
+
+</body>
+
+</html>

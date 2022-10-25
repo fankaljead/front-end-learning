@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function addEdge(adj, u, v) {
+        adj[u].push(v);
+        adj[v].push(u);
+      }
+
+      function printGraph(adj, V) {
+        for (var v = 0; v < V; ++v) {
+          document.write("<br> Adjacency list of vertex " + v + "<br> head ");
+          for (var x of adj[v]) document.write("-> " + x);
+          document.write("<br>");
+        }
+      }
+
+      function findMinOperationUtil(dp, adj, A, src, parent) {
+        dp[src][0] = dp[src][1] = 0;
+
+        for (var V of adj[src]) {
+          if (V == parent) continue;
+
+          findMinOperationUtil(dp, adj, A, V, src);
+
+          dp[src][0] = Math.max(dp[src][0], dp[V][0]);
+
+          dp[src][1] = Math.max(dp[src][1], dp[V][1]);
+        }
+
+        A[src - 1] += dp[src][0] - dp[src][1];
+
+        // for negative value of node src
+        if (A[src - 1] > 0) {
+          dp[src][1] += A[src - 1];
+        } else {
+          dp[src][0] += Math.abs(A[src - 1]);
+        }
+      }
+
+      function findMinOperation(adj, A, V) {
+        var dp = Array.from(Array(V + 1), () => Array(2).fill(0));
+        findMinOperationUtil(dp, adj, A, 1, 0);
+
+        var minOperations = dp[1][0] + dp[1][1];
+        return minOperations;
+      }
+
+      function main() {
+        const V = +readline();
+        const A = new Array(V).fill(1);
+        const adj = Array.from(Array(V + 1), () => Array());
+        for (let i = 0; i < V; ++i) {
+          const [a, b] = readline().split(" ").map(Number);
+          addEdge(adj, a, b);
+        }
+        var minOperations = findMinOperation(adj, A, V);
+
+        console.log(minOperations);
+      }
+      main();
+    </script>
+  </body>
+</html>

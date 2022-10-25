@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Gradients</title>
+    <style>
+        .base {
+            width: 400px;
+            height: 200px;
+            background: #ddd;
+            margin: 2em auto;
+        }
+
+        .simple-gradient {
+            background: linear-gradient(blue, pink);
+        }
+
+        .horizontal-gradient {
+            background: linear-gradient(to right, blue, pink);
+        }
+
+        .diagonal-gradient {
+            background: linear-gradient(to bottom right, blue, pink);
+        }
+
+        .angled-gradient {
+            background: linear-gradient(70deg, blue, pink);
+        }
+
+        .auto-spaced-linear-gradient {
+            background: linear-gradient(red, yellow, blue, orange);
+        }
+
+        .multicolor-linear {
+            background: linear-gradient(to left, lime 28px, red 77%, cyan);
+        }
+
+        .striped {
+            background: linear-gradient(to bottom left, cyan 25%, palegoldenrod 75%);
+        }
+
+        .color-hint {
+            background: linear-gradient(blue, 10%, pink);
+        }
+
+        .simple-linear {
+            background: linear-gradient(blue, pink);
+        }
+
+        .multiposition-stops {
+            background: linear-gradient(to left,
+                    lime 20%, red 30%, red 45%, cyan 55%, cyan 70%, yellow 80%);
+            background: linear-gradient(to left,
+                    lime 20%, red 30% 45%, cyan 55% 70%, yellow 80%);
+        }
+
+        .multiposition-stop2 {
+            background: linear-gradient(to left,
+                    lime 25%, red 25%, red 50%, cyan 50%, cyan 75%, yellow 75%);
+            background: linear-gradient(to left,
+                    lime 25%, red 25% 50%, cyan 50% 75%, yellow 75%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="simple-gradient base"></div>
+    <div class="horizontal-gradient base"></div>
+    <div class="diagonal-gradient base"></div>
+    <div class="angled-gradient base"></div>
+    <div class="auto-spaced-linear-gradient base"></div>
+    <div class="multicolor-linear base"></div>
+    <div class="striped base"></div>
+    <div class="simple-linear base"></div>
+    <div class="color-hint base"></div>
+    <div class="multiposition-stops  base"></div>
+    <div class="multiposition-stops2  base"></div>
+</body>
+
+</html>

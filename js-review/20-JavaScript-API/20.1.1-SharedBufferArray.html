@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>20.1.1 SharedArrayBuffer</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- Place favicon.ico in the root directory -->
+  </head>
+  <body>
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+    <script>
+      const workerScript = `
+      self.message = ({ data }) => {
+        const view = new Uint32Array(data);
+
+        // 执行 1000 000 此加操作
+        for (let i = 0; i < 1e6; ++i) {
+          view[0] += 1;
+        }
+      };
+      `;
+
+      const workerScriptBlobUrl = URL.createObjectURL(new Blob([workerScript]));
+
+      // 创建容量为 4 的工作线程池
+      const workers = [];
+      for (let i = 0; i < 4; i++) {
+        workers.push(new Worker(workerScriptBlobUrl));
+      }
+
+      // 在最后一个工作线程完成后打印最终值
+      let responseCount = 0;
+      for (const worker of workers) {
+        worker.onmessage = () => {
+          if (++responseCount === workers.length) {
+            console.log(`Final buffer value: ${view[0]}`);
+          }
+        };
+      }
+
+      // 初始化 SharedArrayBuffer
+      const sharedArrayBuffer = new ArrayBuffer(4);
+      const view = new Uint32Array(sharedArrayBuffer);
+      view[0] = 1;
+
+      // 把 SharedArrayBuffer 发送到每个工作线程
+      for (const worker of workers) {
+        worker.postMessage(sharedArrayBuffer);
+      }
+    </script>
+  </body>
+</html>

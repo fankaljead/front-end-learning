@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14.3.2.1 观察属性</title>
+  </head>
+  <body>
+    <script>
+      let observer = new MutationObserver((mutationRecords) => {
+        console.log(mutationRecords);
+      });
+      observer.observe(document.body, {
+        attributes: true,
+        attributeOldValue: true,
+        attributeFilter: ["foo"],
+      });
+
+      // 添加属性
+      document.body.setAttribute("foo", "bar");
+
+      // 修改属性
+      document.body.setAttribute("foo", "baz");
+
+      // 删除属性
+      document.body.removeAttribute("foo");
+
+      // 添加被排除的属性
+      document.body.setAttribute("baz", "qux");
+    </script>
+  </body>
+</html>

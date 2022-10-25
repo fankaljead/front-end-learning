@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20.9.2 可读流</title>
+  </head>
+  <body>
+    <script>
+      async function* ints() {
+        for (let i = 0; i < 5; i++) {
+          yield await new Promise((resolve) => setTimeout(resolve, 1000, i));
+        }
+      }
+      const readableStream = new ReadableStream({
+        async start(controller) {
+          console.log(controller);
+          for await (const chunk of ints()) {
+            controller.enqueue(chunk);
+          }
+          controller.close();
+        },
+      });
+      console.log(readableStream.locked);
+      const readableStreamDefaultReader = readableStream.getReader();
+      console.log(readableStream.locked);
+
+      // 消费者
+      (async function () {
+        while (true) {
+          const { done, value } = await readableStreamDefaultReader.read();
+          if (done) {
+            break;
+          } else {
+            console.log(value);
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>

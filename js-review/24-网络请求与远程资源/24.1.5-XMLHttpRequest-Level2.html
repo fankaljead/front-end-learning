@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>24.1.5 XMLHttpRequest Level 2</title>
+  </head>
+  <body>
+    <form action="/test">
+      <label for="name">Name:</label> <input type="text" name="name" />
+      <label for="password">Password:</label
+      ><input type="password" name="password" /> <label for="tel">Tel:</label
+      ><input type="tel" name="tel" />
+    </form>
+    <script>
+      let data = new FormData(document.forms[0]);
+
+      // data.append("name", "Nicholas");
+
+      let url = "https://api.genderize.io/";
+
+      let xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        try {
+          if (xhr.readyState === 4) {
+            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+              console.log(xhr.responseText);
+            } else {
+              console.log("response was unsuccessful:", xhr.status);
+            }
+          }
+        } catch (error) {}
+      };
+      xhr.open("get", url, false);
+      xhr.timeout = 1000;
+      xhr.ontimeout = function () {
+        console.log("Request did not return in a second");
+      };
+      xhr.send(null);
+    </script>
+  </body>
+</html>

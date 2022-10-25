@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>动动球</title>
+    <style>
+      * {
+        margin: 0;
+        /* padding: 0; */
+      }
+      #bubble {
+        /* background-color: rgba(24, 15, 15, 0.9); */
+        background-image: url(./background.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0 0;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="bubble"></canvas>
+    <script>
+      let h = window.innerHeight,
+        w = window.innerWidth;
+      const canvas = document.getElementById("bubble");
+      const nBubble = [];
+      const conT = canvas.getContext("2d");
+
+      (function () {
+        canvas.width = w;
+        canvas.height = h;
+        window.onresize = function () {
+          h = window.innerHeight;
+          w = window.innerWidth;
+          canvas.width = w;
+          canvas.height = h;
+        };
+      })();
+
+      function random(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      class Bubble {
+        static colorData = [
+          "rgb(94,213,209)",
+          "rgb(255,110,151)",
+          "rgb(199,255,236)",
+          "rgb(0,255,128)",
+          "rgb(208,233,255)",
+          "rgb(101,100,200)",
+        ];
+
+        constructor(x, y) {
+          if (arguments.length === 0) {
+            this.init();
+          } else {
+            this.init(x, y);
+          }
+
+          this.draw();
+          this.vX = random(-1, 1);
+          this.vY = random(-1, 1);
+          this.color = Bubble.generateColor();
+        }
+
+        static generateColor() {
+          return this.colorData[Math.floor(random(0, this.colorData.length))];
+        }
+
+        init(x, y) {
+          if (arguments.length === 0) {
+            this.x = random(0, w);
+            this.y = random(0, h);
+          } else {
+            this.x = x;
+            this.y = y;
+          }
+          this.r = random(3, 10);
+        }
+
+        draw() {
+          conT.beginPath();
+          conT.fillStyle = this.color;
+          conT.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+          conT.fill();
+        }
+
+        move() {
+          this.x += this.vX;
+          this.y += this.vY;
+        }
+
+        conllisionDect() {
+          if (this.x - this.r < 0 || this.x + this.r > w) {
+            this.vX *= -1;
+          }
+          if (this.y - this.r < 0 || this.y + this.r > h) {
+            this.vY *= -1;
+          }
+        }
+      }
+
+      function create(num = 100) {
+        for (let i = 0; i < num; ++i) {
+          nBubble.push(new Bubble());
+        }
+      }
+
+      window.setInterval(function () {
+        conT.clearRect(0, 0, w, h);
+        for (const key of nBubble) {
+          key.move();
+          key.draw();
+          key.conllisionDect();
+        }
+      }, 1000 / 60);
+
+      canvas.addEventListener("mousemove", function (e) {
+        const x = e.pageX,
+          y = e.pageY;
+        nBubble.push(new Bubble(x, y));
+      });
+
+      create(1000);
+    </script>
+  </body>
+</html>

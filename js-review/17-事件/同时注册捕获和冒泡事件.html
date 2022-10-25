@@ -1,0 +1,65 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-04 15:41:45
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-04-04 15:48:46
+ * @FilePath: \js-review\17-事件\同时注册捕获和冒泡事件.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>同时注册捕获和冒泡事件</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: #ccc;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="node1">先注册冒泡, 再注册捕获</div>
+    <div id="node2">先注册捕获, 再注册冒泡</div>
+
+    <script>
+      const node1 = document.getElementById("node1");
+      node1.addEventListener(
+        "click",
+        (event) => {
+          console.log("node1 冒泡");
+        },
+        false
+      );
+      node1.addEventListener(
+        "click",
+        (event) => {
+          console.log("node1 捕获 ");
+        },
+        true
+      );
+
+      const node2 = document.getElementById("node2");
+      node2.addEventListener(
+        "click",
+        (event) => {
+          console.log("node2 捕获 ");
+        },
+        true
+      );
+      node2.addEventListener(
+        "click",
+        (event) => {
+          console.log("node2 冒泡");
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

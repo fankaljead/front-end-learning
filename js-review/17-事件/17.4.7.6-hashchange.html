@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>17.4.7.6 hashchange 事件</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body>
+    <ul>
+      <li>
+        <a href="#home">home</a>
+      </li>
+      <li>
+        <a href="#color">color</a>
+      </li>
+      <li>
+        <a href="#less">less</a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      window.addEventListener("hashchange", (event) => {
+        console.log(
+          `Old URL hash: ${event.oldURL.split("#")[1]}, New URL hash: ${
+            event.newURL.split("#")[1]
+          }`
+        );
+      });
+    </script>
+  </body>
+</html>

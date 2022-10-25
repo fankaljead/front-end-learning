@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>await 表达式</title>
+    </head>
+    <body>
+        <script>
+            async function main() {
+                let p = new Promise((resolve, reject) => {
+                    // resolve("OK");
+                    reject("failed");
+                });
+                try {
+                    let res = await p;
+                    console.log(res);
+                } catch (e) {
+                    console.log(e);
+                }
+
+                let res2 = await 2;
+                console.log(res2);
+            }
+
+            main();
+        </script>
+    </body>
+</html>

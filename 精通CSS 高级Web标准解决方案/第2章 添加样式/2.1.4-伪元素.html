@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>2.1.4 伪元素</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <style type="text/css" media="screen">
+      .chapter::before {
+        content: '"';
+        font-size: 15em;
+      }
+      .chapter p::first-letter {
+        float: left;
+        font-size: 3em;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+      .chapter p::first-line {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>A Study In Scalet</h1>
+    <section class="chapter">
+      <p>
+        On a dark winter night outside Elsinore Castle in Denmark, an officer
+        named Bernardo comes to relieve the watchman Francisco. In the heavy
+        darkness, the men cannot see each other. Bernardo hears a footstep near
+        him and cries, “Who’s there?” After both men ensure that the other is
+        also a watchman, they relax. Cold, tired, and apprehensive from his many
+        hours of guarding the castle, Francisco thanks Bernardo and prepares to
+        go home and go to bed.
+      </p>
+    </section>
+  </body>
+</html>

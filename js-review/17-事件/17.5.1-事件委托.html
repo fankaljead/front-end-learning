@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>17.5.1 事件委托</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body>
+    <ul id="myLinks">
+      <li id="goSomewhere">Go somewhere</li>
+      <li id="doSomething">Do something</li>
+      <li id="sayHi">Say hi</li>
+    </ul>
+    <script type="text/javascript">
+      let item1 = document.getElementById("goSomewhere");
+      let item2 = document.getElementById("doSomething");
+      let item3 = document.getElementById("sayHi");
+      item1.addEventListener("click", (event) => {
+        location.href = "http:// www.wrox.com";
+      });
+      item2.addEventListener("click", (event) => {
+        document.title = "I changed the document's title";
+      });
+      item3.addEventListener("click", (event) => {
+        console.log("hi");
+      });
+
+      // 使用事件委托
+      let list = document.getElementById("myLinks");
+      list.addEventListener("click", (event) => {
+        let target = event.target;
+        switch (target.id) {
+          case "doSomething":
+            document.title = "I changed the document's title";
+            break;
+
+          case "goSomewhere":
+            location.href = "http://zhouxianghui.xyz";
+            break;
+
+          case "sayHi":
+            console.log("hi");
+            break;
+        }
+      });
+    </script>
+  </body>
+</html>

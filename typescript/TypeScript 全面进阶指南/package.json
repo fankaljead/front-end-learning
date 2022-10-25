@@ -1,0 +1,8 @@
+{
+	"dependencies": {
+		"@types/node": "^18.8.5",
+		"http": "0.0.1-security",
+		"reflect-metadata": "^0.1.13",
+		"tsd": "^0.24.1"
+	}
+}

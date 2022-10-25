@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="100px" height="100px" viewBox="0 0 100 100">
+  <clipPath id="saturnclip">
+    <circle cx="50" cy="50" r="40.1"/>
+    <ellipse transform="matrix(0.7084 -0.7058 0.7058 0.7084 -20.7106 49.8733)" cx="50" cy="50" rx="62.9" ry="12.8"/>
+  </clipPath>
+
+  <clipPath id="saturnclip-flex" clipPathUnits="objectBoundingBox" clipPathContentUnits="objectBoundingBox">
+      <circle fill="#fff" cx="0.5" cy="0.5" r="0.45"/>
+      <ellipse transform="matrix(-0.7553 0.6554 -0.6554 -0.7553 1.2053 0.5499)" fill="#fff" cx="0.5" cy="0.5" rx="0.639" ry="0.125"/>
+  </clipPath>
+
+</svg>
+

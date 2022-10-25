@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>为什么要用 setTimeout 模拟 setInterval</title>
+  </head>
+  <body>
+    <script>
+      let startTime = new Date().getTime();
+
+      let count = 0;
+      setInterval(function () {
+        let i = 0;
+        while (i++ < 1000000000);
+      }, 0);
+      setInterval(function () {
+        count++;
+        console.log(
+          "与原设定的间隔时差了: ",
+          new Date().getTime() - (startTime + count * 1000),
+          "毫秒"
+        );
+      }, 1000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-13 按钮过渡</title>
+
+    <style>
+        button {
+            border: 0;
+            padding: .5em 1em;
+            color: #fff;
+            border-radius: .25em;
+            background-color: #173b6d;
+            box-shadow: 0 .25em 0 rgba(23, 59, 109, 0.3), inset 0 1px 0 rgba(0, 0, 0, 0.3);
+            transition: all 150ms;
+        }
+
+        button:active {
+            box-shadow: 0 0 0 rgba(23, 59, 109, 0.3), inset 0 1px 1 rgba(0, 0, 0, 0.3);
+            transform: translateY(.25em);
+        }
+
+        button {
+            transition-property: all;
+            transition-duration: .15s;
+        }
+
+        button {
+            transition: box-shadow .15s, transform .15s;
+        }
+
+        button {
+            transition-property: transform, box-shadow;
+            transition-duration: .15s;
+        }
+
+        button {
+            transition: all .25 ease-in;
+            /* 或者是  */
+            transition-timing-function: ease-in;
+        }
+    </style>
+
+</head>
+
+<body>
+    <button>Press me!</button>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-21 17:00:51
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-04-21 17:19:49
+ * @FilePath: \js-review\js深入\跨域.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>跨域问题</title>
+  </head>
+  <body>
+    <div id="container"></div>
+    <button id="btn">发送请求</button>
+    <button id="btn2">发送请求2</button>
+    <script>
+      (function () {
+        let btn = document.getElementById("btn");
+        let container = document.getElementById("container");
+        btn.addEventListener("click", function () {
+          console.log(fetchRequest());
+        });
+        let btn2 = document.getElementById("btn2");
+        btn2.addEventListener("click", function () {
+          console.log(fetchRequest2());
+        });
+
+        async function fetchRequest() {
+          let response = await fetch("http://10.16.107.2:18081/user/login/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              username: "admin",
+              password: "123456",
+            }),
+          });
+          let data = await response.text();
+          return data;
+        }
+        async function fetchRequest2() {
+          let response = await fetch("http://10.16.107.2:18081/text/getTaskById/6/32/", {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          let data = await response.text();
+          return data;
+        }
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="drawing" width="200" height="200">A drawing of something.</canvas>
+
+    <script>
+        let drawing = document.getElementById('drawing');
+
+        if (drawing.getContext) {
+            let context = drawing.getContext('2d');
+
+            // 绘制阴影
+            context.shadowOffsetX = 5;
+            context.shadowOffsetY = 5;
+            context.shadowBlur = 4;
+            context.shadowColor = 'rgba(11,22,33,0.5)';
+            
+            let gradient = context.createLinearGradient(30, 30, 70, 70);
+            gradient.addColorStop(0, 'white');
+            gradient.addColorStop(1, 'black');
+
+            context.fillStyle = '#ff0000';
+            context.fillRect(10, 10, 50, 50);
+
+            // 修改全局透明度
+            context.globalAlpha = 0.5;
+            
+            context.fillStyle = gradient;
+            context.fillRect(30, 30, 50, 50);
+            
+            // 重置
+            context.globalAlpha = 0;
+
+
+            // 图案
+            // let image = document.images[0];
+            // let pattern = context.createPattern(image, 'repeat');
+            // context.fillStyle = pattern;
+            // context.fillRect(10, 10, 150, 150);
+
+            // 图像数据
+            // let imageData = context.getImageData(10, 5, 50, 50);
+
+            // // 绘制路径
+            // context.beginPath()
+
+            // // 绘制外圆
+            // context.arc(100, 100, 99, 0, 2*Math.PI, false);
+
+            // // 绘制内圆
+            // context.moveTo(194, 100);
+            // context.arc(100, 100, 94, 0, 2*Math.PI, false);
+
+            // // 移动原点到表盘中心
+            // context.translate(100, 100);
+
+            // // 旋转表针
+            // context.rotate(1);
+
+            // // 绘制分针
+            // context.moveTo(0, 0);
+            // context.lineTo(0, -85);
+
+            // // 绘制时针
+            // context.moveTo(0, 0);
+            // context.lineTo(-65, 0);
+
+
+
+            // // // 绘制文字
+            // // context.font = 'bold 14px Arial';
+            // // context.textAlign = 'center';
+            // // context.textBaseLine = 'middle';
+            // // context.fillText("12", 100, 20);
+
+            // // 描画路径
+            context.stroke();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-26-可翻转组件</title>
+    <script src="js/modernizr.js"></script>
+    <script>
+        Modernizr.addTest('svgbg', document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image',
+            '1.1'));
+    </script>
+    <link rel="stylesheet" href="css/menu.css">
+    <style>
+        .csstransforms3d body {
+            perspective: 1000px;
+        }
+
+        .csstransforms3d .flipwrapper {
+            position: relative;
+            transition: transform .25s ease-in-out;
+        }
+
+        .csstransforms3d .flip-b {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0;
+            transform: rotateY(-180deg);
+        }
+
+        .csstransforms3d .flip-b,
+        .csstransforms3d .flip-a {
+            backface-visibility: hidden;
+        }
+
+        .csstransforms3d .flipwrapper {
+            position: relative;
+            transition: all .25s ease-in-out;
+            transform-style: preserve-3d;
+        }
+
+        .csstransforms3d .flipwrapper.is-flipped {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flip-wrapper menu-wrapper">
+        <div class="flip-a menu">
+            <h1 class="menu-heading">Top menu choices</h1>
+            <ol class="menu-list">
+                <li>Capricciosa</li>
+                <li>Margherita</li>
+                <li>Vesuvio</li>
+                <li>Calzone</li>
+                <li>Quattro Stagioni</li>
+                <li>Pescatore</li>
+                <li>Bolognese</li>
+                <li>Shawarma</li>
+                <li>Mexicana</li>
+                <li>Fungi</li>
+            </ol>
+        </div>
+
+        <div class="flip-b menu-settings">
+            <form action="">
+                <h2>Show only these pizzas:</h2>
+                <ul class="checkboxes">
+                    <li>
+                        <input type="checkbox" checked name="meat" id="checkbox-meat">
+                        <label for="checkbox-meat">Pizzas with meat</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" checked name="fish" id="checkbox-fish">
+                        <label for="checkbox-fish">Pizzas with fish or seafood</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" checked name="veg" id="checkbox-veg">
+                        <label for="checkbox-veg">Vegetarian pizzas</label>
+                    </li>
+                </ul>
+                <button type="submit" class="menu-save">Show me pizzas!</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/flipwidget.js"></script>
+    <script>
+        window.FlipWidget();
+    </script>
+</body>
+
+</html>

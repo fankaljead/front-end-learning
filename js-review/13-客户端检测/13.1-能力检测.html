@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13.1 能力检测</title>
+  </head>
+  <body>
+    <script>
+      function getElement(id) {
+        if (document.getElementById) {
+          return document.getElementById(id);
+        } else if (document.all) {
+          return document.all[id];
+        } else {
+          throw new Error("no way to retrieve element!");
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>17.4.7.2 beforeunload</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body>
+    <script type="text/javascript">
+      window.addEventListener("beforeunload", (event) => {
+        let message = "I'm really going to miss you if you go.";
+        event.returnValue = message;
+        return message;
+      });
+    </script>
+  </body>
+</html>

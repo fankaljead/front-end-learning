@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>async 与 await 结合发送 AJAX</title>
+    </head>
+    <body>
+        <button id="btn">Click Me!</button>
+        <script>
+            function sendAJAX(url) {
+                return new Promise((resolve, reject) => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open("GET", url);
+                    xhr.responseType = "json";
+                    xhr.send();
+                    xhr.onreadystatechange = () => {
+                        if (xhr.readyState === 4) {
+                            if (xhr.status >= 200 && xhr.status < 300) {
+                                resolve(xhr.response);
+                            } else {
+                                reject(xhr.status);
+                            }
+                        }
+                    };
+                });
+            }
+
+            let url = "https://api.apiopen.top/getJoke";
+            let btn = document.querySelector("#btn");
+            btn.addEventListener("click", async function () {
+                let jokes = await sendAJAX(url);
+                console.log(jokes);
+            });
+
+            // https://www.bilibili.com/video/BV1GA411x7z1?p=46&spm_id_from=pageDriver
+        </script>
+    </body>
+</html>

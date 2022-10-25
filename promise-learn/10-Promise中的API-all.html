@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>10-Promise 中的 API ALL</title>
+    </head>
+    <body>
+        <script>
+            let p1 = new Promise((resolve, reject) => {
+                resolve("OK");
+            });
+            let p2 = Promise.resolve("Success");
+            let p3 = Promise.resolve("OH MY GOD");
+
+            let p4 = Promise.reject("some error");
+            let p5 = Promise.reject("you failed this city");
+
+            const result = Promise.all([p1, p2, p3, p5, p4]);
+            console.log(result);
+            result.then((v) => {
+                console.table(v);
+            });
+            result.catch((reason) => {
+                console.log(reason);
+            });
+        </script>
+    </body>
+</html>

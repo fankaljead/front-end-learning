@@ -1,0 +1,125 @@
+{
+  "main": {
+    "id": "a006348701a315c1",
+    "type": "split",
+    "children": [
+      {
+        "id": "e5d921b780eaa625",
+        "type": "leaf",
+        "dimension": 85.81818181818181,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "test.md",
+            "mode": "source",
+            "source": false
+          }
+        },
+        "group": "56124dafb56a07b5"
+      },
+      {
+        "id": "7e74d797493f0403",
+        "type": "leaf",
+        "dimension": 14.181818181818182,
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "test.md"
+          }
+        },
+        "group": "56124dafb56a07b5"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "68d5d964924b54b2",
+    "type": "split",
+    "children": [
+      {
+        "id": "9884c12c01c6daf2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e1dd5e304a7dfd7c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "a02e77d417b832ce",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ccc4a0f3be415ecb",
+    "type": "split",
+    "children": [
+      {
+        "id": "d5367b24693bb89c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "68f046ef1c1b240b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "test.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "1a77e5aa4eb8d782",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "test.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "7e74d797493f0403",
+  "lastOpenFiles": [
+    "test.md",
+    "第7章 页面布局与网络.md",
+    "第10章 变换、过渡与动画.md",
+    "第1章 基础知识 1.md",
+    "第1章 基础知识.md",
+    "第11章 高级特效.md",
+    "第6章 内容布局.md",
+    "第2章 添加样式.md"
+  ]
+}

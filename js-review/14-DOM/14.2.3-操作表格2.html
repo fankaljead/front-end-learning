@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14.2.3 操作表格2</title>
+  </head>
+  <body>
+    <table border="1" width="100%">
+      <tbody>
+        <tr>
+          <td>Cell 1,1</td>
+          <td>Cell 2,1</td>
+        </tr>
+        <tr>
+          <td>Cell 1,2</td>
+          <td>Cell 2,2</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      let table = document.createElement("table");
+      table.border = 1;
+      table.width = "100%";
+
+      let tbody = document.createElement("tbody");
+      table.appendChild(tbody);
+
+      tbody.insertRow(0);
+      tbody.rows[0].insertCell(0);
+      tbody.rows[0].cells[0].appendChild(document.createTextNode("Cell 1,1"));
+      tbody.rows[0].insertCell(1);
+      tbody.rows[0].cells[1].appendChild(document.createTextNode("Cell 2,1"));
+
+      tbody.insertRow(1);
+      tbody.rows[1].insertCell(0);
+      tbody.rows[1].cells[0].appendChild(document.createTextNode("Cell 1,2"));
+      tbody.rows[1].insertCell(1);
+      tbody.rows[1].cells[1].appendChild(document.createTextNode("Cell 2,2"));
+
+      document.body.appendChild(table);
+    </script>
+
+    <!-- <script type="module">
+      import { name } from "./test.js";
+      console.log(name);
+    </script>
+
+    <script>
+      let a = import("./test.js");
+      let b = a.then((r) => {
+        console.log(r);
+        console.log(r.name);
+      });
+      import("./main.js");
+    </script> -->
+  </body>
+</html>

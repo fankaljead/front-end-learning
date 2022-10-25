@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20.11.2 影子 DOM</title>
+  </head>
+  <body>
+    <div class="red-text">
+      <p>Make me red!</p>
+    </div>
+    <div class="green-text">
+      <p>Make me green!</p>
+    </div>
+    <div class="blue-text">
+      <p>Make me blue!</p>
+    </div>
+    <style>
+      .red-text {
+        color: red;
+      }
+      .green-text {
+        color: green;
+      }
+      .blue-text {
+        color: blue;
+      }
+    </style>
+    <script>
+      document.body.innerHTML = `
+      <div id="foo"></div>
+      <div id="bar"></div>
+      `;
+      const foo = document.querySelector("#foo");
+      const bar = document.querySelector("#bar");
+      const openShadowDOM = foo.attachShadow({ mode: "open" });
+      const closedShadowDOM = bar.attachShadow({ mode: "closed" });
+      console.log(openShadowDOM); // #shadow-root (open)
+      console.log(closedShadowDOM); // #shadow-root (closed)
+      console.log(foo.shadowRoot); // #shadow-root (open)
+      console.log(bar.shadowRoot); // null
+
+      for (let color of ["red", "green", "blue"]) {
+        const div = document.createElement("div");
+        const shadowDOM = div.attachShadow({ mode: "open" });
+        document.body.appendChild(div);
+        shadowDOM.innerHTML = `
+        <p>Make me ${color}</p>
+        <style>
+        p {
+        color: ${color};
+        }
+        </style>
+        `;
+      }
+    </script>
+  </body>
+</html>

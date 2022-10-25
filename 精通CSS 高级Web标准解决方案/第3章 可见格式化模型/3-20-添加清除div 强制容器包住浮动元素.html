@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>添加清除div 强制容器包住浮动元素</title>
+    <style type="text/css" media="screen">
+      .media-block {
+        background-color: grey;
+        border: 1px solid black;
+      }
+
+      .media-block::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+
+      .media-fig {
+        float: left;
+        width: 30%;
+      }
+
+      .media-body {
+        float: right;
+        width: 65%;
+      }
+      .media-block .media-body p {
+        font-variant: small-caps;
+        letter-spacing: 0.1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="media-block">
+      <img src="img/pic.png" class="media-fig" alt="The pic" />
+      <div class="media-body">
+        <h3>Title of this</h3>
+        <p>Brief description of this</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+/* 开始时先写基本样式和小屏幕的样式 */
+.myThing {
+    font-size: 1em;
+}
+
+/* 然后在 min-width 媒体查询中调整 */
+@media only screen and (min-width: 23.75em) {
+    .myThing {
+        width: 50%;
+        float: left;
+    }
+}
+
+/* 进一步调整 */
+@media only screen and (min-width:38.75em) {
+    .myThing {
+        width: 33.333%;
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>2.1.5 伪类</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <style type="text/css" media="screen">
+      a:link {
+        color: blue;
+        font-size: 10px;
+      }
+      a:visited {
+        color: green;
+        font-size: 20px;
+      }
+      a:hover,
+      a:focus {
+        color: red;
+        font-size: 30px;
+      }
+      a:active {
+        color: purple;
+        font-size: 40px;
+      }
+      .comment:target {
+        background-color: #fffec4;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <a href="#home">Home</a>
+      </li>
+      <li>
+        <a href="#tab">Tab</a>
+      </li>
+      <li>
+        <a href="#about">About</a>
+      </li>
+      <li>
+        <a href="#comment-2">Comment-2</a>
+      </li>
+    </ul>
+    <article class="comment" id="comment-2">there are some comments</article>
+  </body>
+</html>

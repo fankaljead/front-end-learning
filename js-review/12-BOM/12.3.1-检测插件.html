@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12.3.1 检测插件</title>
+  </head>
+  <body>
+    <script>
+      let hasPlugin = function (name = "") {
+        name = name.toLocaleLowerCase();
+        for (const plugin of window.navigator.plugins) {
+          if (plugin.name.toLocaleLowerCase().indexOf(name) > -1) {
+            return true;
+          }
+        }
+        return false;
+      };
+      console.log(hasPlugin("Flash"));
+      console.log(hasPlugin("QuickTime"));
+
+      function hasIEPlugin(name) {
+        try {
+          new ActiveXObject(name);
+          return true;
+        } catch (e) {
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>

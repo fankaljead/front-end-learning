@@ -1,0 +1,49 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-04 14:32:33
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-04-04 14:36:10
+ * @FilePath: \面试常见知识点\css\1-CSS基础.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-CSS基础</title>
+    <style>
+      span {
+        border-radius: 10px;
+        padding: 0 10px;
+        background-color: #ff0;
+      }
+      span.clone {
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>box-decoration-break</h1>
+      <div>
+        <span
+          >测试CSS属性, box-decoration-break:slice 测试CSS属性,
+          box-decoration-break:slice 测试CSS属性,
+          box-decoration-break:slice</span
+        >
+      </div>
+      <div>
+        <span class="clone"
+          >测试CSS属性, box-decoration-break:clone 测试CSS属性,
+          box-decoration-break:clone 测试CSS属性,
+          box-decoration-break:clone</span
+        >
+      </div>
+    </div>
+  </body>
+</html>

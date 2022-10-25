@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>16.2.2.4 确定元素尺寸</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <style type="text/css" media="screen">
+      div {
+        width: 400px;
+        height: 200px;
+        padding: 20px;
+        margin: 50px auto;
+        background: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <script type="text/javascript">
+      let elem = document.querySelector("div");
+      let rect = elem.getBoundingClientRect();
+      for (let key in rect) {
+        if (typeof rect[key] !== "function") {
+          let para = document.createElement("p");
+          para.textContent = `${key} : ${rect[key]}`;
+          document.body.appendChild(para);
+        }
+      }
+    </script>
+  </body>
+</html>

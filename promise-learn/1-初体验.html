@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>1-Promise 初体验</title>
+    </head>
+    <body>
+        <button id="btn">点击抽奖</button>
+        <script>
+            let rand = (min, max) => {
+                return Math.floor(Math.random() * (max - min + 1) + min);
+            };
+
+            let btn = document.querySelector("#btn");
+
+            btn.addEventListener("click", () => {
+                const p = new Promise((resolove, reject) => {
+                    setTimeout(() => {
+                        let n = rand(1, 100);
+                        if (n <= 30) {
+                            resolove(n);
+                        } else {
+                            reject();
+                        }
+                    }, 1000);
+                });
+
+                p.then(
+                    (n) => {
+                        alert(`您抽中了 ${n} 万元`);
+                    },
+                    () => {
+                        alert("再接再厉");
+                    }
+                );
+            });
+        </script>
+    </body>
+</html>

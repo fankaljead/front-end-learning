@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test</title>
+    <style>
+      .wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: 200px 20% 1fr 200px;
+        grid-template-columns: repeat(4, minmax(5em, 20em));
+        grid-template-rows: 100px 100px;
+        grid-row-gap: 0.5em;
+        grid-column-gap: 0.5em;
+      }
+
+      .wrapper div {
+        background-color: #ccc;
+        border: 2px solid #a11;
+        justify-self: stretch;
+      }
+
+      .grid-a {
+        display: grid;
+        grid-template-rows: 20em 20em 20em;
+        grid-template-columns: repeat(5, 1fr);
+        margin: 0 -0.6875em;
+        margin-top: 200px;
+      }
+
+      .grid-a div {
+        background-color: yellowgreen;
+        border: 2px solid blue;
+      }
+
+      .grid-a div:first-child {
+        grid-row-start: 1;
+        grid-row-end: 4;
+        grid-column-start: 1;
+        /* grid-column-end: 2; */
+      }
+
+      .grid div:nth-child(4) {
+        grid-row: 1/-1;
+        grid-column: 4;
+      }
+
+      .justify {
+        display: grid;
+        width: 1000px;
+        grid-template-rows: 100px 100px;
+        grid-template-columns: repeat(4, 200px);
+        margin-top: 200px;
+        justify-content: space-evenly;
+        border: 3px solid red;
+      }
+
+      .justify div {
+        background-color: wheat;
+        border: 2px solid #111;
+      }
+
+      .space {
+        display: grid;
+        width: 1000px;
+        grid-template-rows: 100px 100px;
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: 200px;
+        justify-content: center;
+        border: 3px solid red;
+        grid-column-gap: 2em;
+        grid-row-gap: 1em;
+      }
+
+      .space div {
+        background-color: wheat;
+        border: 2px solid #111;
+      }
+
+      .test {
+        margin: 0em;
+        background-color: wheat;
+        border: 5px solid #111;
+        box-sizing: content-box;
+        width: 200px;
+        height: 200px;
+        padding: 20px 100px;
+      }
+
+      .my-row-grid {
+        grid-auto-flow: row;
+      }
+
+      .my-columnar-grid {
+        grid-auto-flow: column;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div>hello number 1</div>
+      <div>hello number 2</div>
+      <div>hello number 3</div>
+      <div>hello number 4</div>
+      <div>hello number 5</div>
+      <div>hello number 6</div>
+      <div>hello number 7</div>
+      <div>hello number 8</div>
+    </div>
+
+    <div class="grid-a">
+      <div class="story"></div>
+      <div class="story"></div>
+      <div class="story"></div>
+      <div class="story"></div>
+      <div class="story"></div>
+      <div class="story"></div>
+      <div class="story"></div>
+      <div class="story"></div>
+      <div class="story"></div>
+      <!-- <div class="story"></div>
+        <div class="story"></div>
+        <div class="story"></div> -->
+      <!-- <div class="story"></div>
+        <div class="story"></div>
+        <div class="story"></div> -->
+    </div>
+
+    <div class="justify">
+      <div>this is 1</div>
+      <div>this is 2</div>
+      <div>this is 3</div>
+      <div>this is 4</div>
+      <div>this is 5</div>
+      <div>this is 6</div>
+      <div>this is 7</div>
+      <div>this is 8</div>
+    </div>
+
+    <div class="space">
+      <div>this is 1</div>
+      <div>this is 2</div>
+      <div>this is 3</div>
+      <div>this is 4</div>
+      <div>this is 5</div>
+      <div>this is 6</div>
+      <div>this is 7</div>
+      <div>this is 8</div>
+    </div>
+
+    <div class="test"></div>
+    <div class="test"></div>
+
+    <div class="space my-row-grid">
+      <div>this is 1</div>
+      <div>this is 2</div>
+      <div>this is 3</div>
+      <div>this is 4</div>
+      <div>this is 5</div>
+      <div>this is 6</div>
+      <div>this is 7</div>
+      <div>this is 8</div>
+    </div>
+
+    <div class="space my-columnar-grid">
+      <div>this is 1</div>
+      <div>this is 2</div>
+      <div>this is 3</div>
+      <div>this is 4</div>
+      <div>this is 5</div>
+      <div>this is 6</div>
+      <div>this is 7</div>
+      <div>this is 8</div>
+    </div>
+  </body>
+</html>

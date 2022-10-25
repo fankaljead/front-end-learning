@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .parent {
+            background-color: burlywood;
+            width: 500px;
+            display: flex;
+        }
+
+        .base {
+            box-sizing: border-box;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #aaa;
+            margin: 0 .5em;
+            background-color: red;
+            transition: all .21s ease-out;
+            box-shadow: 1em 1em 1em #d323ff,inset .3em .3em .3em yellow;
+        }
+
+        .base:hover {
+            /* position: relative;
+            left: 50px;
+            top: 50px; */
+            transform: translate(50px, 50px);
+            transition: all .5s ease-in;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class='parent'>
+        <div class="base"></div>
+        <div class="base"></div>
+        <div class="base"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="no-js" lang="us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>16.3.2 TreeWalker</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body>
+    <div id="div1">
+      <p><b>Hello</b> world!</p>
+      <ul>
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+      let div = document.getElementById("div1");
+
+      // 只遍历 li 元素过滤器
+      let filter = function (node) {
+        return node.tagName.toLowerCase() === "li"
+          ? NodeFilter.FILTER_ACCEPT
+          : NodeFilter.FILTER_SKIP;
+      };
+
+      console.log("只遍历 li 元素");
+      let walker = document.createTreeWalker(
+        div,
+        NodeFilter.SHOW_ELEMENT,
+        filter,
+        false
+      );
+
+      let node = walker.nextNode();
+      while (node !== null) {
+        console.log(node.tagName);
+        node = walker.nextNode();
+      }
+    </script>
+  </body>
+</html>

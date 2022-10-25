@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格样式 测试</title>
+    <style>
+        table {
+            font-size: 125%;
+        }
+
+
+
+        thead tr th:nth-child(2),
+        thead tr th:nth-child(3),
+        table tbody tr td:nth-child(2),
+        table tbody tr td:nth-child(3) {
+            text-align: right;
+        }
+
+        thead tr th:nth-child(1),
+        thead tr th:nth-child(4),
+        table tbody tr td:nth-child(1),
+        table tbody tr td:nth-child(4) {
+            text-align: left;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #eeeeee;
+        }
+
+        caption {
+            border-top: 4px solod red;
+        }
+
+        tfoot {
+            border-bottom: 3px solid #eeeeee;
+        }
+
+        table {
+            table-layout: fixed;
+            width: 100%;
+            border-collapse: collapse;
+            /* border: 3px solid purple; */
+        }
+
+        caption {
+            caption-side: bottom;
+            /* text-align: right; */
+        }
+
+        .col2,
+        .col4 {
+            border: 4px solid rgba(189, 7, 7, 0.5);
+        }
+    </style>
+
+</head>
+
+<body>
+    <table>
+        <caption>A summary of the UK's most famous punk bands</caption>
+        <colgroup>
+            <col class="col1">
+            <col class="col2">
+            <col class="col3">
+            <col class="col4">
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">Band</th>
+                <th scope="col">Year formed</th>
+                <th scope="col">No. of Albums</th>
+                <th scope="col">Most famous song</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Buzzcocks</th>
+                <td>1976</td>
+                <td>9</td>
+                <td>Ever fallen in love (with someone you shouldn't've)</td>
+            </tr>
+            <tr>
+                <th scope="row">The Clash</th>
+                <td>1976</td>
+                <td>6</td>
+                <td>London Calling</td>
+            </tr>
+            <tr>
+                <th scope="row">The Damned</th>
+                <td>1976</td>
+                <td>10</td>
+                <td>Smash it up</td>
+            </tr>
+            <tr>
+                <th scope="row">Sex Pistols</th>
+                <td>1975</td>
+                <td>1</td>
+                <td>Anarchy in the UK</td>
+            </tr>
+            <tr>
+                <th scope="row">Sham 69</th>
+                <td>1976</td>
+                <td>13</td>
+                <td>If the kids are united</td>
+            </tr>
+            <tr>
+                <th scope="row">Siouxsie and the Banshees</th>
+                <td>1976</td>
+                <td>11</td>
+                <td>Hong Kong Garden</td>
+            </tr>
+            <tr>
+                <th scope="row">Stiff Little Fingers</th>
+                <td>1977</td>
+                <td>10</td>
+                <td>Suspect Device</td>
+            </tr>
+            <tr>
+                <th scope="row">The Stranglers</th>
+                <td>1974</td>
+                <td>17</td>
+                <td>No More Heroes</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th scope="row" colspan="2">Total albums</th>
+                <td colspan="2">77</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+
+</html>

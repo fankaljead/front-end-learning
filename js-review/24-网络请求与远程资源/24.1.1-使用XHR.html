@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>24.1.1 使用 XMLHttpRequest</title>
+  </head>
+  <body>
+    <script>
+      let xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+            console.log(xhr.responseText);
+          } else {
+            console.log("response was unsuccessful:", xhr.status);
+          }
+        }
+      };
+      xhr.open("get", "https://api.publicapis.org/entries", false);
+      xhr.send(null);
+    </script>
+  </body>
+</html>

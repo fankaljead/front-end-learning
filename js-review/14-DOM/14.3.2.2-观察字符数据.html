@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14.3.2.2 观察字符数据</title>
+  </head>
+  <body>
+    <script>
+      let text = document.createTextNode("0");
+
+      let observer = new MutationObserver((mutationRecords) => {
+        console.log(mutationRecords);
+      });
+
+      let btn = document.createElement("button");
+      let i = 1;
+      btn.textContent = "+1";
+      btn.addEventListener("click", (e) => {
+        document.body.firstChild.textContent = i++;
+      });
+
+      document.body.appendChild(btn);
+
+      // 创建被观察的文本节点
+      document.body.firstChild.textContent = "foo";
+
+      observer.observe(document.body.firstChild, {
+        characterData: true,
+        characterDataOldValue: true,
+      });
+
+      // 赋值为相同的字符串
+      document.body.firstChild.textContent = "foo";
+
+      // 赋值为新字符串
+      document.body.firstChild.textContent = "bar";
+
+      // 通过节点设置函数赋值
+      document.body.firstChild.textContent = "baz";
+    </script>
+  </body>
+</html>

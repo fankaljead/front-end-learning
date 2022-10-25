@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>红黄绿灯 demo</title>
+        <style>
+            li {
+                width: 100px;
+                height: 100px;
+                background-color: #666;
+                margin: 20px auto;
+                list-style: none;
+                border-radius: 50%;
+            }
+            ul.stop li:nth-child(1) {
+                background-color: red;
+            }
+            ul.warn li:nth-child(2) {
+                background-color: yellow;
+            }
+            ul.pass li:nth-child(3) {
+                background-color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <script>
+            const ul = document.querySelector("ul");
+            let p = function () {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => resolve(), 1000);
+                });
+            };
+            let light = function () {
+                p()
+                    .then(() => {
+                        ul.className = "stop";
+                        return p();
+                    })
+                    .then(() => {
+                        ul.className = "warn";
+                        return p();
+                    })
+                    .then(() => {
+                        ul.className = "pass";
+                        return p();
+                    });
+                p().catch();
+            };
+
+            setInterval(() => light(), 3000);
+        </script>
+    </body>
+</html>

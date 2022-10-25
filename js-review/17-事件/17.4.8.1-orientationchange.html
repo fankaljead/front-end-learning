@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>17.4.8.1 orientationchange 事件</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <style type="text/css" media="screen">
+      #myDiv {
+        height: 200px;
+        width: 100px;
+        background-color: bisque;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="myDiv"></div>
+    <div id="output"></div>
+    <script type="text/javascript">
+      window.addEventListener("load", (event) => {
+        let div = document.getElementById("myDiv");
+        div.innerHTML += "Current orientation is " + window.orientation;
+      });
+      window.addEventListener("orientationchange", (event) => {
+        let div = document.getElementById("myDiv");
+        div.innerHTML += "Current orientation is " + window.orientation;
+      });
+
+      window.addEventListener("deviceorientation", (event) => {
+        let output = document.getElementById("output");
+        output.innerHTML = `Alpha=${event.alpha}, Beta=${event.beta}, Gamma=${event.gamma}`;
+
+        let arrow = document.getElementById("arrow");
+        arrow.style.webkitTransform = `rotate(${Math.round(event.alpha)}deg)`;
+      });
+
+      window.addEventListener("devicemotion", (event) => {
+        let output = document.getElementById("output");
+        if (event.rotationRate !== null) {
+          output.innerHTML +=
+            `Alpha=${event.rotationRate.alpha},` +
+            `Beta=${event.rotationRate.beta},` +
+            `Gamma=${event.rotationRate.gamma}`;
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>线性渐变</title>
+    <style>
+        .profile-box {
+            width: 200px;
+            height: 200px;
+            margin: 40px;
+            /* border-radius: 100px; */
+            /* background-image: linear-gradient(to left, #cfdfee, #4164aa); */
+            background-image: radial-gradient(ellipse at 20% 30%, #cfdfee, #2c56a1, #cfdfee, #2c56a1,#cfdfee, #2c56a1, #cfdfee, #2c56a1);
+        }
+        .repeating-linear-gradient{
+            margin: 40px;
+            width: 200px;
+            height: 200px;
+            background-image: repeating-linear-gradient(#cfdfee, #2c56a1 10px);
+        }
+        .repeating-radial-gradient{
+            margin: 40px;
+            width: 200px;
+            height: 200px;
+            background-image: repeating-radial-gradient(#cfdfee, #2c56a1 10px);
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-box"></div>
+    <div class="repeating-linear-gradient"></div>
+    <div class="repeating-radial-gradient"></div>
+</body>
+</html>

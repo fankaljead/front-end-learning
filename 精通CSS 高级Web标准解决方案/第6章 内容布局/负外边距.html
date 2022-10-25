@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>负外边距</title>
+    <style>
+        body {
+            padding: 2em 8em;
+            max-width: 35em;
+            margin: 0 auto;
+        }
+
+        .left-up div {
+            width: 200px;
+            height: 200px;
+        }
+
+        .left-up :nth-child(1) {
+            background-color: aliceblue;
+        }
+
+        .left-up :nth-last-child(1) {
+            background-color: yellowgreen;
+            position: absolute;
+            margin-bottom: -4em;
+            margin-left: -5em;
+        }
+
+        .left-up :nth-last-child(1)::after {
+            position: absolute;
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border: .5em solid #dcf0ff;
+            border-bottom-color: transparent;
+            border-right-color: transparent;
+            position: absolute;
+            right: -1em;
+            top: .5em;
+        }
+
+        .photo-header {
+            position: relative;
+        }
+        .photo-header-plate{
+            position: relative;
+            right: 4em;
+            bottom: 30em;
+            width: 100%;
+            left: 4em;
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="photo-header">
+        <img src="../img/spider-man.jpeg" alt="spider-man">
+        <div class="photo-header-plate">
+            <h1>This Spider Man This Spider Man This Spider Man This Spider Man This Spider Man</h1>
+            <p>Photo from <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fstore.playstation.com%2Fen-hk%2Fproduct%2FHP9000-CUSA09893_00-ASIAPLACEHOLDER1&psig=AOvVaw1XIEzfeTdLUdr4hpZ60eHP&ust=1632408182654000&source=images&cd=vfe&ved=0CAkQjRxqFwoTCMCj28HokvMCFQAAAAAdAAAAABAD">Spiden Man</a></p>
+        </div>
+    </header>
+    <div class="left-up">
+        <div class="left-up-first"></div>
+        <div class="left-up-second"></div>
+    </div>
+</body>
+
+</html>

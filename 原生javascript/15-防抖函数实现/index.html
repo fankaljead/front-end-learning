@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>15 防抖函数实现</title>
+  </head>
+  <body>
+    <button id="btn">点击</button>
+    <script>
+      var oBtn = document.getElementById("btn");
+
+      // oBtn.onclick = function () {
+      //   console.log("点击了");
+      // };
+
+      /**
+       * handle 最终要执行的事件监听
+       * wait 事件触发之后多久开始执行
+       * immediate 控制执行是第一次还是最后一次，false 执行最后一次
+       */
+      function myDebounce(handle, wait = 300, immediate = false) {
+        // 参数类型判断
+        if (typeof handle !== "function")
+          throw new Error("handle must be a function");
+        if (typeof wait === "undefined") wait = 300;
+        if (typeof wait === "boolean") {
+          immediate = wait;
+          wait = 300;
+        }
+        if (typeof immediate !== "boolean") {
+          immediate = false;
+        }
+
+        let timer = null;
+        return function proxy(...args) {
+          let selft = this,
+            init = immediate && !timer;
+          clearTimeout(timer);
+          timer = setTimeout(() => {
+            timer = null;
+            !immediate && handle.call(self, ...args);
+          }, wait);
+          init && handle.call(self, ...args);
+        };
+      }
+
+      function btnClick(ev) {
+        console.log("点击了", this, ev);
+      }
+
+      oBtn.onclick = myDebounce(btnClick, 200, false);
+    </script>
+  </body>
+</html>

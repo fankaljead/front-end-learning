@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12.2.1 查询字符串</title>
+  </head>
+  <body>
+    <script>
+      let getQueryStringArgs = function () {
+        let qs = location.search.length > 0 ? location.search.substring(1) : "";
+        let args = {};
+        for (const item of qs.split("&").map((kv) => kv.split("="))) {
+          let name = decodeURIComponent(item[0]),
+            value = decodeURIComponent(item[1]);
+          if (name.length) {
+            args[name] = value;
+          }
+        }
+
+        return args;
+      };
+
+      let qs = "?q=javascript&num=10";
+      let searchParams = new URLSearchParams(qs);
+      for (const params of searchParams) {
+        console.log(params);
+      }
+      console.log(searchParams.get("num"));
+    </script>
+  </body>
+</html>

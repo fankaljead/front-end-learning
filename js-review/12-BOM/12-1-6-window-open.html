@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12.1.6 导航与打开新窗口</title>
+  </head>
+  <body>
+    <input type="button" value="打开新窗口" id="btn" />
+    <input type="button" value="wroxWinBtn" id="wroxWinBtn" />
+    <input type="button" value="move" id="move" />
+    <script>
+      let btn = document.querySelector("#btn");
+      btn.addEventListener("click", function (e) {
+        window.open(
+          "https://zhouxianghui.xyz",
+          "_blank",
+          "Menubar=,toolbar=yes,resizable=yes,status=yes"
+        );
+      });
+      var wroxWin = null;
+      let wroxWinBtn = document.querySelector("#wroxWinBtn");
+      wroxWinBtn.addEventListener("click", function (e) {
+        wroxWin = window.open(
+          "http://www.wrox.com",
+          "_blank",
+          "height=400,width=400,top=10,left=10,resizable=yes"
+        );
+        wroxWin.moveTo(400, 600);
+        console.log(wroxWin);
+      });
+
+      let moveBtn = document.querySelector("#move");
+      moveBtn.addEventListener("click", function (e) {
+        wroxWin.moveTo(400, 600);
+      });
+    </script>
+  </body>
+</html>

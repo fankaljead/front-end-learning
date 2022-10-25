@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13 缓存数据</title>
+  </head>
+  <body>
+    <div class="skip" id="skip"></div>
+    <script>
+      var oBox = document.getElementById("skip");
+
+      function hasClassName(ele, cls) {
+        // 假设需要在当前函数中对 className 的值进行多次使用，可以提前缓存起来
+        console.log(ele.className);
+        return ele.className == cls;
+      }
+
+      console.log(hasClassName(oBox, "skip"));
+
+      function hasClassName(ele, cls) {
+        var clsName = ele.className;
+        console.log(clsName);
+        return clsName == cls;
+      }
+
+      console.log(hasClassName(oBox, "skip"));
+    </script>
+  </body>
+</html>

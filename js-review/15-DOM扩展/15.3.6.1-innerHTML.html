@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>15.3.6.1 innerHTML 属性</title>
+  </head>
+  <body>
+    <div id="content">
+      <p>This is a <strong>paragraph</strong> with a list following it.</p>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+    </div>
+
+    <div id="inner">inner</div>
+
+    <script>
+      let content = document.getElementById("content");
+
+      let inner = document.getElementById("inner");
+      // 会识别到结束
+      // inner.innerHTML = `<script defer>console.log('inner html');<\/script>`
+        inner.insertAdjacentHTML("beforebegin", "beforebegin")
+        inner.insertAdjacentHTML("afterbegin", "afterbegin")
+        inner.insertAdjacentHTML("beforeend", "beforeend")
+        inner.insertAdjacentHTML("afterend", "afterend")
+
+    </script>
+  </body>
+</html>

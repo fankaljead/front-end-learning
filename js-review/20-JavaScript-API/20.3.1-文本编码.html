@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>20.3.1 文本编码</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- Place favicon.ico in the root directory -->
+  </head>
+  <body>
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+    <script type="text/javascript">
+      // 1. 批量编码
+      const textEncoder = new TextEncoder();
+      const decodedText = "foo";
+      const encodedText = textEncoder.encode(decodedText);
+
+      console.log(encodedText);
+      console.log(textEncoder.encode("☺"));
+
+      const fooArr = new Uint8Array(3);
+      const barArr = new Uint8Array(2);
+      const fooResult = textEncoder.encodeInto("foo", fooArr);
+      const barResult = textEncoder.encodeInto("bar", barArr);
+
+      console.log(fooArr);
+      console.log(barArr);
+      console.log(fooResult);
+      console.log(barResult);
+    </script>
+  </body>
+</html>

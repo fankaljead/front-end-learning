@@ -1,0 +1,41 @@
+class Base64Encoder {
+  static #sBase64 =  [
+  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+  'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+  'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
+  'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f',
+  'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
+  'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+  'w', 'x', 'y', 'z', '0', '1', '2', '3',
+  '4', '5', '6', '7', '8', '9', '+', '/'];
+
+  static encode(str) {
+    const bytes = this.#stringToByte(str);
+    if (bytes.length<=0) return null
+    
+  }
+  static #stringToByte(str) {
+    var bytes = new Array();
+    var len, c;
+    len = str.length;
+    for(var i = 0; i < len; i++) {
+      c = str.charCodeAt(i);
+      if(c >= 0x010000 && c <= 0x10FFFF) {
+        bytes.push(((c >> 18) & 0x07) | 0xF0);
+        bytes.push(((c >> 12) & 0x3F) | 0x80);
+        bytes.push(((c >> 6) & 0x3F) | 0x80);
+        bytes.push((c & 0x3F) | 0x80);
+      } else if(c >= 0x000800 && c <= 0x00FFFF) {
+        bytes.push(((c >> 12) & 0x0F) | 0xE0);
+        bytes.push(((c >> 6) & 0x3F) | 0x80);
+        bytes.push((c & 0x3F) | 0x80);
+      } else if(c >= 0x000080 && c <= 0x0007FF) {
+        bytes.push(((c >> 6) & 0x1F) | 0xC0);
+        bytes.push((c & 0x3F) | 0x80);
+      } else {
+        bytes.push(c & 0xFF);
+      }
+    }
+    return bytes;
+  }
+}

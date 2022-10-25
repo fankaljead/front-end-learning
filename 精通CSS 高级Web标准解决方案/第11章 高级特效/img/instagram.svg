@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" >
+  <filter id="filter-1977"
+          primitiveUnits="objectBoundingBox" color-interpolation-filters="sRGB">
+    <feComponentTransfer result="contrastout">
+        <feFuncR type="linear" slope="1.1" intercept="-0.05"/>
+        <feFuncG type="linear" slope="1.1" intercept="-0.05"/>
+        <feFuncB type="linear" slope="1.1" intercept="-0.05"/>
+    </feComponentTransfer>
+    <feComponentTransfer in="contrastout" result="brightnessout"> 
+        <feFuncR type="linear" slope="1.1"/>
+        <feFuncG type="linear" slope="1.1"/>
+        <feFuncB type="linear" slope="1.1"/>
+    </feComponentTransfer>
+    <feColorMatrix in="brightnessout"
+                   type="saturate" values="0.9" result="img" />
+    <feFlood flood-color="#F36ABC" flood-opacity="0.3"
+             x="0" y="0" width="1" height="1"
+             result="overlay" />
+    <feBlend in="overlay" in2="img" mode="lighten" />
+  </filter>
+</svg>

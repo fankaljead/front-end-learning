@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>e.target 和 e.currentTarget 的区别</title>
+    <style>
+      #a {
+        width: 400px;
+        height: 400px;
+        background-color: red;
+      }
+      #b {
+        width: 300px;
+        height: 300px;
+        background-color: green;
+      }
+      #c {
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+      }
+      #d {
+        width: 100px;
+        height: 100px;
+        background-color: cyan;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="a">
+      <div id="b">
+        <div id="c">
+          <div id="d">哈哈哈哈哈</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function addEvent(element, flag = false) {
+        element.addEventListener(
+          "click",
+          (e) => {
+            const { target, currentTarget } = e;
+            console.log(`target 是 ${target.id}`);
+            console.log(`currentTarget 是 ${currentTarget.id}`);
+          },
+          flag
+        );
+      }
+
+      ["a", "b", "c", "d"]
+        .map((element) => document.getElementById(element))
+        .forEach(addEvent);
+
+      // 点击时输出
+      // target 是 d
+      // currentTarget 是 d
+      // target 是 d
+      // currentTarget 是 c
+      // target 是 d
+      // currentTarget 是 b
+      // target 是 d
+      // currentTarget 是 a
+
+      // 总结
+      // e.target：触发事件的元素
+      // e.currentTarget：绑定事件的元素
+      const m = 4,
+        n = 5;
+      const arr = Array.from({ length: m }, () => new Array(n).fill(0));
+      arr[0][1] = 1;
+    </script>
+  </body>
+</html>

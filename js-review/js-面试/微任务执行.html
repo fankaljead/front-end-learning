@@ -1,0 +1,59 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-03-29 15:29:50
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-03-29 15:45:56
+ * @FilePath: \js-review\js-面试\微任务执行.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div><button class="btn">执行</button></div>
+    <script>
+      let btn = document.querySelector(".btn");
+      btn.addEventListener("click", () => {
+        let p = new Promise((resolve, reject) => {
+          resolve("p1");
+        });
+        setTimeout(() => {
+          console.log("settimeout1");
+        });
+        p.then((r) => {
+          console.log(`task ${r}`);
+        });
+        // Promise.resolve().then(() => {
+        //   console.log("task1");
+        // });
+        console.log("Listener1");
+      });
+      btn.addEventListener("click", () => {
+        let p = new Promise((resolve, reject) => {
+          resolve("p2");
+        });
+        setTimeout(() => {
+          console.log("settimeout2");
+        });
+        p.then((r) => {
+          console.log(`task ${r}`);
+        });
+        // setTimeout(() => {
+        //   console.log("settimeout2");
+        // });
+        // Promise.resolve().then(() => {
+        //   console.log("task2");
+        // });
+        console.log("Listener2");
+      });
+      btn.click()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>17.4.4.4 修饰健</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <style type="text/css" media="screen">
+      #myDiv {
+        width: 200px;
+        height: 200px;
+        /* background-color: #00ffff; */
+        background-color: #ff2233;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="myDiv"></div>
+    <script type="text/javascript">
+      let div = document.getElementById("myDiv");
+      div.addEventListener("click", (event) => {
+        let keys = new Array();
+
+        if (event.shiftKey) {
+          keys.push("shift");
+        }
+        if (event.ctrlKey) {
+          keys.push("ctrlKey");
+        }
+        if (event.altKey) {
+          keys.push("altKey");
+        }
+        if (event.metaKey) {
+          keys.push("metaKey");
+        }
+
+        console.log("Keys:", keys.join(","));
+      });
+
+      document.addEventListener("mousewheel", (event) => {
+        console.log(event.wheelDelta);
+      });
+    </script>
+  </body>
+</html>

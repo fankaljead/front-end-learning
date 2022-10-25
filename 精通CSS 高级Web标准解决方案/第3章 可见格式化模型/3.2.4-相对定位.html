@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>3.2.4 相对定位</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <style type="text/css" media="screen">
+      body {
+        margin: 0;
+      }
+      .main {
+        display: flex;
+        flex-direction: column;
+      }
+      .box {
+        width: 200px;
+        height: 200px;
+        margin: 0;
+        /* display: inline-block; */
+        background-color: #443344;
+        box-sizing: border-box;
+        white-space: nowrap;
+        /* margin-right: -0.5em; */
+        /* overflow: hidden; */
+      }
+      .mybox {
+        background-color: #ff0000;
+        /* position: relative; */
+        /* left: 20px;
+           top: 20px; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="box"></div>
+      <div class="box mybox"></div>
+      <div class="box"></div>
+    </div>
+  </body>
+</html>

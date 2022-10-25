@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>2.1 CSS 选择符</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <style type="text/css" media="screen">
+      /* 类选择符 */
+      p {
+        color: yellowgreen;
+      }
+      /* 后代选择符 */
+      div p {
+        font-size: large;
+      }
+      /* 子选择符 */
+      #nav > li {
+        background: #fff000 no-repeat left top;
+        padding-left: 20px;
+      }
+      /* 相邻同辈选择符 */
+      h2 ~ p {
+        font-weight: bolder;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 类选择符 -->
+    <p>这是类选择符, 标签名字</p>
+    <!-- 后代选择符 -->
+    <div>
+      <p>后代选择符 空格</p>
+    </div>
+    <!-- 子选择符与同辈选择符 -->
+    <ul id="nav">
+      <li>
+        <a href="/home">Home</a>
+      </li>
+      <li>
+        <a href="/services">Services</a>
+        <ul>
+          <li>
+            <a href="/services/design">Design</a>
+          </li>
+          <li>
+            <a href="/services/development">Development</a>
+          </li>
+          <li>
+            <a href="/services/consultancy">Consultancy</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/contact">Contact Us</a>
+      </li>
+    </ul>
+    <h2>相邻同辈</h2>
+    <p>相邻同辈</p>
+  </body>
+</html>

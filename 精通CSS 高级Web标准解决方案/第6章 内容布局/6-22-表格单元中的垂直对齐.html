@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-22-使用表格显示属性实现布局</title>
+
+    <style>
+        .navbar ul {
+            font-family: Avenir Next, Avenir, Century Gothic, sans-serif;
+            list-style: none;
+            padding: 0;
+            background-color: #486a8e;
+            display: table;
+            width: 100%;
+            height: 100px;
+        }
+
+        .navbar li {
+            text-transform: uppercase;
+            display: table-cell;
+            text-align: center;
+            box-sizing: border-box;
+            width: 25%;
+            background-color: #12459e;
+            outline: 1px solid #fff;
+            vertical-align: middle;
+        }
+
+        .navbar li a {
+            display: block;
+            text-decoration: none;
+            line-height: 1.74em;
+            padding: 1em;
+            color: #fff;
+        }
+
+        .navbar ul {
+            font-size: 0;
+        }
+
+        .navbar li {
+            font-size: 16px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/spaceships">Spaceships</a></li>
+            <li><a href="/planets">Planets</a></li>
+            <li><a href="/star">Stars</a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>

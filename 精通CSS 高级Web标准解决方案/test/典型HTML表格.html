@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>典型 HTML 表格</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
+
+
+    <style>
+        html {
+            font-family: 'helvetica neue', helvetica, arial, sans-serif;
+        }
+
+        table {
+            table-layout: fixed;
+            width: 100%;
+            border-collapse: collapse;
+            border: 3px solid purple;
+        }
+
+        thead th:nth-child(1) {
+            width: 30%;
+        }
+
+        thead th:nth-child(2) {
+            width: 20%;
+        }
+
+        thead th:nth-child(3) {
+            width: 15%;
+        }
+
+        thead th:nth-child(4) {
+            width: 35%;
+        }
+
+        th,
+        td {
+            padding: 20px;
+        }
+
+        thead th,
+        tfoot th {
+            font-family: 'Rock Salt', cursive;
+        }
+
+        th {
+            letter-spacing: 2px;
+        }
+
+        td {
+            letter-spacing: 1px;
+        }
+
+        tbody td {
+            text-align: center;
+        }
+
+        tfoot th {
+            text-align: right;
+        }
+
+        thead,
+        tfoot {
+            background: url(https://raw.githubusercontent.com/mdn/learning-area/master/css/styling-boxes/styling-tables/leopardskin.jpg);
+            color: white;
+            text-shadow: 1px 1px 1px black;
+        }
+
+        thead th,
+        tfoot th,
+        tfoot td {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+            border: 3px solid purple;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #ff33cc;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #e495e4;
+        }
+
+        tbody tr {
+            background-image: url(https://raw.githubusercontent.com/mdn/learning-area/master/css/styling-boxes/styling-tables/noise.png);
+        }
+
+        table {
+            background-color: #ff33cc;
+        }
+
+        caption {
+            font-family: 'Rock Salt', cursive;
+            padding: 20px;
+            font-style: italic;
+            caption-side: bottom;
+            color: #666;
+            text-align: right;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <caption>A summary of the UK's most famous punk bands</caption>
+        <thead>
+            <tr>
+                <th scope="col">Band</th>
+                <th scope="col">Year formed</th>
+                <th scope="col">No. of Albums</th>
+                <th scope="col">Most famous song</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Buzzcocks</th>
+                <td>1976</td>
+                <td>9</td>
+                <td>Ever fallen in love (with someone you shouldn't've)</td>
+            </tr>
+            <tr>
+                <th scope="row">The Clash</th>
+                <td>1976</td>
+                <td>6</td>
+                <td>London Calling</td>
+            </tr>
+            <tr>
+                <th scope="row">The Damned</th>
+                <td>1976</td>
+                <td>10</td>
+                <td>Smash it up</td>
+            </tr>
+            <tr>
+                <th scope="row">Sex Pistols</th>
+                <td>1975</td>
+                <td>1</td>
+                <td>Anarchy in the UK</td>
+            </tr>
+            <tr>
+                <th scope="row">Sham 69</th>
+                <td>1976</td>
+                <td>13</td>
+                <td>If The Kids Are United</td>
+            </tr>
+            <tr>
+                <th scope="row">Siouxsie and the Banshees</th>
+                <td>1976</td>
+                <td>11</td>
+                <td>Hong Kong Garden</td>
+            </tr>
+            <tr>
+                <th scope="row">Stiff Little Fingers</th>
+                <td>1977</td>
+                <td>10</td>
+                <td>Suspect Device</td>
+            </tr>
+            <tr>
+                <th scope="row">The Stranglers</th>
+                <td>1974</td>
+                <td>17</td>
+                <td>No More Heroes</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th scope="row" colspan="2">Total albums</th>
+                <td colspan="2">77</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14.3.2.4 观察子树 2</title>
+  </head>
+  <body>
+    <script>
+      document.body.innerHTML = "";
+
+      let observer = new MutationObserver((mutationRecords) => {
+        console.log(mutationRecords);
+      });
+
+      let subTreeRoot = document.createElement("div"),
+        subTreeLeaf = document.createElement("span");
+
+      document.body.appendChild(subTreeRoot);
+      subTreeRoot.appendChild(subTreeLeaf);
+
+      // 观察子树
+      observer.observe(subTreeRoot, {
+        attributeOldValue: true,
+        subtree: true,
+      });
+
+      // 把节点转移到其它子树
+      document.body.insertBefore(subTreeLeaf, subTreeRoot);
+
+      subTreeLeaf.setAttribute("foo", "bar");
+    </script>
+  </body>
+</html>

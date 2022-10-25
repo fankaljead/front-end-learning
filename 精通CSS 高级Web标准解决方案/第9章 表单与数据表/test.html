@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <script src="js/modernizr.js"></script>
+    <style>
+        fieldset {
+            border: 0;
+            padding: 0.01px 0 0 0;
+            margin: 0;
+            min-width: 0;
+        }
+
+        @-moz-document url-prefix() {
+            fieldset {
+                display: table-cell;
+            }
+        }
+
+        .fieldset-wrapper {
+            padding: 1em;
+            margin-bottom: 1em;
+            border: 1px solid #eee;
+            background-color: #fff;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+        }
+
+        :root .fieldset-wrapper {
+            border: 0;
+        }
+
+        legend {
+            padding: 0 0 .5em 0;
+            font-weight: bold;
+            color: #777;
+            display: table;
+        }
+
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        .field-text {
+            max-width: 20em;
+        }
+
+        .field-text label {
+            cursor: pointer;
+        }
+
+        .field-text label,
+        .field-text textarea,
+        .field-prefix,
+        .field-text input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .field-text input,
+        .field-text textarea {
+            padding: .375em .3125em .3125em;
+            border: 1px solid #ccc;
+            border-radius: .25em;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        .field-text input:focus,
+        .field-text textarea:focus {
+            box-shadow: 0 0 .5em rgba(93, 162, 248, 0.5);
+            border-color: #5da2f8;
+            outline: 0;
+        }
+
+        textarea {
+            height: 10em;
+            resize: vertical;
+        }
+
+        input[type="radio"] {
+            margin-right: .75em;
+        }
+
+        button {
+            cursor: pointer;
+            border: 0;
+            padding: .5em 1em;
+            color: #fff;
+            border-radius: .25em;
+            font-size: 1em;
+            background-color: #173b6d;
+            background-image: linear-gradient(to bottom, #1a4a8e, #173b6d);
+            box-shadow: 0 .25em 0 rgba(23, 59, 109, 0.3), inset 0 1px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        button:focus {
+            background-color: #2158a9;
+            background-image: linear-gradient(to bottom, #2063c0, #1d4d90);
+            box-shadow: 0 .25em 0 rgba(23, 59, 109, 0.3), inset 0 1px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        ::-webkit-input-placeholder {
+            font-style: italic;
+        }
+
+        :-ms-input-placeholder {
+            font-style: italic;
+        }
+
+        ::-moz-placeholder {
+            font-style: italic;
+        }
+
+        .form-help {
+            display: block;
+            position: absolute;
+            overflow: hidden;
+            width: 1px;
+            height: 1px;
+            clip: rect(0 0 0 0);
+        }
+
+        input:focus+.form-help {
+            padding: .5em;
+            margin-top: .5em;
+            border: 1px solid #2a80fa;
+            border-radius: .25em;
+            font-style: italic;
+            color: #737373;
+            background-color: #fff;
+            position: static;
+            width: auto;
+            height: auto;
+            crop: none;
+        }
+
+        .field-text :invalid {
+            border: #e72633;
+            box-shadow: 0 0 .5em rgba(229, 43, 37, 0.5);
+        }
+
+        .field-prefix {
+            display: inline-block;
+            border-radius: .25em;
+        }
+
+        .field-prefixed input {
+            max-width: 12em;
+        }
+
+        .flexbox .field-prefixed {
+            display: flex;
+        }
+
+        .flexbox .field-prefix {
+            border-right: 0;
+            border-radius: .25em 0 0 .25em;
+            display: flex;
+            align-items: center;
+        }
+
+        .flexbox .field-prefixed input {
+            max-width: 100%;
+            border-radius: 0 .25em .25em 0;
+        }
+
+        .checkboxes {
+            list-style: none;
+            padding: 0;
+            column-width: 10em;
+        }
+
+        .checkboxes li {
+            margin-bottom: .5em;
+        }
+
+        :root input[type="chechbox"] {
+            position: absolute;
+            overflow: hidden;
+            width: 1px;
+            height: 1px;
+            clip: rect(0 0 0 0);
+        }
+
+        :root.svgaimg input[type="chechbox"]+label {
+            background: url(images/checkbox-unchecked.svg) .125em 50% no-repeat;
+        }
+
+        :root.svgaimg input[type="chechbox"]:checked+label {
+            background-image: url(images/checkbox-checked.svg);
+        }
+
+        :root.svgaimg input[type="chechbox"]:focus+label {
+            background-image: url(images/checkbox-unchecked-focus.svg);
+        }
+
+        :root.svgaimg input[type="chechbox"]:focus:checked+label {
+            background-image: url(images/checkbox-checked-focus.svg);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <table class="cal">
+        <captipo><strong>Januray</strong> 2015</captipo>
+        <colgroup>
+            <col class="cal-mon">
+            <col class="cal-tue">
+            <col class="cal-wed">
+            <col class="cal-thu">
+            <col class="cal-fri">
+            <col class="cal-sat cal-weekend">
+            <col class="cal-sun cal-weekend">
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">Mon</th>
+                <th scope="col">Sun</th>
+            </tr>
+        </thead>
+
+    </table>
+
+    <form action="">
+        <textarea name="comment-text" id="comment-text" cols="30" rows="10"></textarea>
+    </form> -->
+
+    <!-- <form action="/comments" method="POST" id="comments_form">
+        <div class="fieldset-wrapper">
+            <fieldset>
+                <legend>Your Contract Details</legend>
+                <p class="field field-text">
+                    <label for="comment-author">Name:</label>
+                    <input type="text" name="comment-author" id="comment-author">
+                </p>
+                <p class="field field-text">
+                    <label for="comment-email">Email:</label>
+                    <input type="email" placeholder="http://exmaple.com" name="comment-email" id="comment-email">
+                </p>
+                <p class="field field-text">
+                    <label for="comment-url">Web Address:</label>
+                    <input name="comment-url" aria-describedby="comment-url-help" id="comment-url" type="url"
+                        placeholder="http://example.com" />
+                    <span id="comment-url-help" role="tooltip" class="form-help">Fill in your URL if you have one. Make
+                        sure to include the ”http://”-part.</span>
+                </p>
+            </fieldset>
+        </div>
+        <div class="fieldset-wrapper">
+            <fieldset>
+                <legend>Comments</legend>
+                <p class="field field-text">
+                    <label for="comment-text">Message:</label>
+                    <textarea name="comment-text" id="comment-text" cols="20" rows="10"></textarea>
+                </p>
+            </fieldset>
+        </div>
+        <div class="fieldset-wrapper">
+            <fieldset>
+                <legend>Remember Me</legend>
+                <p class="field">
+                    <label for=""> <input type="radio" name="comment-remember" value="yes">Yes</label>
+                </p>
+                <p class="field">
+                    <label for=""> <input type="radio" name="comment-remember" value="no">No</label>
+                </p>
+            </fieldset>
+        </div>
+        <button type="submit" id="submit" name="submit">
+            Post comment
+        </button>
+    </form> -->
+    <h1>Job application</h1>
+    <form id="comments_form" action="/comments" method="post">
+        <div class="fieldset-wrapper">
+            <fieldset>
+                <legend>Which languages have you mastered?</legend>
+                <ul class="checkboxes">
+                    <li>
+                        <input type="checkbox" name="lang-as" id="lang-as">
+                        <label for="lang-as">ActionScript</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="lang-basic" id="lang-basic">
+                        <label for="lang-basic">BASIC</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="lang-csharp" id="lang-csharp">
+                        <label for="lang-csharp">C#</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="lang-cplusplus" id="lang-cplusplus">
+                        <label for="lang-cplusplus">C++</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="lang-clojure" id="lang-clojure">
+                        <label for="lang-clojure">Clojure</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="lang-cobol" id="lang-cobol">
+                        <label for="lang-cobol">COBOL</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="lang-css" id="lang-css">
+                        <label for="lang-css">CSS</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="lang-haskell" id="lang-haskell">
+                        <label for="lang-haskell">Haskell</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="lang-html" id="lang-html">
+                        <label for="lang-html">HTML</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="lang-java" id="lang-java">
+                        <label for="lang-java">Java</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="lang-js" id="lang-js">
+                        <label for="lang-js">JavaScript</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="lang-objc" id="lang-objc">
+                        <label for="lang-objc">Objective-C</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="lang-python" id="lang-python">
+                        <label for="lang-python">Python</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="lang-ruby" id="lang-ruby">
+                        <label for="lang-ruby">Ruby</label>
+                    </li>
+
+                </ul>
+            </fieldset>
+        </div>
+    </form>
+</body>
+
+</html>

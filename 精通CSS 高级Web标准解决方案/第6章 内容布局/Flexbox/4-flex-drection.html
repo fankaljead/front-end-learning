@@ -1,0 +1,80 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-12 15:47:27
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-04-12 15:53:02
+ * @FilePath: \精通CSS 高级Web标准解决方案\第6章 内容布局\Flexbox\4-flex-drection.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4-Flexbox flex-direction</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .container {
+        width: 70%;
+        margin: 20px auto;
+        /* height: 120px; */
+        background-color: rgb(233, 22, 120, 0.4);
+        display: flex;
+      }
+      .box {
+        width: 200px;
+        height: 100px;
+        margin: 5px;
+        background-color: aliceblue;
+      }
+      .container2 {
+        flex-direction: row-reverse;
+      }
+      .container3 {
+        flex-direction: column;
+      }
+      .container4 {
+        flex-direction: column-reverse;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container container1">
+      <div class="box">
+        <p>flex-direction: row</p>
+      </div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <div class="container container2">
+      <div class="box">
+        <p>flex-direction: row-reverse</p>
+      </div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <div class="container container3">
+      <div class="box">
+        <p>flex-direction: column</p>
+      </div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <div class="container container4">
+      <div class="box">
+        <p>flex-direction: column-reverse</p>
+      </div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        background-color: #000;
+      }
+      #box p {
+        background-color: #001;
+      }
+      #tag {
+        background-color: #002;
+      }
+      .box .tag {
+        background-color: #003;
+      }
+      div #tag {
+        background-color: #004;
+      }
+      .box p {
+        background-color: #005;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box" class="box">
+      <p id="tag" class="tag">hello world</p>
+    </div>
+  </body>
+</html>

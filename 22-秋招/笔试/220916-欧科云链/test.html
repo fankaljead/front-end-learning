@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      a:link {
+        color: red;
+      }
+      a:visited {
+        color: green;
+      }
+      a:hover {
+        color: blue;
+      }
+      a:visited {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn">点击</button>
+    <button id="btn2">点击</button>
+    <a href="#">hello</a>
+    <script>
+      const btn = document.getElementById("btn");
+      // btn.onclick = function () {
+      //   setTimeout(() => {
+      //     this.disabled = true;
+      //   }, 1000);
+      // };
+      btn.onclick = function () {
+        setTimeout(function () {
+          this.disabled = true;
+        }, 1000);
+      };
+      const btn2 = document.getElementById("btn2");
+      function a() {
+        console.log(1);
+        return function b() {
+          console.log(2);
+        };
+      }
+
+      // btn.onclick = a();
+      btn.onclick = a;
+    </script>
+  </body>
+</html>

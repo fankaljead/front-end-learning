@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>17.4.7.1 contextmenu 事件</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body>
+    <div id="myDiv">
+      Right click or Ctrl+click me to get a custom context menu. Click anywhere
+      else to get the default context menu.
+    </div>
+    <ul
+      id="myMenu"
+      style="position: absolute; visibility: hidden; background-color: silver"
+    >
+      <li>
+        <a href="http://www.somewhere.com">somewhere</a>
+      </li>
+      <li>
+        <a href="http://www.wrox.com">Wrox site</a>
+      </li>
+      <li>
+        <a href="http://www.somewhere-else.com">somewhere-else</a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      window.addEventListener("load", (event) => {
+        let div = document.getElementById("myDiv");
+        div.addEventListener("contextmenu", (event) => {
+          event.preventDefault();
+          let menu = document.getElementById("myMenu");
+          menu.style.left = event.clientX + "px";
+          menu.style.top = event.clientY + "px";
+          menu.style.visibility = "visible";
+        });
+        document.addEventListener("click", (event) => {
+          document.getElementById("myMenu").style.visibility = "hidden";
+        });
+      });
+    </script>
+  </body>
+</html>

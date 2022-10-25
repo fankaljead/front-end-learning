@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>98-函数柯里化的实现</title>
+  </head>
+  <body>
+    <script>
+      // 函数柯里化指的是一种将使用多个参数的一个函数
+      // 转换成一系列使用一个参数的函数的技术
+      function curry(fn, args) {
+        // 获取函数需要的参数长度
+        let length = fn.length;
+        args = args || [];
+
+        return function () {
+          let subArgs = args.slice(0);
+
+          // 拼接得到现有的所有参数
+          for (let i = 0; i < arguments.length; ++i) {
+            subArgs.push(arguments[i]);
+          }
+
+          // 判断参数的长度是否已经满足函数所需的参数长度
+          if (subArgs.length >= length) {
+            return fn.apply(this, subArgs);
+          } else {
+            return curry.call(this, fn, subArgs);
+          }
+        };
+      }
+
+      // es6 实现
+      function curry(fn, ...args) {
+        return fn.length <= args.length
+          ? fn(...args)
+          : curry.bind(null, fn, ...args);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>表单</title>
+    <style>
+      .fieldset-wrapper {
+        padding: 1em;
+        margin-bottom: 1em;
+        border: 1px solid #eee;
+        background-color: #fff;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+      }
+      :root .fieldset-wrapper {
+        border: 0;
+      }
+      fieldset {
+        border: 0;
+        padding: 0.01px 0 0;
+        margin: 0;
+        min-width: 0;
+        display: table-cell;
+      }
+      @-moz-document url-prefix() {
+        fieldset {
+          display: table-cell;
+        }
+      }
+      legend {
+        padding: 0 0 0.5em 0;
+        font-weight: bold;
+        color: #777;
+        display: table;
+      }
+      input,
+      textarea {
+        font: inherit;
+      }
+      .field-text {
+        max-width: 20em;
+      }
+      .field-text label {
+        cursor: pointer;
+      }
+      .field-text label,
+      .field-text input,
+      .field-text textarea {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .field-text input {
+        padding: 0.375em 0.3125em 0.3125em;
+        border: 1px solid #ccc;
+        border-radius: 0.25em;
+        -webkit-appearance: none;
+      }
+      .field-text input:focus {
+        box-shadow: 0 0 0.5em rgba(93, 162, 248, 0.5);
+        border-color: #5da2fa;
+        outline: 0;
+      }
+      textarea {
+        height: 10em;
+        resize: vertical;
+      }
+      input[type="radio"] {
+        margin-right: 0.75em;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/comments" id="comment-_form">
+      <div class="fieldset-wrapper">
+        <fieldset>
+          <legend>Your Contract Details</legend>
+          <p class="field field-text">
+            <label for="comment-author">Name:</label>
+            <input type="text" name="comment-author" id="comment-author" />
+          </p>
+          <p class="field field-text">
+            <label for="comment-email">Email:</label>
+            <input type="email" name="comment-email" id="comment-email" />
+          </p>
+          <p class="field field-text">
+            <label for="comment-url">Web Address:</label>
+            <input type="url" name="comment-url" id="comment-url" />
+          </p>
+        </fieldset>
+      </div>
+
+      <div class="fieldset-wrapper">
+        <fieldset>
+          <legend>Comments</legend>
+          <p class="field field-text">
+            <label for="comment-text">Message:</label>
+            <textarea
+              name="comment-text"
+              id="comment-text"
+              cols="20"
+              rows="10"
+            ></textarea>
+          </p>
+        </fieldset>
+      </div>
+
+      <div class="fieldset-wrapper">
+        <fieldset>
+          <legend>Remember Me</legend>
+          <p class="field">
+            <label
+              ><input
+                type="radio"
+                value="yes"
+                name="comment-remember"
+              />Yes</label
+            >
+          </p>
+          <p class="field">
+            <label
+              ><input
+                type="radio"
+                value="no"
+                name="comment-remember"
+                checked="checked"
+              />No</label
+            >
+          </p>
+        </fieldset>
+      </div>
+    </form>
+  </body>
+</html>

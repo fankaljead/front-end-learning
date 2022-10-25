@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>18.1.1 早期定时动画</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body>
+    <div id="status"></div>
+    <script type="text/javascript">
+      (function () {
+        function updateAnimations() {
+          console.log("animation1");
+          console.log("animation2");
+        }
+        // setInterval(updateAnimations, 100);
+      })();
+
+      function updateProgress() {
+        var div = document.getElementById("status");
+        div.style.width = parseInt(div.style.width, 10) + 5 + "%";
+        if (div.style.left !== "100%") {
+          requestAnimationFrame(updateProgress);
+        }
+      }
+      requestAnimationFrame(updateProgress);
+
+      let requestId = window.requestAnimationFrame(() => {
+        console.log("repaint");
+      });
+
+      window.cancelAnimationFrame(requestId);
+    </script>
+  </body>
+</html>

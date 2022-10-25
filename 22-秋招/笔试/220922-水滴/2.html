@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+       #md_1, #md_2 {
+           float: left;
+       }
+    <yle>
+</head>
+
+<body>
+    <div id="md_1">
+      自适应宽度 ...
+    </div>
+    <div id="md_2">
+      动态内容 ...
+    </div>
+
+    <!-- 填写标签 -->
+    <script type="text/javascript">
+        // 返回浏览器窗口宽度
+        function getClientWidth() {
+            // 填写代码
+            return $(window).width()
+        }
+
+        // 返回md_2宽度
+        function getMd2Width() {
+            // 填写代码
+            return innerWidth()
+        }
+
+        // 设置md_1的宽度
+        function setMd1Width() {
+            // 填写代码
+            return getClientWidth() - getMd2Width()
+        }
+
+        // 控制频率
+        function control(fn, delay) {
+            // 填写代码
+            var start_time = null;
+            return function(){
+               var curr_time = +new Date();
+               !start_time && (start_time = curr_time);
+               if (curr_time- start_time >= delay_time){
+                   fn.apply(this, arguments);
+                   start_time = curr_time;
+                }
+             }
+        }
+
+        window.addEventListener('resize',  control(setMd1Width))
+    </script>
+</body>
+
+<ml>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6-0 行内块布局居中</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .main {
+        max-width: 75%;
+        height: 500px;
+        background-color: aliceblue;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .box {
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+        margin: 0 auto;
+        box-sizing: border-box;
+        vertical-align: middle;
+      }
+      .box1 {
+        background-color: blueviolet;
+      }
+      .box2{
+        background-color: yellowgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="box box1"></div>
+      <div class="box box2"></div>
+    </div>
+  </body>
+</html>

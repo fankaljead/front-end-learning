@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-块级元素配合clear属性清除浮动</title>
+    <style>
+      .box {
+        padding: 10px;
+        background-color: #cd0000;
+      }
+      .box > img {
+        float: left;
+      }
+      .clear::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box clear">
+      <img src="https://demo.cssworld.cn/images/common/l/1.jpg" alt="图像" />
+    </div>
+  </body>
+</html>

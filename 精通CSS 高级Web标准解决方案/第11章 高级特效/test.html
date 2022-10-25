@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+
+    <style>
+        .parent {
+            display: flex;
+            align-items: center;
+            height: 500px;
+            background-color: rgba(10, 10, 102, 0.6);
+        }
+
+        .base {
+            display: flex;
+            flex-direction: row;
+            width: 500px;
+            height: 100px;
+            margin: auto;
+            justify-content: center;
+            background-color: rgba(240, 248, 255, 1);
+            transition: all .4s ease-in-out;
+        }
+
+        .base:hover {
+            background-color: rgba(240, 248, 255, .1);
+            transition: all 1s ease-in-out;
+        }
+
+        .base div {
+            background-color: darkkhaki;
+            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 2px solid red;
+            width: 100px;
+            height: 100px;
+            margin: 0 2px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            mask-image: radial-gradient(ellipse 90% 30% at 50% 50%), rgba(0, 0, 0, 0) 45%,
+                #000 70%;
+            mask-size: 100% 200%;
+        }
+
+        img {
+            width: 100px;
+            height: 100%;
+
+        }
+        .base div:last-of-type img:hover {
+            filter: grayscale(0%) brightness(1) contrast(0);
+            transition: all .11s ease-in-out;
+        }
+
+        .base div:last-of-type img:hover {
+            filter: grayscale(70%) brightness(0.7) contrast(1);
+            transition: all 1s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="base">
+            <!-- <h1>Hello World</h1> -->
+
+            <div><img src="img/cat.jpg" alt="cat"></div>
+            <div></div>
+            <div><img src="img/cat.jpg" alt="cat"></div>
+
+        </div>
+    </div>
+</body>
+
+</html>

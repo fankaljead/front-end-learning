@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>控制网格项对齐的属性和值</title>
+
+    <style>
+      body {
+        padding: 2em;
+      }
+
+      .grid {
+        display: -webkit-grid;
+        display: grid;
+        height: 100px;
+        margin-bottom: 4em;
+        outline: 2px dashed #666;
+        width: 500px;
+        grid-template-rows: 100px;
+        grid-template-columns: repeat(8, 50px);
+        justify-content: start;
+      }
+
+      .grid-end {
+        justify-content: end;
+      }
+
+      .grid-center {
+        justify-content: center;
+      }
+
+      .grid-space-between {
+        justify-content: space-between;
+      }
+
+      .grid-space-around {
+        justify-content: space-around;
+      }
+
+      .grid-space-evenly {
+        justify-content: space-evenly;
+      }
+
+      .grid > * {
+        outline: 1px solid #fff;
+        background-color: #ccc;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="grid">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="grid grid-end">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="grid grid-center">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="grid grid-space-between">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="grid grid-space-around">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="grid grid-space-evenly">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </body>
+</html>

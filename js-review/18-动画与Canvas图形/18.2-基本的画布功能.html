@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>18.2 基本的画布功能</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- Place favicon.ico in the root directory -->
+  </head>
+  <body>
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+    <canvas id="drawing" width="200" height="200">
+      A drawing of something.
+    </canvas>
+    <script type="text/javascript">
+      let drawing = document.getElementById("drawing");
+      if (drawing.getContext) {
+        let context = drawing.getContext("2d");
+        context.strokeStyle = "red";
+        context.fillStyle = "#ff0000";
+        context.fillRect(10, 10, 50, 50);
+
+        context.fillStyle = "rgba(0,0,255,0.5)";
+        context.fillRect(30, 30, 50, 50);
+
+        context.clearRect(40, 40, 10, 10);
+
+        let imgURI = drawing.toDataURL("image/png");
+        let image = document.createElement("img");
+        image.src = imgURI;
+        document.body.appendChild(image);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+body {
+    color: black;
+}
+
+.intro {
+    padding: 1em;
+    font-size: 1.2em;
+    color: grey;
+}
+
+#home .intro {
+    color: black;
+    background: lightgrey;
+}
+
+#home .intro a {
+    color: green;
+}
+
+.mybox {
+    width: 80px;
+    padding: 5px;
+    border: 5px solid;
+    margin: 10px;
+}
+
+.mybox {
+    position: relative;
+    left: 20px;
+    top: 20px;
+}
+
+.myThing {
+    min-height: contain-floats;
+}
+
+p {
+    color: #3b4358;
+}
+
+a {
+    color: #235ea7;
+}
+
+body {
+    font-family: 'Georgia Pro', Georgia, Times, 'Times New Roman', Times, serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Avenir Next, SegoeUI, arial, sans-serif;
+}
+
+h3 {
+    font-size: 1.314em;
+    /* 21px */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 500;
+}
+
+h1 {
+    font-weight: 800;
+}
+
+h2 {
+    font-weight: 600;
+}
+
+p+p {
+    text-indent: 1.25em;
+}
+
+article>p {
+    max-width: 36em;
+}
+
+.h1,
+.source {
+    column-span: all;
+}
+
+@font-face {
+    font-family: Vollkorn;
+    font-weight: bold;
+    src: url('fonts/vollkorn/Vollkorn-Bold.woff') format('woff');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Vollkorfn, Georgiam Serif;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Vollkorn;
+    src: url('fonts/Vollkorn-Regular.eot#?ie') format('embedded-opentype');
+    src: url('fonts/Vollkorn-Regular.woff2') format('woff2');
+    src: url('fonts/Vollkorn-Regular.woff') format('woff');
+    src: url('fonts/Vollkorn-Regular.ttf') format('truetype');
+    src: url('fonts/Vollkorn-Regular.svg') format('svg');
+}
+
+.profile-box {
+    background-attachment: fixed;
+}

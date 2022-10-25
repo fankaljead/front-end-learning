@@ -1,0 +1,86 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-03-29 15:49:13
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-03-29 16:02:23
+ * @FilePath: \js-review\js-面试\无限循环.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS无限循环</title>
+  </head>
+
+  <body>
+    <div>
+      <img
+        style="display: block"
+        src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fb6fd9d520826f523488949a42f5f7b35a87e63724f3a4-W31Fzy_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1651126610&t=f114f7ea97bc2e08a06bc249749b2b64"
+      />
+      <span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+      <button style="width: 100px; height: 50px" id="btn">while true</button>
+      <button style="width: 100px; height: 50px" id="btn_loop">
+        setTimeout Loop
+      </button>
+      <button style="width: 100px; height: 50px" id="btn_microtask_loop">
+        Mocrotask loop
+      </button>
+    </div>
+  </body>
+  <script>
+    let btn = document.getElementById("btn");
+    let btn_loop = document.getElementById("btn_loop");
+    let btn_microtask_loop = document.getElementById("btn_microtask_loop");
+
+    btn.addEventListener("click", (event) => {
+      while (true);
+    });
+
+    btn_loop.addEventListener("click", (event) => {
+      loop();
+    });
+
+    function loop() {
+      setTimeout(() => {
+        loop();
+      }, 0);
+    }
+
+    btn_microtask_loop.addEventListener("click", (event) => {
+      micro_loop();
+    });
+
+    function micro_loop() {
+      Promise.resolve().then(micro_loop);
+    }
+
+    (function () {
+      setTimeout(() => {
+        console.log("settimeout1");
+        let p = new Promise((resolve, reject) => {
+          resolve("p1");
+        });
+        p.then((r) => {
+          console.log(`task ${r}`);
+        });
+        console.log("Listener1");
+      }, 0);
+      setTimeout(() => {
+        console.log("settimeout2");
+        let p = new Promise((resolve, reject) => {
+          resolve("p2");
+        });
+        p.then((r) => {
+          console.log(`task ${r}`);
+        });
+        console.log("Listener2");
+      }, 0);
+    })();
+  </script>
+</html>

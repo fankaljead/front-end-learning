@@ -1,0 +1,87 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-03-28 14:29:11
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-03-29 13:22:15
+ * @FilePath: \js-review\js-面试\requestIdleCallback.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!-- window.requestIdleCallback()方法插入一个函数，这个函数将在浏览器空闲时期被调用。这使开发者能够在主事件循环上执行后台和低优先级工作，而不会影响延迟关键事件，如动画和输入响应。函数一般会按先进先调用的顺序执行，然而，如果回调函数指定了执行超时时间timeout，则有可能为了在超时前执行函数而打乱执行顺序。 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>requestIdleCallback</title>
+    <style>
+      #main {
+        width: 70%;
+        height: 400px;
+        background: cyan;
+        align-items: center;
+        border: 2px solid red;
+      }
+      #tog {
+        width: 100px;
+        height: 100px;
+        color: red;
+        border: 1px solid blue;
+        visibility: visible;
+        /* display: block; */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <h1>count: <span id="count">1</span></h1>
+
+      <div id="tog"></div>
+      <button id="inc">increment</button>
+      <button id="chc">changeColor</button>
+      <button id="togb">toggle div</button>
+    </div>
+
+    <script>
+      let count = document.querySelector('#count');
+      let inc = document.querySelector('#inc');
+      let main = document.getElementById('main');
+      inc.addEventListener('click', function () {
+        count.textContent = Number(count.textContent) + 1;
+      });
+      let chc = document.querySelector('#chc');
+      chc.addEventListener('click', function () {
+        main.style.backgroundColor =
+          '#' + Math.floor(Math.random() * 0xffffff).toString(16);
+      });
+
+      let togb = document.querySelector('#togb');
+      let tog = document.querySelector('#tog');
+      togb.addEventListener('click', function () {
+        // tog.style.display = tog.style.display === "none" ? "block" : "none";
+        tog.style.visibility =
+          tog.style.visibility === 'hidden' ? 'visible' : 'hidden';
+      });
+
+      const config = { attributes: true, childList: true, subtree: true };
+      const callback = function (mutationsList, observer) {
+        for (const mutation of mutationsList) {
+          if (mutation.type == 'attributes') {
+            console.log(
+              'The ' + mutation.attributeName + ' attribute was modified.'
+            );
+          } else if (mutation.type == 'childList') {
+            console.log('A child node has been added or removed.');
+          } else if (mutation.type == 'characterData') {
+            console.log('The character data has changed.');
+          }
+        }
+      };
+      const observer = new MutationObserver(callback);
+      observer.observe(main, config);
+    </script>
+  </body>
+</html>

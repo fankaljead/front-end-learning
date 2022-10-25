@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGL</title>
+</head>
+
+<body>
+    <canvas id="drawing" width="200" height="200">A drawing of something.</canvas>
+
+    <script>
+        let drawing = document.getElementById('drawing');
+
+        // 确保浏览器支持 <canvas>
+        if (drawing.getContext) {
+            let gl;
+            try {
+                gl = drawing.getContext('webgl');
+            } catch (e) {
+                // 什么也不做
+            }
+            if (gl) {
+                // 使用 WebGL
+                gl.clearColor(0, 0, 0, 1);
+                gl.clear(gl.COLOR_BUFF_BIT);
+
+                gl.viewport(0, 0, drawing.width, drawing.width);
+
+            } else {
+                console.log("WebGL context could not be created");
+            }
+        }
+    </script>
+</body>
+
+</html>

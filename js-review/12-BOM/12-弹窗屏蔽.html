@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12 弹窗屏蔽</title>
+  </head>
+  <body>
+    <script>
+      let blocked = false;
+      try {
+        let wroxWin = window.open("http://zhouxianghui.xyz", "_blank");
+        if (wroxWin == null) {
+          blocked = true;
+        }
+      } catch (e) {
+        blocked = true;
+      }
+      if (blocked) {
+        console.log("the popup was blocked!");
+      }
+    </script>
+  </body>
+</html>

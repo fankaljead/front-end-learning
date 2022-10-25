@@ -1,0 +1,72 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-11 20:05:22
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-04-12 09:27:15
+ * @FilePath: \精通CSS 高级Web标准解决方案\第6章 内容布局\CSS-负外边距\2-右边和下边的负外边距.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      2-右边或下边的负外边距会把 相邻元素 向左或向上拉，盖住其旁边的元素
+    </title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .container {
+        margin: 0 auto;
+        width: 70%;
+      }
+      .box {
+        width: 250px;
+        height: 250px;
+      }
+      .left {
+        border: 3px solid red;
+        background-color: bisque;
+      }
+      .center {
+        border: 3px solid black;
+        /* position: absolute; */
+        margin-right: -100px;
+        margin-bottom: -100px;
+        background-color: blueviolet;
+      }
+      .right {
+        border: 3px solid goldenrod;
+        background-color: red;
+      }
+
+      .container2 {
+        width: 300px;
+        height: 300px;
+        border: 3px solid black;
+      }
+      .container2 span {
+        border: 3px solid yellowgreen;
+        padding: 30px;
+      }
+      .container2 span:nth-child(1) {
+        margin-right: -50px;
+        border: 3px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box left"></div>
+      <div class="box center">margin-bottom: -100px</div>
+      <div class="box right"></div>
+    </div>
+
+    <div class="container2"><span>行内元素1</span><span>行内元素2</span></div>
+  </body>
+</html>

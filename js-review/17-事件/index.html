@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>17.4.4.3 DOM3 的变化</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body>
+    <textarea
+      name="text"
+      id="myText"
+      rows="50"
+      cols="50"
+      tabindex="1"
+    ></textarea>
+    <script type="text/javascript">
+      let textbox = document.getElementById("myText");
+      textbox.addEventListener("keypress", (event) => {
+        let identifier = event.key || event.keyIdentifier;
+        if (identifier) {
+          console.log(identifier);
+        }
+        let location = event.location || event.keyLocation;
+        if (location) {
+          console.log(location);
+        }
+        if (event.getModifierState) {
+          console.log(event.getModifierState("Shift"));
+        }
+      });
+      textbox.addEventListener("textInput", (event) => {
+        console.log("textInput:", event.data);
+        console.log("inputMethod:", event.inputMethod);
+      });
+    </script>
+  </body>
+</html>
