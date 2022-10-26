@@ -1,0 +1,88 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-06 13:33:13
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-04-06 13:52:05
+ * @FilePath: \css-常见问题\常用布局\三列布局\两侧定宽-中间自适应\2-圣杯布局方法.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2-圣杯布局方法</title>
+    <style>
+      body {
+        margin: 0;
+        text-align: center;
+      }
+      #header {
+        height: 60px;
+        background-color: #f00;
+      }
+
+      #parent {
+        box-sizing: border-box;
+        height: 500px;
+        padding: 0 315px 0 115px;
+        min-width: 500px;
+      }
+
+      #left {
+        width: 115px;
+        float: left;
+        position: relative;
+        left: -115px;
+        height: 500px;
+        background-color: lightblue;
+        margin-left: -100%;
+      }
+
+      #center {
+        height: 500px;
+        float: left;
+        width: 100%;
+
+        background-color: lightgreen;
+        box-sizing: border-box;
+        border: 1px solid #000;
+      }
+
+      #right {
+        width: 315px;
+        float: left;
+        height: 500px;
+        position: relative;
+        left: 315px;
+        margin-left: -315px;
+        background-color: lightpink;
+      }
+
+      #footer {
+        clear: both;
+        height: 60px;
+        background-color: #0f0;
+      }
+      h1 {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <h1>圣杯布局</h1>
+    </div>
+    <div id="parent">
+      <div id="center">
+        中间自适应
+        <hr />
+      </div>
+      <div id="left">左列定宽</div>
+      <div id="right">右列定宽</div>
+    </div>
+  </body>
+</html>

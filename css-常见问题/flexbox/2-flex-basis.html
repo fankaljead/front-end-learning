@@ -1,0 +1,44 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-22 13:49:46
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-04-22 13:50:48
+ * @FilePath: \css-常见问题\flexbox\2-flex-basis.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2-flexbox flex-basis</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: #ccc;
+        margin: 10px;
+        flex-basis: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>属性函数</title>
+    <style>
+      h1::before {
+        content: attr(class);
+        display: block;
+      }
+      h1::after {
+        display: block;
+        content: attr(data-name);
+      }
+      .hover-tips {
+        position: relative;
+        padding: 0 20px;
+        border-radius: 10px;
+        height: 40px;
+        background-color: #66f;
+        line-height: 40px;
+        color: #fff;
+        margin: 10px;
+      }
+      .btn-1::after {
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 5px;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(#000, 0.5);
+        opacity: 0;
+        text-align: center;
+        font-size: 12px;
+        content: attr(data-msg);
+        transition: all 300ms;
+      }
+      .btn-1:hover::after {
+        left: calc(100%+20px);
+        opacity: 1;
+      }
+      .btn-2:empty::after {
+        content: attr(href);
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="hhh1" data-name="wwww">hello world</h1>
+    <a
+      class="hover-tips btn-1"
+      href="https://www.baidu.com"
+      data-msg="Hello World"
+      >提示框</a
+    >
+    <a class="hover-tips btn-2" href="https://www.baidu.com"></a>
+  </body>
+</html>

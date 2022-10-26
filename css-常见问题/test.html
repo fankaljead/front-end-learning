@@ -1,0 +1,49 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-03-17 16:49:18
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-03-17 17:11:50
+ * @FilePath: \css-常见问题\test.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 100%;
+        float: left;
+      }
+      .div1, .div2, .div3 {
+        /* border: 3px solid red; */
+        float: left;
+        height: 100px;
+        background-color: cyan;
+      }
+      .div2 {
+        width: 200px;
+        background-color: blue;
+      }
+
+      .div1, .div3 {
+        width: calc(50% - 100px);
+      }
+
+
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box div1">left</div>
+      <div class="box div2">center</div>
+      <div class="box div3">right</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-05 16:59:27
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-04-06 13:03:54
+ * @FilePath: \css-常见问题\常用布局\三列布局\两列定宽一列自适应\1-两列定宽-一列自适应.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>左侧 中间定宽 右侧自适应 使用 float + margin</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .left {
+        width: 200px;
+        background-color: red;
+        margin-right: 10px;
+        float: left;
+      }
+      .center {
+        width: 100px;
+        background-color: red;
+        background-color: green;
+        float: left;
+      }
+      .parent div {
+        /* margin: 5px; */
+
+        height: 500px;
+      }
+      .parent {
+        min-width: 320px;
+      }
+      .right {
+        margin-left: 320px;
+        /* float: left; */
+        background-color: cyan;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>使用 float + margin 实现</h1>
+    <div class="parent">
+      <div class="left">左列定宽</div>
+      <div class="center">中间定宽</div>
+      <div class="right">右侧自适应</div>
+    </div>
+  </body>
+</html>

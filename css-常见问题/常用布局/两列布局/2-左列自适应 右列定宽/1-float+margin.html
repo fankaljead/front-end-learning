@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2 左列自适应 右列定宽 1 float + margin 👌</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .right {
+        width: 200px;
+        height: 400px;
+        float: right;
+        background-color: yellow;
+      }
+      .left {
+        height: 400px;
+        width: 100%;
+        background-color: aliceblue;
+        margin-left: -200px;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      注意几个要点：
+        1. 一个左浮动一个右浮动
+        2. left 加负值 margin-left 空出足够空位达到让 right 上浮目的
+        3. parent 加正的 padding-left 或者 margin-left 把 left “挤回来”
+     -->
+    <div class="parent">
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-06 13:56:28
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-04-06 13:57:36
+ * @FilePath: \css-常见问题\常用布局\三列布局\两侧定宽-中间自适应\4-使用table实现.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用table实现</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      #parent {
+        display: table;
+        height: 500px;
+        width: 100%;
+      }
+      #left {
+        display: table-cell;
+        width: 100px;
+        background-color: aliceblue;
+      }
+      #right {
+        display: table-cell;
+        width: 200px;
+        background-color: antiquewhite;
+      }
+      #center {
+        display: table-cell;
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <div id="left">左列定宽</div>
+      <div id="center">中间自适应</div>
+      <div id="right">右列定宽</div>
+    </div>
+  </body>
+</html>

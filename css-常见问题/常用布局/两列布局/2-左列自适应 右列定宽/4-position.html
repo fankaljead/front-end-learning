@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2 左列自适应 右列定宽 4 position 👍</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .parent {
+        position: relative;
+      }
+      .left {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 200px;
+        background-color: whitesmoke;
+        height: 500px;
+      }
+      .right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: bisque;
+        width: 200px;
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>脱离文档流</h2>
+    <div class="parent">
+      <div class="left">左列自适应</div>
+      <div class="right">右列定宽</div>
+    </div>
+  </body>
+</html>

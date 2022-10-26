@@ -1,0 +1,49 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-03-28 10:14:15
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-03-28 10:19:04
+ * @FilePath: \css-常见问题\常用布局\负margin\都设置浮动且设置了负margin.html
+ * @Description: 如果设置 margin 的方向与浮动的方向相反 并且后面的元素也设置了浮动的话
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        min-height: 300px;
+        margin: 30px auto;
+        overflow: hidden;
+        border: 1px solid black;
+        margin: 0;
+        text-align: center;
+      }
+      .left {
+        float: left;
+        width: 400px;
+        height: 200px;
+        /* .right 会向左移动 300px，从而覆盖在 .left 上 */
+        margin-right: -300px;
+        background-color: purple;
+      }
+      .right {
+        float: left;
+        width: 300px;
+        height: 200px;
+        background-color: cadetblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">left</div>
+      <div class="right">right</div>
+    </div>
+  </body>
+</html>

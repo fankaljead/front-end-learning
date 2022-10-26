@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2 左列自适应 右列定宽 3 table 👎</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .parent {
+        width: 100%;
+        height: 500px;
+        display: table;
+      }
+      .left {
+        display: table-cell;
+        background-color: whitesmoke;
+      }
+      .right {
+        display: table-cell;
+        background-color: bisque;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="left">左列自适应</div>
+      <div class="right">右列定宽</div>
+    </div>
+  </body>
+</html>

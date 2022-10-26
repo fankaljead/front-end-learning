@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>滑动动态增加元素</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      .main {
+        display: flex;
+        flex-direction: column;
+      }
+      .box {
+        width: 100%;
+        background-color: aliceblue;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+    </div>
+    <script>
+      const main = document.querySelector(".main");
+      let i = 6;
+      let last_known_scroll_position = 0;
+      let ticking = false;
+      function addBox() {
+        const bottom = document
+          .querySelector(".box:last-child")
+          .getBoundingClientRect().bottom;
+        console.log(last_known_scroll_position, main.scrollHeight, bottom);
+        if (last_known_scroll_position - bottom < 700) {
+          const box = document.createElement("div");
+          box.className = "box";
+          box.innerText = i++;
+          main.appendChild(box);
+        }
+      }
+
+      window.addEventListener("scroll", (e) => {
+        last_known_scroll_position = main.scrollHeight;
+
+        if (!ticking) {
+          window.requestAnimationFrame(function () {
+            addBox(last_known_scroll_position);
+            ticking = false;
+          });
+
+          ticking = true;
+        }
+      });
+    </script>
+  </body>
+</html>

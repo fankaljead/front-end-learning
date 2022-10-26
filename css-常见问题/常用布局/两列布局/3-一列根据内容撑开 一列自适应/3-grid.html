@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3 一列根据内容撑开，一列自适应 3 grid</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .parent {
+        display: grid;
+        grid-template-columns: auto 1fr;
+      }
+      .left {
+        height: 400px;
+        background-color: aliceblue;
+      }
+      .right {
+        height: 400px;
+        background-color: yellowgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="left">左列文字撑开撑开</div>
+      <div class="right">右列自适应</div>
+    </div>
+  </body>
+</html>

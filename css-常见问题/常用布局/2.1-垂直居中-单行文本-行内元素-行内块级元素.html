@@ -1,0 +1,42 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-03-18 09:43:31
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-03-18 09:47:25
+ * @FilePath: \css-常见问题\常用布局\2.1-垂直居中-单行文本-行内元素-行内块级元素.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.1-垂直居中-单行文本-行内元素-行内块级元素</title>
+    <style>
+      /* 优点：简单；兼容性好
+    缺点：只能用于单行行内内容；要知道高度的值 */
+
+      #parent {
+        height: 150px;
+        line-height: 150px; /*与height等值*/</style>
+        background-color: cyan;
+        text-align: center;
+      }
+      .son {
+        width: 100px;
+        height: 100%;
+        background-color: red;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <p>hello world</p>
+      <div class="son"></div>
+    </div>
+  </body>
+</html>

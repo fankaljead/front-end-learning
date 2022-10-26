@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS实现超级马里奥</title>
+    <style>
+      #mario {
+        font-size: 2.4vmin;
+        width: 1em;
+        height: 1em;
+        border-radius: 30%;
+        margin-left: -17em;
+        box-shadow: 6em 0em 1px red, 7em 0em 1px red, 8em 0em 1px red,
+          9em 0em 1px red, 10em 0em 1px red, 11em 0em 1px red, 5em 1em 1px red,
+          6em 1em 1px red, 7em 1em 1px red, 8em 1em 1px red, 9em 1em 1px red,
+          10em 1em 1px red, 11em 1em 1px red, 12em 1em 1px red, 13em 1em 1px red,
+          14em 1em 1px red, 11em 2em 1px #3e2d2b, 12em 2em 1px #fbba2d,
+          5em 2em 1px #3e2d2b, 6em 2em 1px #3e2d2b, 7em 2em 1px #3e2d2b,
+          8em 2em 1px #fbba2d, 9em 2em 1px #fbba2d, 10em 2em 1px #fbba2d,
+          4em 3em 1px #3e2d2b, 5em 3em 1px #fbba2d, 11em 3em 1px #3e2d2b,
+          6em 3em 1px #3e2d2b, 7em 3em 1px #3e2d2b, 8em 3em 1px #fbba2d,
+          9em 3em 1px #fbba2d, 10em 3em 1px #fbba2d, 12em 3em 1px #fbba2d,
+          13em 3em 1px #fbba2d, 14em 3em 1px #fbba2d, 4em 4em 1px #3e2d2b,
+          5em 4em 1px #fbba2d, 12em 4em 1px #3e2d2b, 6em 4em 1px #3e2d2b,
+          7em 4em 1px #3e2d2b, 8em 4em 1px #fbba2d, 9em 4em 1px #fbba2d,
+          10em 4em 1px #fbba2d, 11em 4em 1px #fbba2d, 13em 4em 1px #fbba2d,
+          14em 4em 1px #fbba2d, 15em 4em 1px #fbba2d, 4em 5em 1px #3e2d2b,
+          5em 5em 1px #3e2d2b, 6em 5em 1px #fbba2d, 7em 5em 1px #fbba2d,
+          8em 5em 1px #fbba2d, 9em 5em 1px #fbba2d, 10em 5em 1px #fbba2d,
+          11em 5em 1px #3e2d2b, 12em 5em 1px #3e2d2b, 13em 5em 1px #3e2d2b,
+          14em 5em 1px #3e2d2b, 6em 6em 1px #fbba2d, 7em 6em 1px #fbba2d,
+          8em 6em 1px #fbba2d, 9em 6em 1px #fbba2d, 10em 6em 1px #fbba2d,
+          11em 6em 1px #fbba2d, 12em 6em 1px #fbba2d, 13em 6em 1px #fbba2d,
+          5em 7em 1px red, 6em 7em 1px red, 7em 7em 1px #37448e,
+          8em 7em 1px #37448e, 9em 7em 1px red, 10em 7em 1px red,
+          11em 7em 1px red, 12em 7em 1px red, 11em 8em 1px #37448e,
+          4em 8em 1px red, 5em 8em 1px red, 6em 8em 1px red, 7em 8em 1px #37448e,
+          8em 8em 1px #37448e, 9em 8em 1px red, 10em 8em 1px red,
+          12em 8em 1px red, 13em 8em 1px red, 14em 8em 1px red,
+          11em 9em 1px #37448e, 3em 9em 1px red, 4em 9em 1px red,
+          5em 9em 1px red, 6em 9em 1px red, 7em 9em 1px #37448e,
+          8em 9em 1px #37448e, 9em 9em 1px red, 10em 9em 1px red,
+          12em 9em 1px red, 13em 9em 1px red, 14em 9em 1px red, 15em 9em 1px red,
+          5em 10em 1px red, 6em 10em 1px #37448e, 11em 10em 1px #fcea3d,
+          12em 10em 1px #37448e, 13em 10em 1px red, 2em 10em 1px #fbba2d,
+          3em 10em 1px #fbba2d, 4em 10em 1px #fbba2d, 7em 10em 1px #fcea3d,
+          8em 10em 1px #fcea3d, 9em 10em 1px #37448e, 10em 10em 1px #37448e,
+          14em 10em 1px #fbba2d, 15em 10em 1px #fbba2d, 16em 10em 1px #fbba2d,
+          2em 11em 1px #fbba2d, 3em 11em 1px #fbba2d, 4em 11em 1px #fbba2d,
+          5em 11em 1px #fbba2d, 6em 11em 1px #37448e, 7em 11em 1px #37448e,
+          8em 11em 1px #37448e, 9em 11em 1px #37448e, 10em 11em 1px #37448e,
+          11em 11em 1px #37448e, 12em 11em 1px #37448e, 13em 11em 1px #fbba2d,
+          14em 11em 1px #fbba2d, 15em 11em 1px #fbba2d, 16em 11em 1px #fbba2d,
+          2em 12em 1px #fbba2d, 3em 12em 1px #fbba2d, 4em 12em 1px #fbba2d,
+          5em 12em 1px #37448e, 6em 12em 1px #37448e, 7em 12em 1px #37448e,
+          8em 12em 1px #37448e, 9em 12em 1px #37448e, 10em 12em 1px #37448e,
+          11em 12em 1px #37448e, 12em 12em 1px #37448e, 13em 12em 1px #37448e,
+          14em 12em 1px #fbba2d, 15em 12em 1px #fbba2d, 16em 12em 1px #fbba2d,
+          2em 13em 1px #fbba2d, 3em 13em 1px #fbba2d, 4em 13em 1px #fbba2d,
+          5em 13em 1px #37448e, 6em 13em 1px #37448e, 7em 13em 1px #37448e,
+          8em 13em 1px #37448e, 9em 13em 1px #37448e, 10em 13em 1px #37448e,
+          11em 13em 1px #37448e, 12em 13em 1px #37448e, 13em 13em 1px #37448e,
+          14em 13em 1px #fbba2d, 15em 13em 1px #fbba2d, 16em 13em 1px #fbba2d,
+          5em 14em 1px #37448e, 6em 14em 1px #37448e, 7em 14em 1px #37448e,
+          11em 14em 1px #37448e, 12em 14em 1px #37448e, 13em 14em 1px #37448e,
+          4em 15em 1px #3e2d2b, 5em 15em 1px #3e2d2b, 6em 15em 1px #3e2d2b,
+          12em 15em 1px #3e2d2b, 13em 15em 1px #3e2d2b, 14em 15em 1px #3e2d2b,
+          3em 16em 1px #3e2d2b, 4em 16em 1px #3e2d2b, 5em 16em 1px #3e2d2b,
+          6em 16em 1px #3e2d2b, 12em 16em 1px #3e2d2b, 13em 16em 1px #3e2d2b,
+          14em 16em 1px #3e2d2b, 15em 16em 1px #3e2d2b;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="range" value="8" id="size" min="1" max="15" />
+    <input type="range" value="8" id="radius" min="0" max="10" />
+    <div id="mario" />
+
+    <script>
+      const size = document.querySelector("#size");
+      const radius = document.querySelector("#radius");
+      const mario = document.querySelector("#mario");
+
+      size.addEventListener("change", (e) => {
+        console.log(e.target.value);
+        mario.style.fontSize = e.target.value * 0.3 + "vmin";
+      });
+      radius.addEventListener("change", (e) => {
+        mario.style.borderRadius = e.target.value * 10 + "%";
+      });
+    </script>
+  </body>
+</html>

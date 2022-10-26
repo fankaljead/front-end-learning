@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>requestAnimationFrame</title>
+    <style>
+      .bg:hover .myBox {
+        left: 400px;
+        transition: left 6s linear 0s;
+      }
+      .myBox {
+        animation: go 6s linear infinite;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      @keyframes go {
+        from {
+          transform: translateX(0px);
+        }
+        50% {
+          transform: translate(400px, 400px);
+        }
+        to {
+          transform: translate(0px, 0px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg">
+      <div class="myBox"></div>
+    </div>
+    <script>
+      const myBox = document.querySelector(".myBox");
+      let myBoxLeft = 0;
+      const animation = () => {
+        myBoxLeft++;
+        myBox.style.left = myBoxLeft + "px";
+        if (myBoxLeft <= 400) {
+          requestAnimationFrame(animation);
+        }
+      };
+      // const animation = setInterval(() => {
+      //   myBoxLeft++;
+      //   myBox.style.left = myBoxLeft + "px";
+      //   if (myBox.style.left == "400px") {
+      //     clearInterval(animation);
+      //   }
+      // }, 16.6);
+    </script>
+  </body>
+</html>

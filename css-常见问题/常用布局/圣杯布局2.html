@@ -1,0 +1,59 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-03-28 09:35:47
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-03-28 09:49:07
+ * @FilePath: \css-常见问题\常用布局\圣杯布局2.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>圣杯布局2</title>
+    <!--
+    margin 的left， top， right， bottom设置负值的分别作用
+    margin-left 和 margin-top 会使元素向左和向上移动
+    margin-right 和 margin-bottom 会使自身在布局中所占的位置减少， 使右边的元素或下边的元素向自身移动
+     -->
+    <style>
+      body {
+        margin: 0;
+        text-align: center;
+      }
+      .column {
+        float: left;
+      }
+      main {
+        padding: 0 200px;
+        min-width: 400px;
+      }
+      .center {
+        width: 100%;
+        background-color: greenyellow;
+        margin-right: -200px;
+      }
+      .left {
+        width: 200px;
+        background-color: red;
+        /* margin-left 的负值会使元素先左移动，而 -100% 是父级元素的宽度*/
+        margin-left: -100%;
+      }
+      .right {
+        width: 200px;
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="clearfix">
+      <div class="column center">center</div>
+      <div class="column left">left</div>
+      <div class="column right">right</div>
+    </main>
+  </body>
+</html>

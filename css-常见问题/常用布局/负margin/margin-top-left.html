@@ -1,0 +1,50 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-03-28 10:00:12
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-03-28 10:05:16
+ * @FilePath: \css-常见问题\常用布局\负margin\margin-top-left.html
+ * @Description: 设置的 margin 方向为 top 或者 left
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>设置负 margin 方向为 top 或者 left</title>
+
+    <style>
+      body {
+        margin: 0;
+      }
+
+      main {
+        height: 400px;
+        width: 200px;
+        padding: 100px;
+        background-color: aliceblue;
+      }
+
+      main div {
+        width: 100px;
+        height: 100px;
+        border: 2px solid red;
+      }
+      .top {
+        margin-top: -100px;
+      }
+      .left{
+        margin-left: -100px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="top">负margin方向为 top</div>
+      <div class="left">负margin方向为 left</div>
+    </main>
+  </body>
+</html>

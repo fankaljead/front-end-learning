@@ -1,0 +1,42 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-03-18 09:47:52
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-03-18 09:49:59
+ * @FilePath: \css-常见问题\常用布局\2.4.1-垂直居中-单个块级元素-使用table-cell.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.4.1-垂直居中-单个块级元素-使用table-cell</title>
+    <style>
+      /* 优点：简单；宽高不定；兼容性好（ie8+）
+      缺点：设置tabl-cell的元素，宽度和高度的值设置百分比无效，需要给它的父元素设置display: table; 才生效；table-cell不感知margin，在父元素上设置table-row等属性，也会使其不感知height；设置float或position会对默认布局造成破坏，可以考虑为之增加一个父div定义float等属性；内容溢出时会自动撑开父元素
+      */
+
+      #parent {
+        height: 150px;
+        line-height: 150px;
+        background-color: cyan;
+        display: table-cell;
+        vertical-align: middle;
+      }
+      .son {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <div class="son"></div>
+    </div>
+  </body>
+</html>

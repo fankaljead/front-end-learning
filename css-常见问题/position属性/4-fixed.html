@@ -1,0 +1,79 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-15 16:16:43
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-09-12 13:37:04
+ * @FilePath: \css-常见问题\position属性\4-fixed.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4-position: fixed</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .main {
+        display: flex;
+        height: 100%;
+      }
+      .main > div {
+        flex: 1;
+        border: 3px solid #ddeeaa;
+        height: 1000px;
+      }
+      .container {
+        width: 600px;
+        height: 2000px;
+        position: absolute;
+        background-color: #ddff00;
+        top: 100px;
+        left: 100px;
+      }
+      .inner {
+        width: 400px;
+        height: 2000px;
+        position: relative;
+        background-color: #ddeeaa;
+        left: 200px;
+        top: 300px;
+        perspective: 20px;
+        overflow-y: scroll;
+      }
+      .box {
+        width: 100px;
+        height: 1000px;
+        background-color: #ff0000;
+      }
+      h1 {
+        position: fixed;
+        left: 100px;
+        top: 50px;
+      }
+      .right {
+        transform: translate(0px, 100px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="left">
+        <div class="container">
+          <h1>fixed定位</h1>
+        </div>
+      </div>
+      <div class="right">
+        <div class="inner">
+          <h1>fixed定位</h1>
+          <div class="box"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

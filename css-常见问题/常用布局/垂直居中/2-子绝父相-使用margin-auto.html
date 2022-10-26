@@ -1,0 +1,36 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-22 13:32:52
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-09-12 14:27:30
+ * @FilePath: \css-常见问题\常用布局\垂直居中\2-子绝父相-使用margin-auto.html
+ * @Description: 父容器使用相对定位，子元素设置绝对定位，通过 margin 实现自适应居中
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2-子绝父相-使用margin: auto</title>
+    <style rel="stylesheet" type="text/css">
+      /* 绝对性定位 */
+      .div {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div">margin: auto;元素垂直居中</div>
+  </body>
+</html>

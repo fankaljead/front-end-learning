@@ -1,0 +1,43 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-22 13:14:20
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-04-22 13:14:20
+ * @FilePath: \css-常见问题\position属性\3-absolute-2.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>绝对定位</title>
+    <style>
+      .box {
+        display: inline-block;
+        background: red;
+        width: 100px;
+        height: 100px;
+        float: left;
+        margin: 20px;
+        color: white;
+      }
+
+      #three {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 相对定位的元素并未脱离文档流，而绝对定位的元素则脱离了文档流。在布置文档流中其它元素时，绝对定位元素不占据空间。绝对定位元素相对于最近的非 static 祖先元素定位。当这样的祖先元素不存在时，则相对于ICB（inital container block, 初始包含块）。 -->
+    <div class="box" id="one">One</div>
+    <div class="box" id="two">Two</div>
+    <div class="box" id="three">Three</div>
+    <div class="box" id="four">Four</div>
+  </body>
+</html>

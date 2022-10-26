@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>条形加载条</title>
+    <style>
+      .strip-loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+      }
+      .strip-loading li {
+        border-radius: 3px;
+        width: 6px;
+        height: 40px;
+        background-color: #f66;
+        animation: beat 1s ease-in-out infinite;
+        list-style: none;
+      }
+      .strip-loading-var li {
+        --time: calc((var(--data-index) - 1) * 100ms);
+        border-radius: 3px;
+        width: 6px;
+        height: 50px;
+        background-color: #f66;
+        animation: beat 1.5s ease-in-out var(--time) infinite;
+      }
+      .strip-loading li + li {
+        margin-left: 5px;
+      }
+      .strip-loading-manual li:nth-child(2) {
+        animation-delay: 200ms;
+      }
+      .strip-loading-manual li:nth-child(3) {
+        animation-delay: 400ms;
+      }
+      .strip-loading-manual li:nth-child(4) {
+        animation-delay: 600ms;
+      }
+      .strip-loading-manual li:nth-child(5) {
+        animation-delay: 800ms;
+      }
+      .strip-loading-manual li:nth-child(6) {
+        animation-delay: 1000ms;
+      }
+      .strip-loading-val li {
+        --time: calc((var(--line-index) - 1) * 200ms);
+        animation: beat 1.5s ease-in-out var(--time) infinite;
+      }
+      @keyframes beat {
+        0%,
+        100% {
+          transform: scaleY(1);
+        }
+        50% {
+          transform: scaleY(0.5);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="strip-loading strip-loading-manual">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <ul class="strip-loading strip-loading-var">
+      <li style="--data-index: 1"></li>
+      <li style="--data-index: 2"></li>
+      <li style="--data-index: 3"></li>
+      <li style="--data-index: 4"></li>
+      <li style="--data-index: 5"></li>
+      <li style="--data-index: 6"></li>
+      <li style="--data-index: 7"></li>
+      <li style="--data-index: 8"></li>
+      <li style="--data-index: 9"></li>
+      <li style="--data-index: 10"></li>
+    </ul>
+  </body>
+</html>

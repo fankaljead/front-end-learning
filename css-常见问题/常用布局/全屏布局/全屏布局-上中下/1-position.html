@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>全屏布局 上中下 1 position</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body{
+        height: 100%;
+      }
+
+      header,
+      main,
+      footer {
+        position: absolute;
+        left: 0;
+        right: 0;
+      }
+      header {
+        height: 100px;
+        background-color: #f00;
+        top: 0;
+      }
+      main {
+        top: 100px;
+        bottom: 200px;
+        background-color: cyan;
+      }
+      footer {
+        height: 200px;
+        bottom: 0;
+        background-color: #0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fullscreen-layout">
+      <header></header>
+      <main></main>
+      <footer></footer>
+    </div>
+  </body>
+</html>

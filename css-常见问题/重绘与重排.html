@@ -1,0 +1,54 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-03-17 13:52:58
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-03-17 14:21:48
+ * @FilePath: \css-常见问题\重绘与重排.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>重绘与重排</title>
+    <style>
+      #test {
+        border: 1em solid black;
+        width: 100px;
+        height: 100px;
+        background-color: cyan;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="test"></div>
+    <button id="rd">重绘</button>
+    <button id="rc">重排</button>
+    <script>
+      let rd = document.getElementById("rd");
+      let rc = document.getElementById("rc");
+      let test = document.getElementById("test");
+
+      rd.addEventListener("click", () => {
+        test.style.backgroundColor = "red";
+      });
+
+      rd.addEventListener("click", (e) => {
+        console.log(e.target);
+        test.style.backgroundColor = "red";
+      });
+      rc.addEventListener("click", (e) => {
+        console.log(e.target);
+        // test.style.backgroundColor = "red";
+        test.style.height = "120px";
+        test.style.height = "140px";
+        test.style.height = "160px";
+        test.style.height = "180px";
+      });
+    </script>
+  </body>
+</html>

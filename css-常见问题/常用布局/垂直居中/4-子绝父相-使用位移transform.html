@@ -1,0 +1,33 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-22 13:37:40
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-04-22 13:37:40
+ * @FilePath: \css-常见问题\常用布局\垂直居中\4-子绝父相-使用位移transform.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4-子绝父相 使用位置 transform 实现</title>
+    <style rel="stylesheet" type="text/css">
+      .div {
+        position: absolute; /* 相对定位或绝对定位均可 */
+        width: 200px;
+        height: 200px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div">利用 transform 进行垂直居中</div>
+  </body>
+</html>

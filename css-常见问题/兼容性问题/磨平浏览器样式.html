@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>磨平浏览器样式</title>
+    <style>
+      /* * {
+        margin: 0;
+        padding: 0;
+      } */
+    </style>
+  </head>
+  <body>
+    <cite
+      >每个浏览器的CSS默认样式不尽相同，所以最简单最有效的方法就是对其默认样式初始化。以下贴一个各位同学都会的初始化代码。简单暴力但是不明确，*通配符可是有执行性能问题的。</cite
+    >
+    <ul>
+      <li>
+        使用
+        <code> * { margin: 0; padding: 0; } </code>
+      </li>
+      <li>
+        使用
+        <a href="https://github.com/necolas/normalize.css">normalize.css</a>
+      </li>
+    </ul>
+    <script src="./normalize.css"></script>
+  </body>
+</html>

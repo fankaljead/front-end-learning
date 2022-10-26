@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>脱离文档流 float</title>
+    <style>
+      * {
+        font-family: "Iosevka";
+      }
+      .parse {
+        float: left;
+        font-size: 2em;
+        width: 300px;
+        height: 300px;
+        outline: 1px solid red;
+      }
+      .text {
+        clear: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="text">
+        float float float float float float float float float float float float
+        float float float float float float float float float float float float
+        float float float float float float float float float float float float
+      </div>
+      <div class="parse">
+        hello world hello world hello world hello world hello world hello world
+        hello world hello world hello world hello world hello world hello world
+        hello world hello world hello world hello world hello world hello world
+        hello world hello world hello world hello world hello world hello world
+        hello world hello world
+      </div>
+      <div class="text">
+        float float float float float float float float float float float float
+        float float float float float float float float float float float float
+        float float float float float float float float float float float float
+      </div>
+    </div>
+  </body>
+</html>

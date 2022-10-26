@@ -1,0 +1,40 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-05 16:48:15
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-04-05 16:49:30
+ * @FilePath: \css-常见问题\利用BFC避免外边距折叠.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>利用BFC避免外边距折叠.</title>
+    <style>
+      .container {
+        background-color: red;
+        overflow: hidden;
+      }
+      p {
+        background-color: cyan;
+        margin: 10px 0;
+      }
+      .container1 {
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>Sibling 1</p>
+      <div class="container1">
+        <p>Sibling 2</p>
+      </div>
+    </div>
+  </body>
+</html>

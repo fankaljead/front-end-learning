@@ -1,0 +1,50 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-03-18 09:36:19
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-03-18 09:39:32
+ * @FilePath: \css-常见问题\常用布局\1.4-水平居中-使用绝对定位.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.4 水平居中 使用绝对定位</title>
+    <style>
+      /*
+    优点：使用margin-left兼容性好；不管是块级还是行内元素都可以实现
+    缺点：代码较多；脱离文档流；使用 margin-left需要知道宽度值；使用 transform兼容性不好（ie9+）
+      */
+
+      #parent {
+        height: 400px;
+        width: 600px;
+        position: relative;
+        background-color: antiquewhite;
+      }
+      h1 {
+        text-align: center;
+      }
+      .son {
+        width: 100px;
+        height: 100px;
+        background-color: cyan;
+        border: 2px solid red;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <h1>水平居中-使用绝对定位</h1>
+      <div class="son"></div>
+    </div>
+  </body>
+</html>

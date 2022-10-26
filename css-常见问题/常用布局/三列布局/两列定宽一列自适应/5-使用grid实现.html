@@ -1,0 +1,51 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-06 13:15:20
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-04-06 13:16:44
+ * @FilePath: \css-常见问题\常用布局\三列布局\两列定宽一列自适应\5-使用grid实现.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用 Grid 实现</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      #parent {
+        height: 500px;
+        display: grid;
+        grid-template-columns: 200px 100px 1fr;
+        grid-gap: 10px;
+      }
+      #left {
+        width: 200px;
+        background-color: red;
+        margin-right: 10px;
+      }
+      #center {
+        width: 100px;
+        margin-right: 10px;
+        background-color: green;
+      }
+      #right {
+        flex-grow: 1;
+        background-color: cyan;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <div id="left">左列定宽</div>
+      <div id="center">中间定宽</div>
+      <div id="right">右列自适应</div>
+    </div>
+  </body>
+</html>

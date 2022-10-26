@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>优雅降级和渐进增强</title>
+    <style>
+      .transition {
+        /*渐进增强写法*/
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+      }
+      .transition {
+        /*优雅降级写法*/
+        transition: all 0.5s;
+        -o-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <b>渐进增强（Progressive Enhancement）：</b
+        >一开始就针对低版本浏览器进行构建页面，完成基本的功能，然后再针对高级浏览器进行效果、交互、追加功能达到更好的体验。
+      </li>
+      <li>
+        <b>优雅降级（Graceful Degradation）：</b
+        >一开始就构建站点的完整功能，然后针对浏览器测试和修复。比如一开始使用
+        CSS3 的特性构建了一个应用，然后逐步针对各大浏览器进行 hack
+        使其可以在低版本浏览器上正常浏览。
+      </li>
+    </ul>
+  </body>
+</html>

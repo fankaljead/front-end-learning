@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM节点平滑滚动到可视区域-顶部-底部</title>
+    <style>
+      .box {
+        height: 2000px;
+        background-color: rosybrown;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+      }
+      span {
+        background-color: aliceblue;
+        line-height: 200px;
+        margin: 20px;
+        text-align: center;
+      }
+      button {
+        position: fixed;
+        width: 100px;
+        height: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      #btn-bottom {
+        top: 0;
+      }
+      #btn-top {
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <button id="btn-bottom">bottom</button>
+      <span id="c1">1111</span>
+      <span id="c2">current</span>
+      <span id="c3">3333</span>
+      <button id="btn-top">top</button>
+    </div>
+    <script>
+      function scrollTo(element, block) {
+        element.scrollIntoView({ behavior: "smooth", block });
+      }
+      const box = document.querySelector(".box");
+      const btnb = document.querySelector("#btn-bottom");
+      const btnt = document.querySelector("#btn-top");
+      btnb.addEventListener("click", (e) => {
+        scrollTo(box, "end");
+      });
+      btnt.addEventListener("click", (e) => {
+        scrollTo(box, "start");
+      });
+    </script>
+  </body>
+</html>

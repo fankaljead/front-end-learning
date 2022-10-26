@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1 左列定宽 右列自适应 3 float+overflow</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .left {
+        width: 200px;
+        float: left;
+        height: 400px;
+        background-color: aliceblue;
+      }
+      .right {
+        background-color: yellowgreen;
+        height: 400px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="left"></div>
+    <div class="right">BFC</div>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-03-18 10:10:19
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-03-18 10:13:31
+ * @FilePath: \css-常见问题\常用布局\使用Grid实现两侧定宽-中间自适应.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用 Grid实现两侧定宽-中间自适应</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .parent {
+        display: grid;
+        grid-template-columns: 100px auto 200px;
+        grid-template-areas: "leftside main rightside";
+        height: 200px;
+        min-width: 400px;
+      }
+      .left {
+        grid-area: leftside;
+        background: red;
+        height: 100%;
+      }
+      .center {
+        grid-area: main;
+        background: yellow;
+        height: 100%;
+      }
+      .right {
+        grid-area: rightside;
+        background: blue;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="left"></div>
+      <div class="center"></div>
+      <div class="right"></div>
+    </div>
+  </body>
+</html>

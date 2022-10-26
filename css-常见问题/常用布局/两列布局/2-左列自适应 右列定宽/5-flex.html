@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2 左列自适应 右列定宽 5 flex 👌</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .parent {
+        display: flex;
+      }
+      .left {
+        flex: 1;
+        background-color: bisque;
+        height: 500px;
+      }
+      .right {
+        width: 300px;
+        height: 500px;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>使用 flex 兼容性</h2>
+    <div class="parent">
+      <div class="left">左列自适应</div>
+      <div class="right">右列定宽</div>
+    </div>
+  </body>
+</html>

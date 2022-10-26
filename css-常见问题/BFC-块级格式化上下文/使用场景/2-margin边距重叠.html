@@ -1,0 +1,46 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-09 17:31:27
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-09-12 14:02:54
+ * @FilePath: \css-常见问题\BFC-块级格式化上下文\使用场景\2-margin边距重叠.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2-BFC margin 边距重叠</title>
+    <style>
+      body {
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+      .container {
+        background-color: #000;
+        /* display: inline-block; */
+        margin: 200px;
+        border: 10px solid red;
+      }
+      .box {
+        margin: 100px;
+        width: 100px;
+        height: 100px;
+        background-color: #ff00f1;
+      }
+      .box:nth-child(2) {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </body>
+</html>

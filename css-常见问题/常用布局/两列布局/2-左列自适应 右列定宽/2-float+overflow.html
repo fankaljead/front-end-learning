@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2 左列自适应 右列定宽 2 float+overflow 👍</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .left {
+        height: 500px;
+        overflow: hidden;
+        background-color: bisque;
+      }
+      .right {
+        float: right;
+        width: 100px;
+        height: 500px;
+        background-color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="right">右列定宽</div>
+    <div class="left">左列自适应</div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-12 15:30:20
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-04-12 15:37:55
+ * @FilePath: \css-常见问题\flexbox\1-flex属性.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-Flexbox flex 属性</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .container {
+        margin: 0 auto;
+        width: 70%;
+        display: flex;
+        height: 400px;
+        background-color: #eef;
+      }
+      .box {
+        height: 100px;
+        background-color: #f00;
+        box-sizing: border-box;
+      }
+      .left {
+        flex: 1 1 ;
+        width: 100px;
+        border: 3px solid yellow;
+      }
+      .center {
+        border: 3px solid black;
+        flex: 2 2 ;
+        width: 200px;
+      }
+      .right {
+        border: 3px solid blue;
+        flex: 5 3 ;
+        width: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box left"></div>
+      <div class="box center"></div>
+      <div class="box right"></div>
+    </div>
+  </body>
+</html>

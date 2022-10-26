@@ -1,0 +1,46 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-12 11:08:06
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-04-12 11:13:58
+ * @FilePath: \css-常见问题\伪元素\2-backdrop.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>::backdrop 伪元素</title>
+    <style>
+      button {
+        z-index: 10000;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn">toggle dialog</button>
+    <script>
+      let btn = document.getElementById("btn");
+      let backdrop = document.createElement("backdrop");
+      backdrop.style.width = "100%";
+      backdrop.style.height = "100%";
+      backdrop.style.backgroundColor = "rgba(0,0,0,0.5)";
+      backdrop.style.position = "fixed";
+      backdrop.style.top = "0";
+      backdrop.style.left = "0";
+      backdrop.style.zIndex = "9999";
+      btn.addEventListener("click", function () {
+        console.log("click");
+        if (backdrop.parentNode) {
+          backdrop.parentNode.removeChild(backdrop);
+        } else {
+          document.body.appendChild(backdrop);
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1 左列定宽 右列自适应 7 grid</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .parent {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+      }
+      .left {
+        background-color: aliceblue;
+        height: 400px;
+      }
+      .right {
+        background-color: beige;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+  </body>
+</html>

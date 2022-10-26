@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1 左列定宽 右列自适应 5 position</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .parent {
+        position: relative;
+      }
+      .left {
+        width: 200px;
+        height: 400px;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-color: aliceblue;
+      }
+      .right {
+        position: absolute;
+        top: 0;
+        left: 200px;
+        background-color: yellowgreen;
+        height: 400px;
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+  </body>
+</html>

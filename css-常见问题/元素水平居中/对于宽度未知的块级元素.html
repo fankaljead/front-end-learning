@@ -1,0 +1,72 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-03-28 15:27:43
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-05-08 16:25:29
+ * @FilePath: \css-常见问题\元素水平居中\对于宽度未知的块级元素.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>对于宽度未知的块级元素 水平居中</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      div {
+        /* width: 200px; */
+        height: 200px;
+        background: #ccc;
+      }
+
+      .table {
+        display: table;
+        margin: 0 auto;
+      }
+      .inline-block-parent {
+        text-align: center;
+      }
+      .inline-block {
+        display: inline-block;
+        background-color: rebeccapurple;
+      }
+
+      .absolute {
+        position: absolute;
+        /* top: 50%; */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: red;
+      }
+      .flex {
+        margin-top: 200px;
+        display: flex;
+        justify-content: center;
+      }
+      .flex-son {
+        flex-basis: 200px;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="table">使用 table 标签配合 margin 左右 auto 实现水平居中</div>
+    <div class="inline-block-parent">
+      <div class="inline-block">
+        使用display:inline-block 和 text-align:center 实现水平居中
+      </div>
+    </div>
+
+    <div class="absolute">使用绝对定位+transformX</div>
+
+    <div class="flex">
+      <div class="flex-son">使用 flex</div>
+    </div>
+  </body>
+</html>

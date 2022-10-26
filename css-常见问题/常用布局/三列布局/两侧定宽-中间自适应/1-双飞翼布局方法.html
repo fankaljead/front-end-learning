@@ -1,0 +1,77 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-06 13:18:46
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-04-06 13:43:23
+ * @FilePath: \css-常见问题\常用布局\三列布局\两侧定宽-中间自适应\1-双飞翼布局方法.html
+ * @Description:
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>两侧定宽-中间自适应 双飞翼布局方法</title>
+    <style>
+      body {
+        margin: 0;
+        text-align: center;
+      }
+      #header {
+        height: 60px;
+        background-color: #f00;
+      }
+      #left {
+        width: 300px;
+        float: left;
+        height: 500px;
+        background-color: lightblue;
+        margin-left: -100%;
+      }
+      #center {
+        height: 500px;
+        float: left;
+        width: 100%;
+        background-color: lightgreen;
+      }
+      #center_inbox {
+        height: 480px;
+        border: 1px solid #000;
+        margin: 0 220px 0 220px;
+      }
+      #right {
+        width: 200px;
+        float: left;
+        height: 500px;
+        margin-left: -200px;
+        background-color: lightpink;
+      }
+      #footer {
+        clear: both;
+        height: 60px;
+        background-color: #0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">双飞翼布局</div>
+    <div id="parent">
+      <div id="center">
+        <div id="center_inox">中间自适应</div>
+        <hr />
+      </div>
+      <div id="left">
+        左列定宽
+        <p>需设置 margin-left: -100%</p>
+      </div>
+      <div id="right">
+        右列定宽
+        <p>需设置margin-left 为自身负宽度</p>
+      </div>
+    </div>
+    <div id="footer">footer</div>
+  </body>
+</html>

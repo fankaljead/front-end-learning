@@ -1,0 +1,41 @@
+<!--
+ * @Author: Zhou Xianghui
+ * @Date: 2022-04-22 13:35:18
+ * @LastEditors: Zhou Xianghui
+ * @LastEditTime: 2022-04-22 13:36:18
+ * @FilePath: \css-常见问题\常用布局\垂直居中\3-父级设置flex-子级设置margin-auto.html
+ * @Description: 使用 flex 布局，父元素设置 display: flex, 子级设置 margin: auto 实现自适应居中
+ * after a long, long, long time
+ * Copyright (c) 2022 by Zhou Xianghui/Qianjiang Tech, All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      3-使用 flex 布局，父元素设置 display: flex, 子级设置 margin: auto
+      实现自适应居中
+    </title>
+    <style rel="stylesheet" type="text/css">
+      /* 利用 flex 布局 不需要盒子本身宽高 但需要父级盒子高度*/
+      .container {
+        display: flex;
+        align-items: center; /* 垂直居中 */
+        justify-content: center; /* 水平居中 */
+        height: 100vh; /* 父元素高度需设置 */
+      }
+      .container div {
+        width: 200px; /* 宽高可以不设置 */
+        height: 200px;
+        background-color: greenyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>利用 flex 布局进行水平垂直居中</div>
+    </div>
+  </body>
+</html>
